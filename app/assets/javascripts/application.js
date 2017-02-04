@@ -20,7 +20,7 @@
 
 $(document).ready(function(){
 
-    // demo.initChartist();
+    demo.initChartist();
 
     // $.notify({
     //     icon: 'pe-7s-gift',
