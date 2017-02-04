@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'login#index'
+  root 'login#new'
+  get 'login/index'
 
   resources :employees
   resources :positions

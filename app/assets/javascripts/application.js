@@ -13,7 +13,6 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
@@ -21,15 +20,15 @@
 
 $(document).ready(function(){
 
-    demo.initChartist();
+    // demo.initChartist();
 
-    $.notify({
-        icon: 'pe-7s-gift',
-        message: "Welcome to <b>Salma Zein Dashboard</b> - a beautiful freebie for every web developer."
+    // $.notify({
+    //     icon: 'pe-7s-gift',
+    //     message: "Welcome to <b>Salma Zein Dashboard</b> - a beautiful freebie for every web developer."
 
-      },{
-          type: 'info',
-          timer: 4000
-      });
+    //   },{
+    //       type: 'info',
+    //       timer: 4000
+    //   });
 
 });

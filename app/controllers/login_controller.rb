@@ -3,6 +3,7 @@ class LoginController < ApplicationController
   end
 
   def new
+    render layout: "blank"
   end
 
   def create
