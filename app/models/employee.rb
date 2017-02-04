@@ -1,6 +1,7 @@
 class Employee < ApplicationRecord
-	belongs_to :religion_id
-	belongs_to :position_id
-	belongs_to :education_id
-	belongs_to :gender_id
+	belongs_to :gender
+	belongs_to :religion
+	belongs_to :position
+	belongs_to :education
+	belongs_to :gender
 end

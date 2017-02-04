@@ -1,3 +1,3 @@
 class Education < ApplicationRecord
-	has_many :employees
+	has_one :employees
 end

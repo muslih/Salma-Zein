@@ -16,9 +16,22 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :role, "Role" %>
-    <%= f.text_field :role %>
+  <div class="horizontal">
+    <div class="form-group">
+    <%= label_tag 'Role' %> 
+    <%= f.radio_button(:role, "Kitchen")%>
+    <%= f.label(:role, "Kitchen") %> 
+    <%= f.radio_button(:role, "Quality Control") %>
+    <%= f.label(:role, "Quality Control") %>
+    <%= f.radio_button(:role, "logistik") %>
+    <%= f.label(:role, "logistik") %>
+    <%= f.radio_button(:role, "Administrasi") %>
+    <%= f.label(:role, "Administrasi") %>
+    <%= f.radio_button(:role, "Operational") %>
+    <%= f.label(:role, "Operational") %>
+    <%= f.radio_button(:role, "Administrator") %>
+    <%= f.label(:role, "Administrator") %>
+    </div>
   </div>
 
   <div class="field">
