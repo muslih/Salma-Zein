@@ -1,3 +1,3 @@
 class Religion < ApplicationRecord
-	has_one :employees
+	has_many :employees
 end

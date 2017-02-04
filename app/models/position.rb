@@ -1,4 +1,4 @@
 class Position < ApplicationRecord
 	belongs_to :department
-	has_one :employees
+	has_many :employees
 end

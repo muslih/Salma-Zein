@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204110608) do
+ActiveRecord::Schema.define(version: 20170204143107) do
 
   create_table "departments", force: :cascade do |t|
     t.integer  "station_id"
@@ -48,6 +48,34 @@ ActiveRecord::Schema.define(version: 20170204110608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_units", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "supplier_id"
+    t.integer  "item_category_id"
+    t.integer  "item_unit_id"
+    t.string   "code"
+    t.integer  "lot_number"
+    t.string   "name"
+    t.text     "spec"
+    t.integer  "price"
+    t.text     "desc"
+    t.string   "halal_certificate"
+    t.boolean  "warranty"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string   "name"
     t.integer  "department_id"
@@ -65,6 +93,17 @@ ActiveRecord::Schema.define(version: 20170204110608) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "contact_person"
+    t.string   "phone"
+    t.string   "business_field"
+    t.string   "management_system"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|

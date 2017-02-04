@@ -1,0 +1,72 @@
+<%= form_for(item) do |f| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :supplier_id, "Supplier" %>
+    <%= f.collection_select(:supplier_id,Supplier.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :item_category_id, "Kategori barang" %>
+    <%= f.collection_select(:item_category_id,ItemCategory.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :item_unit_id, "Satuan" %>
+    <%= f.collection_select(:item_unit_id,ItemUnit.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :code, "Kode" %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lot_number, "LOT number" %>
+    <%= f.number_field :lot_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, "Nama barang" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :spec, "Spesifikasi" %>
+    <%= f.text_area :spec %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "Harga" %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desc, "Deskripsi" %>
+    <%= f.text_area :desc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :halal_certificate, "Sertifikat halal" %>
+    <%= f.text_field :halal_certificate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :warranty, "Garansi ?" %>
+    <%= f.check_box :warranty %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Simpan"%>
+  </div>
+<% end %>
