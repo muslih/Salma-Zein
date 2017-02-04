@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Usia</th>
+      <th>Tempat Lahir</th>
+      <th>Tanggal Lahir</th>
+      <th>Gender</th>
+      <th>Agama</th>
+      <th>Posisi</th>
+      <th>Pendidikan</th>
+      <th>Experience</th>
+      <th>Skill</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.role %></td>
+        <td><%= employee.age %></td>
+        <td><%= employee.birth_place %></td>
+        <td><%= employee.birth_date %></td>
+        <td><%= employee.try(:gender).try(:name) %></td>
+        <td><%= employee.try(:religion).try(:name) %></td>
+        <td><%= employee.try(:position).try(:name) %></td>
+        <td><%= employee.try(:education).try(:name) %></td>
+        <td><%= employee.experience %></td>
+        <td><%= employee.skill %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Hapus', employee, method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>

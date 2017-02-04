@@ -1,0 +1,72 @@
+<%= form_for(employee) do |f| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Nama" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role, "Role" %>
+    <%= f.text_field :role %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age , "Usia" %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birth_place, "Tempat Lahir" %>
+    <%= f.text_field :birth_place %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birth_date, "Tanggal Lahir" %>
+    <%= f.date_select :birth_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender_id, "Gender" %>
+    <%= f.collection_select(:gender_id,Gender.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :religion_id, "Agama" %>
+    <%= f.collection_select(:religion_id,Religion.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :position_id, "Posisi" %>
+    <%= f.collection_select(:position_id,Position.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :education_id, "Pendidikan" %>
+    <%= f.collection_select(:education_id,Education.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :experience %>
+    <%= f.text_field :experience %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skill %>
+    <%= f.text_field :skill %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Simpan" %>
+  </div>
+<% end %>
