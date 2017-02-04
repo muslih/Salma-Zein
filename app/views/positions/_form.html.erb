@@ -1,0 +1,27 @@
+<%= form_for(position) do |f| %>
+  <% if position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(position.errors.count, "error") %> prohibited this position from being saved:</h2>
+
+      <ul>
+      <% position.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Posisi / Jabatan" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :department_id %>
+    <%= f.collection_select(:department_id,Department.all,:id,:name,{:prompt => ""}) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Simpan" %>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Positions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posisi / Jabatan</th>
+      <th>Departemen</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @positions.each do |position| %>
+      <tr>
+        <td><%= position.name %></td>
+        <td><%= position.try(:department).try(:name) %></td>
+        <td><%= link_to 'Edit', edit_position_path(position) %></td>
+        <td><%= link_to 'Hapus', position, method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Position', new_position_path %>

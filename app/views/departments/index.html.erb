@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Departments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Station</th>
+      <th>Departemen</th>
+      <th>Manager</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.try(:station).try(:name) %></td>
+        <td><%= department.name %></td>
+        <td><%= department.manager %></td>
+        <td><%= link_to 'Edit', edit_department_path(department) %></td>
+        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Department', new_department_path %>
