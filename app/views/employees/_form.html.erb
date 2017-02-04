@@ -46,7 +46,7 @@
 
   <div class="field">
     <%= f.label :birth_date, "Tanggal Lahir" %>
-    <%= f.date_select :birth_date %>
+    <%= f.date_select(:birth_date, {:order => [:day, :month, :year] ,:start_year => 1970, :end_year => 2013},{:class=>"form-control",:style=>"width:32%;display:inline-block"})%>
   </div>
 
   <div class="field">
