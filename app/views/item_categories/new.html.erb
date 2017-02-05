@@ -1,5 +1,16 @@
-<h1>New Item Category</h1>
-
-<%= render 'form', item_category: @item_category %>
-
-<%= link_to 'Back', item_categories_path %>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Tambah Kategori Barang
+                <%= link_to 'Kembali', item_categories_path, class: "btn btn-fill btn-danger pull-right" %>
+                </h4>
+                <hr>
+            </div>
+            <div class="content table-responsive table-full-width">
+				<%= render 'form', item_category: @item_category %>
+			</div>
+        </div>
+    </div>
+</div>

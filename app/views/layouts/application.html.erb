@@ -16,6 +16,7 @@
           <%= render 'shared/topnav.html.erb' %>
           <div class="content">
               <div class="container-fluid">
+              <%= render 'shared/flash_messages',message: @model  %>
                 <%= yield %>
               </div>
           </div>

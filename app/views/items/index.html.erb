@@ -1,45 +1,53 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Master Barang
+                <%= link_to 'Tambah Barang', new_item_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                </h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>Suplier</th>
+                      <th>Kategori</th>
+                      <th>Satuan</th>
+                      <th>Kode</th>
+                      <th>Lot number</th>
+                      <th>Nama Barang</th>
+                      <th>Spesifikasi</th>
+                      <th>Harga Satuan</th>
+                      <th>Deskripsi</th>
+                      <th>Sertifikat Halal</th>
+                      <th>Garansi</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
 
-<div class="panel panel-default">
-  <%= panel_heading("Data Barang #{link_to 'Tambah Barang', new_item_path, :class=> 'pull-right btn btn-xs btn-primary'}") %>
-  <div class="panel-body">
-    <table class="table tab-striped table-hover">
-      <thead>
-        <tr>
-          <th>Suplier</th>
-          <th>Kategori</th>
-          <th>Satuan</th>
-          <th>Kode</th>
-          <th>Lot number</th>
-          <th>Nama Barang</th>
-          <th>Spesifikasi</th>
-          <th>Harga Satuan</th>
-          <th>Deskripsi</th>
-          <th>Sertifikat Halal</th>
-          <th>Garansi</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= item.try(:supplier).try(:name) %></td>
-            <td><%= item.try(:item_category).try(:name) %></td>
-            <td><%= item.try(:item_unit).try(:name) %></td>
-            <td><%= item.code %></td>
-            <td><%= item.lot_number %></td>
-            <td><%= item.name %></td>
-            <td><%= item.spec %></td>
-            <td><%= item.price %></td>
-            <td><%= item.desc %></td>
-            <td><%= item.halal_certificate %></td>
-            <td><%= item.warranty %></td>
-            <td><%= link_to 'Edit', edit_item_path(item) %></td>
-            <td><%= link_to 'Hapus', item, method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+                  <tbody>
+                    <% @items.each do |item| %>
+                      <tr>
+                        <td><%= item.try(:supplier).try(:name) %></td>
+                        <td><%= item.try(:item_category).try(:name) %></td>
+                        <td><%= item.try(:item_unit).try(:name) %></td>
+                        <td><%= item.code %></td>
+                        <td><%= item.lot_number %></td>
+                        <td><%= item.name %></td>
+                        <td><%= item.spec %></td>
+                        <td><%= item.price %></td>
+                        <td><%= item.desc %></td>
+                        <td><%= item.halal_certificate %></td>
+                        <td><%= item.warranty %></td>
+                        <td><%= link_to 'Edit', edit_item_path(item), class:'text-info' %></td>
+                        <td><%= link_to 'Hapus', item, method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-<br>
+

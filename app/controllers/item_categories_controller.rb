@@ -19,8 +19,11 @@ class ItemCategoriesController < ApplicationController
   def create
     @item_category = ItemCategory.new(item_category_params)
     if @item_category.save
+      flash[:success] = 'Kategori barang berhasil di tambah'
       redirect_to item_categories_path
     else
+      flash.now[:danger] = 'Kategori barang gagal di tambah'
+      @model = @item_category
       render :new
     end
   end
@@ -28,8 +31,11 @@ class ItemCategoriesController < ApplicationController
   # PATCH/PUT /item_categories/1
   def update
     if @item_category.update(item_category_params)
+      flash[:success] = 'Kategori barang berhasil di update'
       redirect_to item_categories_path
     else
+      @model = @item_category
+      flash.now[:danger] = 'Kategori barang gagal di update'
       @model = @item_category
       render :edit 
     end
@@ -38,6 +44,7 @@ class ItemCategoriesController < ApplicationController
   # DELETE /item_categories/1
   def destroy
     @item_category.destroy 
+    flash.now[:success] = 'Kategori barang berhasil di hapus'
     redirect_to item_categories_path  
   end
 

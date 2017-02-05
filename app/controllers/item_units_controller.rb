@@ -19,8 +19,11 @@ class ItemUnitsController < ApplicationController
   def create
     @item_unit = ItemUnit.new(item_unit_params)
     if @item_unit.save
+      flash[:success] = 'Satuan barang berhasil di tambah'
       redirect_to item_units_path
     else
+      flash.now[:danger] = 'Satuan barang gagal di tambah'
+      @model = @item_unit
       render :new
     end
   end
@@ -28,8 +31,10 @@ class ItemUnitsController < ApplicationController
   # PATCH/PUT /item_units/1
   def update
     if @item_unit.update(item_unit_params)
+      flash[:success] = 'Satuan barang berhasil di update'
       redirect_to item_units_path
     else
+      flash.now[:danger] = 'Satuan barang gagal di update'
       @model = @item_unit
       render :edit 
     end
@@ -38,6 +43,7 @@ class ItemUnitsController < ApplicationController
   # DELETE /item_units/1
   def destroy
     @item_unit.destroy 
+    flash[:success] = "Satuan barang berhasil di hapus"
     redirect_to item_units_path  
   end
 

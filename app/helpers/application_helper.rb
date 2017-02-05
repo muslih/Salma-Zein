@@ -4,19 +4,25 @@ module ApplicationHelper
     current_page?(link) ? 'active': ""
   end
 
-  def sidemenu(link, text)
+  def sidemenu(link, text,icon)
     output = "<li class=\""+active_class(link)+"\">"
     output += "<a href=\""+link+"\">"
-    output += "<i class=\"pe-7s-graph\"></i>"
+    output += "<i class=\""+icon+"\"></i>"
     output +="<p>"+text+"</p></a></li>"
     output.html_safe
   end
-  def head_title
-    @title || request.original_fullpath.humanize.titleize
-  end
 
-  def panel_heading(title)
-    "<div class=\"panel-heading\">#{title}</div>".html_safe
+  def pesan_error(objek)
+    if objek.present? && objek.try(:errors).try(:any?) 
+      data = ["<div class=\'alert alert-danger alert-dismissible\' role=\'alert\'><button type=\'button\' class=\'close\' data-dismiss=\'alert\' aria-label=\'Close\'><span aria-hidden=\'true\'>&times;</span></button><h4>Ups! Ada #{objek.errors.count} kesalahan yang membuat data anda tidak bisa didaftarkan</h4><ul> "]
+
+      objek.errors.each do |attr,message| 
+        data.push("<li>"+ message +"</li>")
+      end
+      data.push("</ul></div>")
+
+      return data.join(" ").html_safe
+    end
   end
 
 end

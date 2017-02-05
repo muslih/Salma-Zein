@@ -1,0 +1,31 @@
+
+<% flash.each do |key, value| %>
+  <div class="alert bg-<%= key %> alert-dismissable" role="alert">
+    <div class="alert-msg pull-left">
+      <%= value %>
+    </div>
+    <a href="#" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+    <br>
+    <%if message.try(:present?) %>
+      <hr>
+      
+      <strong>Ups! Ada <%= message.try(:errors).try(:count)%> yang membuat data tidak bisa ditambah/update</strong>    
+      <ul id="error_explanation">
+      <% @debug = false %>
+      <% if @debug %>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% else %>  
+        <%  message.errors.each do |attr, message| %>
+          <li><%= message.split("").join("") %> </li>
+        <% end %>
+      </ul>
+      <% end %>
+    <%end %>
+  </div>
+<% end %>
+
+
+
+ 

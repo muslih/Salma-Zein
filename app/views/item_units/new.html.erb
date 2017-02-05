@@ -1,5 +1,16 @@
-<h1>New Item Unit</h1>
-
-<%= render 'form', item_unit: @item_unit %>
-
-<%= link_to 'Back', item_units_path %>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Tambah Satuan Barang
+                <%= link_to 'Kembali', item_units_path, class: "btn btn-fill btn-danger pull-right" %>
+                </h4>
+                <hr>
+            </div>
+            <div class="content table-responsive table-full-width">
+            	<%= render 'form', item_unit: @item_unit %>
+            </div>
+        </div>
+    </div>
+</div>
