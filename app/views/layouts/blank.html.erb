@@ -9,19 +9,6 @@
   </head>
 
   <body>
-  <div class="wrapper">
-      <%= render 'shared/sidebar.html.erb' %>
-
-      <div class="main-panel">
-          <%= render 'shared/topnav.html.erb' %>
-          <div class="content">
-              <div class="container-fluid">
-                <%= yield %>
-              </div>
-          </div>
-          <%= render 'shared/footer.html.erb' %>
-      </div>
-  </div>
-
+    <%= yield %>
   </body>
 </html>

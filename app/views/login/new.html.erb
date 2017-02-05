@@ -1,0 +1,45 @@
+
+<div class="wrapper wrapper-full-page">
+    <!-- <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg"> -->
+    <div class="full-page" data-color="orange" >
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+      <div class="content">
+          <div class="container">
+              <div class="row">
+              <br>
+              <br>
+              <br>
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                <div class="card">
+                                    <div class="header text-center"><%= image_tag('logo-login.png') %></div>
+                                    <form action="<%= login_index_path %>">
+                                        <div class="content">
+                                        <div class="form-group">
+                                            <label>User</label>
+                                            <input type="text" placeholder="Enter user" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" placeholder="Password" class="form-control" required>
+                                        </div>                                    
+                                    </div>
+                                    <div class="footer text-center">
+                                        <button type="submit" class="btn btn-fill btn-warning btn-wd" style="margin-bottom:15px;">Masuk</button>
+                                    </div>
+                                    </form>
+                                </div>
+                                <br>
+            </div>
+      </div>
+          </div>
+      </div>
+    </div>
+</div>
+
