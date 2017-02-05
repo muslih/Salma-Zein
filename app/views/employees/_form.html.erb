@@ -1,4 +1,4 @@
-<%= form_for(employee) do |f| %>
+<%= form_for(employee,class:'form-horizontal') do |f| %>
   <% if employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -11,48 +11,69 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name, "Nama" %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="horizontal">
+  <fieldset>
     <div class="form-group">
-    <%= label_tag 'Role' %> 
-    <%= f.radio_button(:role, "Kitchen")%>
-    <%= f.label(:role, "Kitchen") %> 
-    <%= f.radio_button(:role, "Quality Control") %>
-    <%= f.label(:role, "Quality Control") %>
-    <%= f.radio_button(:role, "logistik") %>
-    <%= f.label(:role, "logistik") %>
-    <%= f.radio_button(:role, "Administrasi") %>
-    <%= f.label(:role, "Administrasi") %>
-    <%= f.radio_button(:role, "Operational") %>
-    <%= f.label(:role, "Operational") %>
-    <%= f.radio_button(:role, "Administrator") %>
-    <%= f.label(:role, "Administrator") %>
+      <%= f.label :name, "Nama",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name,class:'form-control' %>
+      </div>
     </div>
-  </div>
+  </fieldset>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :role, "Hak Akses",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.radio_button(:role, "Kitchen")%>
+        <%= f.label(:role, "Kitchen") %> 
+        <%= f.radio_button(:role, "Quality Control") %>
+        <%= f.label(:role, "Quality Control") %>
+        <%= f.radio_button(:role, "logistik") %>
+        <%= f.label(:role, "logistik") %>
+        <%= f.radio_button(:role, "Administrasi") %>
+        <%= f.label(:role, "Administrasi") %>
+        <%= f.radio_button(:role, "Operational") %>
+        <%= f.label(:role, "Operational") %>
+        <%= f.radio_button(:role, "Administrator") %>
+        <%= f.label(:role, "Administrator") %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :age , "Usia" %>
-    <%= f.number_field :age %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :age, "Usia",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.number_field :age,class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :birth_place, "Tempat Lahir" %>
-    <%= f.text_field :birth_place %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :birth_place, "Tempat Lahir",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :birth_place %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :birth_date, "Tanggal Lahir" %>
-    <%= f.date_select(:birth_date, {:order => [:day, :month, :year] ,:start_year => 1970, :end_year => 2013},{:class=>"form-control",:style=>"width:32%;display:inline-block"})%>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :birth_date, "Tanggal Lahir",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.date_select(:birth_date, {:order => [:day, :month, :year] ,:start_year => 1970, :end_year => 2013},{:class=>"form-control",:style=>"width:32%;display:inline-block"})%>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :gender_id, "Gender" %>
-    <%= f.collection_select(:gender_id,Gender.all,:id,:name,{:prompt => ""}) %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :gender_id, "Gender",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.collection_select(:gender_id,Gender.all,:id,:name,{:prompt => "Pilih gender"},class:'form-control') %>
+      </div>
+    </div>
+  </fieldset>
 
   <div class="field">
     <%= f.label :religion_id, "Agama" %>
@@ -80,6 +101,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Simpan" %>
+    <%= f.submit "Simpan" ,class:"btn btn-fill btn-primary"%>
   </div>
 <% end %>
+
