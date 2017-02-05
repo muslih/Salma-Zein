@@ -15,12 +15,7 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="/">
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
+                <%= sidemenu root_path, "Dashboard", "pe-7s-graph" %>
                 <li>
                   <a data-toggle="collapse" href="#formsExamples" class="collapsed" aria-expanded="false">
                     <i class="pe-7s-tools"></i>
@@ -30,7 +25,7 @@
                   </a>
                   <div class="collapse" id="formsExamples" aria-expanded="false" style="height: auto;">
                     <ul class="nav subnav">
-                        <li>
+                        <li class="<%= active_class employees_path %>">
                             <%= link_to "Pegawai", employees_path %>
                         </li>
                         <li><a href="#">Kategori</a></li>
