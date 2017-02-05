@@ -4,3 +4,9 @@
 @import "animate";
 @import "dash_theme";
 @import "icon";
+
+.panel-heading{
+  height: 45px !important;
+  line-height: 30px !important;
+  .glyphicon{margin:0;}
+}

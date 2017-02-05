@@ -1,5 +1,6 @@
-<h1>New Item</h1>
-
-<%= render 'form', item: @item %>
-
-<%= link_to 'Back', items_path %>
+<div class="panel panel-default">
+  <%= panel_heading "Masukan Data Baru #{link_to 'Kembali', items_path, :class=>'pull-right btn btn-warning'}" %>
+  <div class="panel-body">
+  	<%= render 'form', item: @item %>
+  </div>
+</div>

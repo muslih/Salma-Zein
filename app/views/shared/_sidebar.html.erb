@@ -12,7 +12,7 @@
                 <a href="#" class="simple-text">
                   Salma Zein
                 </a>
-            </div>
+            </div><%= debug(params) if Rails.env.development? %>
 
             <ul class="nav">
                 <li class="active">
@@ -30,8 +30,18 @@
                   </a>
                   <div class="collapse" id="formsExamples" aria-expanded="false" style="height: auto;">
                     <ul class="nav subnav">
-                        <li><a href="forms/regular.html">Kategori</a></li>
-                        <li><a href="forms/regular.html">Satuan</a></li>
+                        <li><%= link_to 'Barang', items_path %></li>
+                        <li><%= link_to 'Kategori', item_categories_path %></li>
+                        <li><%= link_to 'Satuan', item_units_path %></li>
+                        <li><%= link_to 'User', users_path %></li>
+                        <li><%= link_to 'Petugas', employees_path %></li>
+                        <li><%= link_to 'Agama', religions_path %></li>
+                        <li><%= link_to 'Gender', genders_path %></li>
+                        <li><%= link_to 'Pendidikan', educations_path %></li>
+                        <li><%= link_to 'Posisi / Jabatan', positions_path %></li>
+                        <li><%= link_to 'Station', stations_path %></li>
+                        <li><%= link_to 'Departemen', departments_path %></li>
+                        <li><%= link_to 'Supplier', suppliers_path %></li>
                         <li><a href="forms/regular.html">Penyimpanan</a></li>
                         <li><a href="#">Pesawat</a></li>
                         <li><a href="#">Kwitansi</a></li>

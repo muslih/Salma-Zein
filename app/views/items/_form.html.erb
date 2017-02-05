@@ -11,62 +11,63 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :supplier_id, "Supplier" %>
-    <%= f.collection_select(:supplier_id,Supplier.all,:id,:name,{:prompt => ""}) %>
+    <%= f.collection_select(:supplier_id,Supplier.all,:id,:name,{:prompt => ""}, :class=>"form-control") %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :item_category_id, "Kategori barang" %>
-    <%= f.collection_select(:item_category_id,ItemCategory.all,:id,:name,{:prompt => ""}) %>
+    <%= f.collection_select(:item_category_id,ItemCategory.all,:id,:name,{:prompt => ""}, :class=>"form-control") %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :item_unit_id, "Satuan" %>
-    <%= f.collection_select(:item_unit_id,ItemUnit.all,:id,:name,{:prompt => ""}) %>
+    <%= f.collection_select(:item_unit_id,ItemUnit.all,:id,:name,{:prompt => ""}, :class=>"form-control") %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :code, "Kode" %>
-    <%= f.text_field :code %>
+    <%= f.text_field :code, :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :lot_number, "LOT number" %>
-    <%= f.number_field :lot_number %>
+    <%= f.number_field :lot_number, :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name, "Nama barang" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :spec, "Spesifikasi" %>
-    <%= f.text_area :spec %>
+    <%= f.text_area :spec, :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :price, "Harga" %>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :desc, "Deskripsi" %>
-    <%= f.text_area :desc %>
+    <%= f.text_area :desc, :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :halal_certificate, "Sertifikat halal" %>
-    <%= f.text_field :halal_certificate %>
+    <%= f.file_field :halal_certificate, :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :warranty, "Garansi ?" %>
     <%= f.check_box :warranty %>
+    Centang bila ada garansi
   </div>
 
   <div class="actions">
-    <%= f.submit "Simpan"%>
+    <%= f.submit "Simpan", :class=>"btn btn-primary"%>
   </div>
 <% end %>

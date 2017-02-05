@@ -11,5 +11,12 @@ module ApplicationHelper
     output +="<p>"+text+"</p></a></li>"
     output.html_safe
   end
+  def head_title
+    @title || request.original_fullpath.humanize.titleize
+  end
+
+  def panel_heading(title)
+    "<div class=\"panel-heading\">#{title}</div>".html_safe
+  end
 
 end
