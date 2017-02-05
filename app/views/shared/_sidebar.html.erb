@@ -25,10 +25,18 @@
                   </a>
                   <div class="collapse" id="formsExamples" aria-expanded="false" style="height: auto;">
                     <ul class="nav subnav">
-
-                        <li class="<%= active_class items_path %>"><%= link_to 'Barang', items_path %></li>
-                        <li><%= link_to 'Kategori', item_categories_path %></li>
-                        <li><%= link_to 'Satuan', item_units_path %></li>
+                        <li class="<%= active_class employees_path %>">
+                            <%= link_to "Pegawai", employees_path %>
+                        </li>
+                        <li class="<%= active_class items_path %>">
+                            <%= link_to 'Barang', items_path %>
+                        </li>
+                        <li class="<%= active_class item_categories_path %>">
+                            <%= link_to 'Kategori Barang', item_categories_path %>
+                        </li>
+                        <li class="<%= active_class item_units_path %>">
+                            <%= link_to 'Satuan Barang', item_units_path %>
+                        </li>
                         <li><%= link_to 'User', users_path %></li>
                         <li><%= link_to 'Petugas', employees_path %></li>
                         <li><%= link_to 'Agama', religions_path %></li>
@@ -39,9 +47,6 @@
                         <li><%= link_to 'Departemen', departments_path %></li>
                         <li><%= link_to 'Supplier', suppliers_path %></li>
                         <li><a href="forms/regular.html">Penyimpanan</a></li>
-                        <li class="<%= active_class employees_path %>">
-                            <%= link_to "Pegawai", employees_path %>
-                        </li>
                         <li><a href="#">Pesawat</a></li>
                         <li><a href="#">Kwitansi</a></li>
                         <li><a href="#">Menu</a></li>

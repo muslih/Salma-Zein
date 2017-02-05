@@ -19,8 +19,11 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     if @employee.save
+      flash[:success] = 'Pegawai berhasil di tambah'
       redirect_to employees_path
     else
+      flash.now[:danger] = 'Pegawai gagal di tambah'
+      @model = @employee
       render :new
     end
   end
@@ -28,9 +31,11 @@ class EmployeesController < ApplicationController
   # PATCH/PUT /employees/1
   def update
     if @employee.update(employee_params)
+      flash[:success] = 'Pegawai berhasil di update'
       redirect_to employees_path
     else
       @model = @employee
+      flash.now[:danger] = 'Pegawai gagal di update'
       render :edit 
     end
   end
@@ -38,6 +43,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   def destroy
     @employee.destroy 
+    flash[:success] = 'Pegawai berhasil di hapus'
     redirect_to employees_path  
   end
 
