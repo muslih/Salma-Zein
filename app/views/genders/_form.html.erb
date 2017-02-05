@@ -1,22 +1,17 @@
 <%= form_for(gender) do |f| %>
-  <% if gender.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(gender.errors.count, "error") %> prohibited this gender from being saved:</h2>
-
-      <ul>
-      <% gender.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <fieldset>
+    <div class="form-group">
+    <%= f.label :name, "Nama Gender",class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class:'form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name, "Nama Gender" %>
-    <%= f.text_field :name %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Simpan" %>
-  </div>
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
 <% end %>

@@ -19,8 +19,11 @@ class EducationsController < ApplicationController
   def create
     @education = Education.new(education_params)
     if @education.save
+      flash[:success] = 'Pendidikan berhasil di tambah'
       redirect_to educations_path
     else
+      @model = @education
+      flash.now[:danger] = 'Pendidikan gagal di tambah'
       render :new
     end
   end
@@ -28,9 +31,11 @@ class EducationsController < ApplicationController
   # PATCH/PUT /educations/1
   def update
     if @education.update(education_params)
+      flash[:success] = 'Pendidikan berhasil di update'
       redirect_to educations_path
     else
       @model = @education
+      flash.now[:danger] = 'Pendidikan gagal di update'
       render :edit 
     end
   end
@@ -38,6 +43,7 @@ class EducationsController < ApplicationController
   # DELETE /educations/1
   def destroy
     @education.destroy 
+    flash[:success] = 'Pendidikan berhasil di hapus'
     redirect_to educations_path 
   end
 

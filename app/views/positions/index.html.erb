@@ -1,28 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Master Posisi / Jabatan
+                <%= link_to 'Tambah Posisi / Jabatan', new_position_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                  
+                </h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>Posisi / Jabatan</th>
+                      <th>Departemen</th>
+                      <th colspan="2"></th>
+                    </tr>
+                  </thead>
 
-<h1>Positions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Posisi / Jabatan</th>
-      <th>Departemen</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @positions.each do |position| %>
-      <tr>
-        <td><%= position.name %></td>
-        <td><%= position.try(:department).try(:name) %></td>
-        <td><%= link_to 'Edit', edit_position_path(position) %></td>
-        <td><%= link_to 'Hapus', position, method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Position', new_position_path %>
+                  <tbody>
+                    <% @positions.each do |position| %>
+                      <tr>
+                        <td><%= position.name %></td>
+                        <td><%= position.try(:department).try(:name) %></td>
+                        <td><%= link_to 'Edit', edit_position_path(position),class:'text-info' %></td>
+                        <td><%= link_to 'Hapus', position, method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

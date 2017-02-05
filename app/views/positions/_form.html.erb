@@ -1,27 +1,27 @@
 <%= form_for(position) do |f| %>
-  <% if position.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(position.errors.count, "error") %> prohibited this position from being saved:</h2>
-
-      <ul>
-      <% position.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name, "Posisi / Jabatan",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class:'form-control' %>
+      </div>
     </div>
-  <% end %>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :name, "Posisi / Jabatan" %>
-    <%= f.text_field :name %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :department_id, "Departemen",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.collection_select(:department_id,Department.all,:id,:name,{:prompt => "Pilih Departemen"}, class:'form-control') %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :department_id %>
-    <%= f.collection_select(:department_id,Department.all,:id,:name,{:prompt => ""}) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Simpan" %>
-  </div>
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
 <% end %>

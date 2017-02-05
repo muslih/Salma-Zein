@@ -19,8 +19,11 @@ class GendersController < ApplicationController
   def create
     @gender = Gender.new(gender_params)
     if @gender.save
+      flash[:success] = 'Gender berhasil di tambah'
       redirect_to genders_path
     else
+      @model = @gender
+      flash.now[:danger] = 'Gender gagal di tambah'
       render :new
     end
   end
@@ -28,9 +31,11 @@ class GendersController < ApplicationController
   # PATCH/PUT /genders/1
   def update
     if @gender.update(gender_params)
+      flash[:success] = 'Gender berhasil di update'
       redirect_to genders_path
     else
       @model = @gender
+      flash.now[:danger] = 'Gender gagal di update'
       render :edit 
     end
   end
@@ -38,6 +43,7 @@ class GendersController < ApplicationController
   # DELETE /genders/1
   def destroy
     @gender.destroy 
+    flash[:success] = 'Gender berhasil di hapus'
     redirect_to genders_path  
   end
 

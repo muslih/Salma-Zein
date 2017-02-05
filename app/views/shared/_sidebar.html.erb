@@ -37,8 +37,9 @@
                         <li class="<%= active_class item_units_path %>">
                             <%= link_to 'Satuan Barang', item_units_path %>
                         </li>
-                        <li><%= link_to 'User', users_path %></li>
-                        <li><%= link_to 'Petugas', employees_path %></li>
+                        <li class="<%= active_class users_path %>" >
+                            <%= link_to 'User', users_path %>
+                        </li>
                         <li><%= link_to 'Agama', religions_path %></li>
                         <li><%= link_to 'Gender', genders_path %></li>
                         <li><%= link_to 'Pendidikan', educations_path %></li>

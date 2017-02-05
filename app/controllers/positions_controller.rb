@@ -19,8 +19,11 @@ class PositionsController < ApplicationController
   def create
     @position = Position.new(position_params)
     if @position.save
+      flash[:success] = 'Posisi / Jabatan berhasil di tambah'
       redirect_to positions_path
     else
+      flash.now[:danger] = 'Posisi / Jabatan gagal di tambah'
+      @model = @position
       render :new
     end
   end
@@ -28,9 +31,11 @@ class PositionsController < ApplicationController
   # PATCH/PUT /positions/1
   def update
     if @position.update(position_params)
+      flash[:success] = 'Posisi / Jabatan berhasil di update'
       redirect_to positions_path
     else
       @model = @position
+      flash[:danger] = 'Posisi / Jabatan gagal di update'
       render :edit 
     end
   end
@@ -38,6 +43,7 @@ class PositionsController < ApplicationController
   # DELETE /positions/1
   def destroy
     @position.destroy 
+    flash[:success] = 'Posisi / Jabatan berhasil di hapus'
     redirect_to positions_path 
   end
 

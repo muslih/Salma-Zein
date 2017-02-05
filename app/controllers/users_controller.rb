@@ -19,8 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = 'User berhasil di tambah'
       redirect_to users_path
     else
+      flash[:danger] = 'User gagal di tambah'
+      @model = @user
       render :new
     end
   end
@@ -28,9 +31,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
+      flash[:success] = 'User berhasil di update'
       redirect_to users_path
     else
       @model = @user
+      flash[:danger] = 'User gagal di update'
       render :edit 
     end
   end
@@ -38,6 +43,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy 
+    flash[:success] = 'User berhasil di hapus'
     redirect_to users_path  
   end
 

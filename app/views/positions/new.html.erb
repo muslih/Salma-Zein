@@ -1,5 +1,16 @@
-<h1>New Position</h1>
-
-<%= render 'form', position: @position %>
-
-<%= link_to 'Back', positions_path %>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Tambah Posisi / jabatan
+                <%= link_to 'Kembali', positions_path, class: "btn btn-fill btn-danger pull-right" %>
+                </h4>
+                <hr>
+            </div>
+            <div class="content table-responsive table-full-width">
+            		<%= render 'form', position: @position %>
+			</div>
+        </div>
+    </div>
+</div>

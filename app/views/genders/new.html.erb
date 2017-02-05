@@ -1,5 +1,16 @@
-<h1>New Gender</h1>
-
-<%= render 'form', gender: @gender %>
-
-<%= link_to 'Back', genders_path %>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Tambah Gender
+                <%= link_to 'Kembali', genders_path, class: "btn btn-fill btn-danger pull-right" %>
+                </h4>
+                <hr>
+            </div>
+            <div class="content table-responsive table-full-width">
+				<%= render 'form', gender: @gender %>
+			</div>
+        </div>
+    </div>
+</div>

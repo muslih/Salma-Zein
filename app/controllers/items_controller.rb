@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   def update
     if @item.update(item_params)
-      flash[:success] = 'Barang berhasil di update'
+      flash[:success] = 'Barang berhasil di hapus'
       redirect_to items_path
     else
       flash.now[:danger] = 'Barang gagal di update'

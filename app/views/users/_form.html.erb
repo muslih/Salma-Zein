@@ -1,37 +1,45 @@
 <%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<fieldset>
+  <div class="form-group">
+    <%= f.label :username, "Username", class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :username, class:'form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :username, "Username" %>
-    <%= f.text_field :username %>
   </div>
+</fieldset>
 
-  <div class="field">
-    <%= f.label :email, "Email" %>
-    <%= f.email_field :email %>
+<fieldset>
+  <div class="form-group">
+    <%= f.label :email, "Email", class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.email_field :email, class:'form-control' %>
+    </div>
   </div>
+</fieldset>
 
-  <div class="field">
-    <%= f.label :password, "Password" %>
-    <%= f.password_field :password %>
+<fieldset>
+  <div class="form-group">
+    <%= f.label :password, "Password", class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.password_field :password, class:'form-control' %>
+    </div>
   </div>
+</fieldset>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Konfirmasi Password" %>
-    <%= f.password_field :password_confirmation%>
+<fieldset>
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Konfirmasi Password", class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.password_field :password_confirmation, class:'form-control' %>
+    </div>
   </div>
+</fieldset>
 
-  <div class="actions">
-    <%= f.submit "Simpan" %>
-  </div>
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
 <% end %>

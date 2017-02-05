@@ -19,8 +19,11 @@ class ReligionsController < ApplicationController
   def create
     @religion = Religion.new(religion_params)
     if @religion.save
+      flash[:success] = 'Agama berhasil di tambah'
       redirect_to religions_path
     else
+      flash.now[:danger] = 'Agama gagal di tambah'
+      @model = @religion
       render :new
     end
   end
@@ -28,8 +31,11 @@ class ReligionsController < ApplicationController
   # PATCH/PUT /religions/1
   def update
     if @religion.update(religion_params)
+      flash[:success] = 'Agama berhasil di update'
       redirect_to religions_path
     else
+      @model = @religion
+      flash.now[:danger] = 'Agama gagal di update'
       @model = @religion
       render :edit 
     end
@@ -38,6 +44,7 @@ class ReligionsController < ApplicationController
   # DELETE /religions/1
   def destroy
     @religion.destroy 
+    flash[:success] = 'Agama berhasil di hapus'
     redirect_to religions_path
   end
 
