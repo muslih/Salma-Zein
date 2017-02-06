@@ -1,0 +1,290 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2017-02-04 10:21:15.865707'
+    - '2017-02-04 10:21:15.865707'
+
+---
+departments:
+  columns:
+  - id
+  - station_id
+  - name
+  - manager
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - department 1
+    - haikal
+    - '2017-02-04 10:56:34.723734'
+    - '2017-02-04 10:56:34.723734'
+
+---
+educations:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - S1 tes
+    - '2017-02-04 10:41:44.666514'
+    - '2017-02-04 10:41:44.666514'
+  - - 2
+    - S2 tes
+    - '2017-02-05 04:43:06.576257'
+    - '2017-02-05 04:43:06.576257'
+
+---
+employees:
+  columns:
+  - id
+  - name
+  - role
+  - age
+  - birth_place
+  - birth_date
+  - gender_id
+  - religion_id
+  - position_id
+  - education_id
+  - experience
+  - skill
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - asdasd
+    - Quality Control
+    - 21
+    - Banjarmasin
+    - '1970-08-15'
+    - 2
+    - 1
+    - 1
+    - 1
+    - sdsada
+    - asdasd
+    - '2017-02-04 11:51:06.001254'
+    - '2017-02-06 13:54:04.417769'
+  - - 2
+    - ADADAS
+    - Kitchen
+    - 12
+    - Banjarmasin
+    - '1970-02-04'
+    - 1
+    - 1
+    - 1
+    - 1
+    - sadasd
+    - asdasd
+    - '2017-02-04 11:53:45.877033'
+    - '2017-02-06 13:54:21.257596'
+
+---
+genders:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Laki-Laki
+    - '2017-02-04 10:37:24.470835'
+    - '2017-02-04 11:19:22.466816'
+  - - 2
+    - Perempuan
+    - '2017-02-04 10:37:29.923474'
+    - '2017-02-04 10:37:29.923474'
+  - - 3
+    - Lainnya...
+    - '2017-02-05 04:47:49.432412'
+    - '2017-02-05 04:47:49.432412'
+
+---
+item_categories:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Makanan
+    - '2017-02-04 13:11:37.249203'
+    - '2017-02-04 13:11:37.249203'
+  - - 2
+    - Minuman
+    - '2017-02-04 13:11:41.688478'
+    - '2017-02-04 13:11:41.688478'
+  - - 3
+    - dasd
+    - '2017-02-05 03:36:31.833661'
+    - '2017-02-05 03:36:31.833661'
+  - - 4
+    - asdasdas
+    - '2017-02-05 03:36:49.531191'
+    - '2017-02-05 03:36:49.531191'
+
+---
+item_units:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Gram
+    - '2017-02-04 13:24:17.539424'
+    - '2017-02-04 13:24:17.539424'
+  - - 2
+    - KG
+    - '2017-02-04 13:24:24.052508'
+    - '2017-02-04 13:24:24.052508'
+  - - 3
+    - TON
+    - '2017-02-04 13:24:29.198771'
+    - '2017-02-04 13:24:29.198771'
+  - - 6
+    - asdsa
+    - '2017-02-05 03:24:05.929037'
+    - '2017-02-05 03:24:05.929037'
+
+---
+items:
+  columns:
+  - id
+  - supplier_id
+  - item_category_id
+  - item_unit_id
+  - code
+  - lot_number
+  - name
+  - spec
+  - price
+  - desc
+  - halal_certificate
+  - warranty
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 1
+    - 1
+    - asdasd
+    - 13123
+    - asdasd
+    - asdasdas
+    - 123123
+    - dasdasd
+    - qeqwe
+    - false
+    - '2017-02-04 14:33:20.916597'
+    - '2017-02-04 14:33:20.916597'
+
+---
+positions:
+  columns:
+  - id
+  - name
+  - department_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Staff IT
+    - 1
+    - '2017-02-04 11:03:02.238724'
+    - '2017-02-04 11:03:02.238724'
+  - - 2
+    - Staff ICT
+    - 1
+    - '2017-02-04 13:39:36.342678'
+    - '2017-02-04 13:39:36.342678'
+
+---
+religions:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Islam
+    - '2017-02-04 10:44:46.899086'
+    - '2017-02-04 10:44:52.351469'
+
+---
+stations:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - PKY
+    - '2017-02-04 10:48:52.971687'
+    - '2017-02-04 10:48:52.971687'
+
+---
+suppliers:
+  columns:
+  - id
+  - name
+  - address
+  - contact_person
+  - phone
+  - business_field
+  - management_system
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Supplier 1
+    - Jl.Kuin selatan
+    - Haikal
+    - 083159400140
+    - makanan
+    - asdasd
+    - '2017-02-04 12:58:26.232936'
+    - '2017-02-04 12:58:26.232936'
+
+---
+users:
+  columns:
+  - id
+  - username
+  - email
+  - password_digest
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - haikalm
+    - maulana.haikal.98@gmail.com
+    - "$2a$10$WLAxFfHZfkl70TATHzVhc.e.piLzFs8wTSH.0/2t57F/YMuXUCKwa"
+    - '2017-02-04 10:28:25.163617'
+    - '2017-02-04 10:28:25.163617'
+  - - 2
+    - maulana
+    - maulana@gmail.com
+    - "$2a$10$LJ1kvarFo4ae2H/GZnaGF.O/ATJ./qdLT/lH2OGJXu/3p4b1YmB/y"
+    - '2017-02-05 04:27:38.563372'
+    - '2017-02-05 04:27:38.563372'
