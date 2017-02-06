@@ -19,8 +19,11 @@ class SuppliersController < ApplicationController
   def create
     @supplier = Supplier.new(supplier_params)
     if @supplier.save
+      flash[:success] = 'Supplier berhasil di tambah'
       redirect_to suppliers_path
     else
+      flash.now[:danger] = 'Supplier gagal di tambah'
+      @model = @supplier
       render :new
     end
   end
@@ -28,9 +31,11 @@ class SuppliersController < ApplicationController
   # PATCH/PUT /suppliers/1
   def update
     if @supplier.update(supplier_params)
+      flash[:success] = 'Supplier berhasil di update'
       redirect_to suppliers_path
     else
       @model = @supplier
+      flash.now[:danger] = 'Supplier gagal di update'
       render :edit 
     end
   end
@@ -38,6 +43,7 @@ class SuppliersController < ApplicationController
   # DELETE /suppliers/1
   def destroy
     @supplier.destroy 
+    flash[:success] = "Supplier berhasil di hapus"
     redirect_to suppliers_path 
   end
 

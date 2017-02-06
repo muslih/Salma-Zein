@@ -40,13 +40,25 @@
                         <li class="<%= active_class users_path %>" >
                             <%= link_to 'User', users_path %>
                         </li>
-                        <li><%= link_to 'Agama', religions_path %></li>
-                        <li><%= link_to 'Gender', genders_path %></li>
-                        <li><%= link_to 'Pendidikan', educations_path %></li>
-                        <li><%= link_to 'Posisi / Jabatan', positions_path %></li>
+                        <li class="<%= active_class religions_path %>">
+                            <%= link_to 'Agama', religions_path %>
+                        </li>
+                        <li class="<%= active_class genders_path %>">
+                            <%= link_to 'Gender', genders_path %>
+                        </li>
+                        <li class="<%= active_class educations_path %>">
+                            <%= link_to 'Pendidikan', educations_path %>
+                        </li>
+                        <li class="<%= active_class positions_path %>">
+                            <%= link_to 'Posisi / Jabatan', positions_path %>
+                        </li>
                         <li><%= link_to 'Station', stations_path %></li>
-                        <li><%= link_to 'Departemen', departments_path %></li>
-                        <li><%= link_to 'Supplier', suppliers_path %></li>
+                        <li class="<%= active_class departments_path %>">
+                            <%= link_to 'Departemen', departments_path %>
+                        </li>
+                        <li class="<%= active_class suppliers_path %>" >
+                            <%= link_to 'Supplier', suppliers_path %>
+                        </li>
                         <li><a href="forms/regular.html">Penyimpanan</a></li>
                         <li><a href="#">Pesawat</a></li>
                         <li><a href="#">Kwitansi</a></li>

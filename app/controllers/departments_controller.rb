@@ -19,8 +19,11 @@ class DepartmentsController < ApplicationController
   def create
     @department = Department.new(department_params)
     if @department.save
+      flash[:success] = 'Departemen berhasil di tambah'
       redirect_to departments_path
     else
+      flash.now[:danger] = 'Departemen gagal di tambah'
+      @model = @department
       render :new
     end
   end
@@ -28,9 +31,11 @@ class DepartmentsController < ApplicationController
   # PATCH/PUT /departments/1
   def update
     if @department.update(department_params)
+      flash[:success] = 'Departemen berhasil di update'
       redirect_to departments_path
     else
       @model = @department
+      flash.now[:danger] = 'Departemen gagal di update'
       render :edit 
     end
   end
@@ -38,6 +43,7 @@ class DepartmentsController < ApplicationController
   # DELETE /departments/1
   def destroy
     @department.destroy 
+    flash[:success] = 'Departemen berhasil di hapus'
     redirect_to departments_path 
   end
 
