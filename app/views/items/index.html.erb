@@ -15,7 +15,6 @@
                       <th>Kategori</th>
                       <th>Satuan</th>
                       <th>Kode</th>
-                      <th>Lot number</th>
                       <th>Nama Barang</th>
                       <th>Spesifikasi</th>
                       <th>Harga Satuan</th>
@@ -33,7 +32,6 @@
                         <td><%= item.try(:item_category).try(:name) %></td>
                         <td><%= item.try(:item_unit).try(:name) %></td>
                         <td><%= item.code %></td>
-                        <td><%= item.lot_number %></td>
                         <td><%= item.name %></td>
                         <td><%= item.spec %></td>
                         <td><%= item.price %></td>

@@ -58,7 +58,7 @@
     <div class="form-group">
       <%= f.label :birth_date, "Tanggal Lahir",class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.date_select(:birth_date, {:order => [:day, :month, :year] ,:start_year => 1970, :end_year => 2013},{:class=>"form-control",:style=>"width:32%;display:inline-block"})%>
+        <%= f.date_select(:birth_date, {:order => [:day, :month, :year] ,:start_year => 1970, :end_year => 2013},{:class=>"form-control datepicker",:style=>"width:32%;display:inline-block"})%>
       </div>
     </div>
   </fieldset>
