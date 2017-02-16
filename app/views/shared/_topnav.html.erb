@@ -34,16 +34,18 @@
                             <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Ubah Akun</a></li>
+                        <li><%= link_to "Ubah Akun", current_user %></li>
                         <li><a href="#">Ubah Password</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Separated link</a></li>
                       </ul>
                 </li>
                 <li>
-                    <a href="#">
-                        Log out
-                    </a>
+                    <% if logged_in? %>
+                        <%= link_to "Log out", logout_path, method: "delete" %>
+                    <% else %>
+                        <%= link_to "Log in", login_path %>
+                    <% end %>
                 </li>
             </ul>
         </div>
