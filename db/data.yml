@@ -328,30 +328,30 @@ purchase_requests:
     - '2017-02-13'
     - '2017-02-13'
     - ''
-    - false
+    - true
     - ''
     - '2017-02-13 10:22:47.519889'
-    - '2017-02-13 10:22:47.519889'
+    - '2017-02-16 10:09:23.797294'
   - - 2
     - 1
     - 
     - '2017-02-13'
     - '2017-02-13'
     - ''
-    - false
+    - true
     - ''
     - '2017-02-13 10:23:45.632957'
-    - '2017-02-13 10:23:45.632957'
+    - '2017-02-16 10:09:55.784021'
   - - 3
     - 2
     - 321
     - '2017-02-07'
     - '2017-02-05'
     - asdasd
-    - false
+    - true
     - ''
     - '2017-02-13 10:29:24.524388'
-    - '2017-02-13 10:29:24.524388'
+    - '2017-02-16 10:10:14.478047'
 
 ---
 religions:
@@ -440,6 +440,7 @@ users:
   - password_digest
   - created_at
   - updated_at
+  - remember_digest
   records: 
   - - 1
     - kitchen
@@ -447,33 +448,53 @@ users:
     - "$2a$10$qGO8UYYz0SXhnuyGYv3Ave96tlucJV.RbCO.mBdOVHr3Z/SRBYJaa"
     - '2017-02-12 19:01:42.411252'
     - '2017-02-12 19:01:42.411252'
+    - 
   - - 2
     - qualitycontrol
     - qualitycontrol@gmail.com
     - "$2a$10$/3SbohRalF6ndBB8jlpDneqcQ8WYDqauRBTanOeULspZ/jVu2FLY."
     - '2017-02-12 19:01:42.652837'
     - '2017-02-12 19:01:42.652837'
+    - 
   - - 3
     - logistik
     - logistik@gmail.com
     - "$2a$10$BmCd0AQ66ReKWYxSILy35eGnRZqZd1rVlIZ3tflFFtiCW4uI6B8uO"
     - '2017-02-12 19:01:42.898296'
     - '2017-02-12 19:01:42.898296'
+    - 
   - - 4
     - administrasi
     - administrasi@gmail.com
     - "$2a$10$Wkp/2eRqSTCXhqx7FeQC9OJ8YYbCCxTHBoUUZbSOx5wXRxjo5cIXO"
     - '2017-02-12 19:01:43.122022'
     - '2017-02-12 19:01:43.122022'
+    - 
   - - 5
     - operational
     - operational@gmail.com
     - "$2a$10$w90a/Grgirfgy.ZtRtOw3.t8vB6hnc4O4c7.6jQlItOq1t/Vc8ND."
     - '2017-02-12 19:01:43.356816'
     - '2017-02-12 19:01:43.356816'
+    - 
   - - 6
     - administrator
     - administrator@gmail.com
     - "$2a$10$44xiLqj5Qz5kBUZNOwsvluapeNBx7XoN/mRl2RyzOlNDCk6u/edGG"
     - '2017-02-12 19:01:43.627721'
     - '2017-02-12 19:01:43.627721'
+    - 
+  - - 7
+    - tes
+    - tes@gmail.com
+    - "$2a$10$byGJcFM7jqmSMICbf6o7z.xSbofklcXgadyjS7feD3bxYxcVbTyvS"
+    - '2017-02-16 10:53:54.305868'
+    - '2017-02-16 11:40:35.920774'
+    - 
+  - - 8
+    - admin
+    - admin@gmail.com
+    - "$2a$10$0PoRg5sdh7JC9sEu5py8dek8Q/KjVBIkVZ4gxkvwcoTxu0uasm5Ji"
+    - '2017-02-16 11:46:25.238866'
+    - '2017-02-16 11:46:25.238866'
+    - 
