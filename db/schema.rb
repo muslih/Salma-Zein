@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213002022) do
+ActiveRecord::Schema.define(version: 20170216111921) do
 
   create_table "departments", force: :cascade do |t|
     t.integer  "station_id"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 20170213002022) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "remember_digest"
   end
 
 end

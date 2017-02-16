@@ -29,7 +29,11 @@
                                         <div class="form-group">
                                             <%= f.label :password %>
                                             <%= f.password_field :password, class: 'form-control', 'placeholder': 'Enter user','required': true %>
-                                        </div>                                    
+                                            <%= f.label :remember_me do %>
+                                              <%= f.check_box :remember_me %>
+                                              <span>Ingat saya</span>
+                                            <% end %>
+                                        </div>                                   
                                     </div>
                                     <div class="footer text-center">
                                     <%= f.submit 'Masuk', class: 'btn btn-fill btn-warning btn-wd', style: 'margin-bottom:15px;' %>
