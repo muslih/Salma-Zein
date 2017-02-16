@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :purchase_requests
-  resources :employees
+ 
   resources :positions
   resources :departments
   resources :stations
@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   get    '/login',   to: 'login#new'
   post   '/login',   to: 'login#create'
   delete '/logout',  to: 'login#destroy'
+
+  namespace :admin do
+    resources :employees
+  end
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
