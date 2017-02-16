@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :purchase_requests
   resources :employees
   resources :positions
@@ -16,6 +18,11 @@ Rails.application.routes.draw do
   
   root 'login#new'
   get 'login/index'
+
+  get    '/login',   to: 'login#new'
+  post   '/login',   to: 'login#create'
+  delete '/logout',  to: 'login#destroy'
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
