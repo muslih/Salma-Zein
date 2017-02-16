@@ -11,7 +11,7 @@
       
       <strong>Ups! Ada <%= message.try(:errors).try(:count)%> yang membuat data tidak bisa ditambah/update</strong>    
       <ul id="error_explanation">
-      <% @debug = false %>
+      <% @debug = true %>
       <% if @debug %>
         <% message.errors.full_messages.each do |message| %>
           <li><%= message %></li>
