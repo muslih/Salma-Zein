@@ -299,8 +299,9 @@ input:focus {
   position: relative;
   max-height: none;
   min-height: 100%;
-  overflow: hidden;
+  overflow: scroll;
   width: 260px;
+  height: inherit;
   z-index: 4;
 }
 .sidebar .sidebar-background {

@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      redirect_to items_path
       flash[:success] = 'Barang berhasil di tambah'
       redirect_to items_path
     else
@@ -31,7 +32,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   def update
     if @item.update(item_params)
-      flash[:success] = 'Barang berhasil di hapus'
+      flash[:success] = 'Barang berhasil di update'
       redirect_to items_path
     else
       flash.now[:danger] = 'Barang gagal di update'
@@ -55,6 +56,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:supplier_id, :item_category_id, :item_unit_id, :code, :lot_number, :name, :spec, :price, :desc, :halal_certificate, :warranty)
+      params.require(:item).permit(:supplier_id, :item_category_id, :item_unit_id, :code, :name, :spec, :price, :desc, :halal_certificate, :warranty)
     end
 end

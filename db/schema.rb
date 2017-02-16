@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204143107) do
+ActiveRecord::Schema.define(version: 20170213002022) do
 
   create_table "departments", force: :cascade do |t|
     t.integer  "station_id"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170204143107) do
     t.integer  "item_category_id"
     t.integer  "item_unit_id"
     t.string   "code"
-    t.integer  "lot_number"
     t.string   "name"
     t.text     "spec"
     t.integer  "price"
@@ -81,6 +80,30 @@ ActiveRecord::Schema.define(version: 20170204143107) do
     t.integer  "department_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "purchase_request_details", force: :cascade do |t|
+    t.integer  "purchase_request_id"
+    t.integer  "item_id"
+    t.integer  "qty"
+    t.integer  "total"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["item_id"], name: "index_purchase_request_details_on_item_id"
+    t.index ["purchase_request_id"], name: "index_purchase_request_details_on_purchase_request_id"
+  end
+
+  create_table "purchase_requests", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "pr_number"
+    t.date     "date_created"
+    t.date     "date_required"
+    t.string   "request_reason"
+    t.boolean  "status"
+    t.string   "status_desc"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["employee_id"], name: "index_purchase_requests_on_employee_id"
   end
 
   create_table "religions", force: :cascade do |t|

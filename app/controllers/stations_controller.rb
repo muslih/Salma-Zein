@@ -23,8 +23,11 @@ class StationsController < ApplicationController
   def create
    @station = Station.new(station_params)
     if @station.save
+      flash[:success] = 'Station berhasil di tambah'
       redirect_to stations_path
     else
+      flash.now[:danger] = 'Station gagal di tambah'
+      @model = @station
       render :new
     end
   end
@@ -32,9 +35,11 @@ class StationsController < ApplicationController
   # PATCH/PUT /stations/1
   def update
     if @station.update(station_params)
+      flash[:success] = 'Station berhasil di update'
       redirect_to stations_path
     else
       @model = @station
+      flash.now[:danger] = 'Station gagal di update'
       render :edit 
     end
   end
@@ -42,6 +47,7 @@ class StationsController < ApplicationController
   # DELETE /stations/1
   def destroy
     @station.destroy 
+    flash[:success] = 'Station berhasil di hapus'
     redirect_to stations_path
   end
 

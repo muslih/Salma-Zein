@@ -14,21 +14,21 @@
       <%= f.label :role, "Hak Akses",class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
         <div class="col-md-3">
-          <%= f.radio_button(:role, "Kitchen")%>
+          <%= f.radio_button(:role, "kitchen")%>
           <%= f.label(:role, "Kitchen") %> <br />
-          <%= f.radio_button(:role, "Quality Control") %>
+          <%= f.radio_button(:role, "quality_control") %>
           <%= f.label(:role, "Quality Control") %>
         </div>
         <div class="col-md-3">
         <%= f.radio_button(:role, "logistik") %>
         <%= f.label(:role, "logistik") %> <br />
-        <%= f.radio_button(:role, "Administrasi") %>
+        <%= f.radio_button(:role, "administrasi") %>
         <%= f.label(:role, "Administrasi") %>
         </div>
         <div class="col-md-3">
-        <%= f.radio_button(:role, "Operational") %>
+        <%= f.radio_button(:role, "operational") %>
         <%= f.label(:role, "Operational") %> <br />
-        <%= f.radio_button(:role, "Administrator") %>
+        <%= f.radio_button(:role, "administrator") %>
         <%= f.label(:role, "Administrator") %>
         </div>
       </div>
@@ -58,7 +58,7 @@
     <div class="form-group">
       <%= f.label :birth_date, "Tanggal Lahir",class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.date_select(:birth_date, {:order => [:day, :month, :year] ,:start_year => 1970, :end_year => 2013},{:class=>"form-control",:style=>"width:32%;display:inline-block"})%>
+        <%= f.date_select(:birth_date, {:order => [:day, :month, :year] ,:start_year => 1970, :end_year => 2013},{:class=>"form-control datepicker",:style=>"width:32%;display:inline-block"})%>
       </div>
     </div>
   </fieldset>

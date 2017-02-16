@@ -1,47 +1,58 @@
 <%= form_for(supplier) do |f| %>
-  <% if supplier.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
-
-      <ul>
-      <% supplier.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name, "Nama Suplier",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class:'form-control' %>
+      </div>
     </div>
-  <% end %>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :name, "Nama Suplier" %>
-    <%= f.text_field :name %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :address, "Alamat",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :address, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :address, "Alamat" %>
-    <%= f.text_field :address %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :contact_person, "Contact Person",class:"col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :contact_person, class:'form-control' %>
+      </div>
+      <%= f.label :phone, "No.telp",class:"col-sm-1 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :phone, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :contact_person, "Contact Person" %>
-    <%= f.text_field :contact_person %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :business_field, "Bidang bisnis",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :business_field, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :phone, "No.telp" %>
-    <%= f.text_field :phone %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :management_system, "Sistem Manajemen",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :management_system, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :business_field, "Bidang bisnis" %>
-    <%= f.text_field :business_field %>
-  </div>
-
-  <div class="field">
-    <%= f.label :management_system, "Sistem Manajemen" %>
-    <%= f.text_field :management_system %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Simpan" %>
-  </div>
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
 <% end %>

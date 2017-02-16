@@ -1,0 +1,479 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2017-02-12 19:01:39.604882'
+    - '2017-02-12 19:01:39.604882'
+
+---
+departments:
+  columns:
+  - id
+  - station_id
+  - name
+  - manager
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - Department 1
+    - manager 1
+    - '2017-02-12 19:01:41.494412'
+    - '2017-02-12 19:01:41.494412'
+  - - 2
+    - 1
+    - Department 2
+    - manager 2
+    - '2017-02-12 19:01:41.585076'
+    - '2017-02-12 19:01:41.585076'
+  - - 3
+    - 1
+    - Department 3
+    - manager 3
+    - '2017-02-12 19:01:41.664290'
+    - '2017-02-12 19:01:41.664290'
+
+---
+educations:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - SD
+    - '2017-02-12 19:01:44.247358'
+    - '2017-02-12 19:01:44.247358'
+  - - 2
+    - SMP
+    - '2017-02-12 19:01:44.306113'
+    - '2017-02-12 19:01:44.306113'
+  - - 3
+    - SMA / SMK / MA sederajat
+    - '2017-02-12 19:01:44.361236'
+    - '2017-02-12 19:01:44.361236'
+  - - 4
+    - Diploma
+    - '2017-02-12 19:01:44.440260'
+    - '2017-02-12 19:01:44.440260'
+  - - 5
+    - Sarjana
+    - '2017-02-12 19:01:44.540217'
+    - '2017-02-12 19:01:44.540217'
+  - - 6
+    - Magister
+    - '2017-02-12 19:01:44.594875'
+    - '2017-02-12 19:01:44.594875'
+  - - 7
+    - Profesor
+    - '2017-02-12 19:01:44.684867'
+    - '2017-02-12 19:01:44.684867'
+
+---
+employees:
+  columns:
+  - id
+  - name
+  - role
+  - age
+  - birth_place
+  - birth_date
+  - gender_id
+  - religion_id
+  - position_id
+  - education_id
+  - experience
+  - skill
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Pegawai 1
+    - administrator
+    - 18
+    - Banjarmasin
+    - '1998-07-09'
+    - 1
+    - 1
+    - 1
+    - 3
+    - ''
+    - ''
+    - '2017-02-12 19:01:44.997066'
+    - '2017-02-15 09:04:56.453128'
+  - - 2
+    - Pegawai 2
+    - quality_control
+    - 19
+    - Banjarbaru
+    - '1992-02-02'
+    - 2
+    - 1
+    - 2
+    - 3
+    - ''
+    - ''
+    - '2017-02-12 19:01:45.095972'
+    - '2017-02-15 09:01:25.245739'
+  - - 3
+    - Pegawai 3
+    - administrator
+    - 20
+    - BanjarSamarinda
+    - '1993-03-03'
+    - 1
+    - 1
+    - 3
+    - 3
+    - ''
+    - ''
+    - '2017-02-12 19:01:45.195497'
+    - '2017-02-15 09:02:01.652234'
+
+---
+genders:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Laki-Laki
+    - '2017-02-12 19:01:44.791558'
+    - '2017-02-12 19:01:44.791558'
+  - - 2
+    - Perempuan
+    - '2017-02-12 19:01:44.873178'
+    - '2017-02-12 19:01:44.873178'
+
+---
+item_categories:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Makanan
+    - '2017-02-12 19:01:45.533229'
+    - '2017-02-12 19:01:45.533229'
+  - - 2
+    - Minuman
+    - '2017-02-12 19:01:45.584288'
+    - '2017-02-12 19:01:45.584288'
+  - - 3
+    - Material
+    - '2017-02-12 19:01:45.666965'
+    - '2017-02-12 19:01:45.666965'
+
+---
+item_units:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Gram
+    - '2017-02-12 19:01:45.751763'
+    - '2017-02-12 19:01:45.751763'
+  - - 2
+    - Kilogram
+    - '2017-02-12 19:01:45.830763'
+    - '2017-02-12 19:01:45.830763'
+  - - 3
+    - Ton
+    - '2017-02-12 19:01:45.905991'
+    - '2017-02-12 19:01:45.905991'
+
+---
+items:
+  columns:
+  - id
+  - supplier_id
+  - item_category_id
+  - item_unit_id
+  - code
+  - name
+  - spec
+  - price
+  - desc
+  - halal_certificate
+  - warranty
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 1
+    - 2
+    - B001
+    - Buah Apel
+    - merah
+    - 100000
+    - apel madu
+    - certifikat1jpg
+    - true
+    - '2017-02-12 23:16:04.190613'
+    - '2017-02-12 23:16:04.190613'
+  - - 2
+    - 1
+    - 2
+    - 2
+    - B002
+    - Aqua Botol Medium
+    - ukuran sedang
+    - 8000
+    - 100ml
+    - certifikat1jpg
+    - true
+    - '2017-02-12 23:16:04.274300'
+    - '2017-02-15 13:05:23.034224'
+
+---
+positions:
+  columns:
+  - id
+  - name
+  - department_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Kitchen
+    - 1
+    - '2017-02-12 19:01:41.742741'
+    - '2017-02-12 19:01:41.742741'
+  - - 2
+    - Quality Control
+    - 1
+    - '2017-02-12 19:01:41.818639'
+    - '2017-02-12 19:01:41.818639'
+  - - 3
+    - Logistik
+    - 1
+    - '2017-02-12 19:01:41.883922'
+    - '2017-02-12 19:01:41.883922'
+  - - 4
+    - Administrasi
+    - 1
+    - '2017-02-12 19:01:41.999244'
+    - '2017-02-12 19:01:41.999244'
+  - - 5
+    - Operational
+    - 1
+    - '2017-02-12 19:01:42.062974'
+    - '2017-02-12 19:01:42.062974'
+  - - 6
+    - Administrator
+    - 1
+    - '2017-02-12 19:01:42.149849'
+    - '2017-02-12 19:01:42.149849'
+
+---
+purchase_request_details:
+  columns:
+  - id
+  - purchase_request_id
+  - item_id
+  - qty
+  - total
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 3
+    - 1
+    - 1
+    - 100000
+    - '2017-02-13 10:31:09.622714'
+    - '2017-02-13 10:31:09.622714'
+  - - 2
+    - 3
+    - 2
+    - 2
+    - 16000
+    - '2017-02-13 10:41:34.897945'
+    - '2017-02-13 10:41:34.897945'
+
+---
+purchase_requests:
+  columns:
+  - id
+  - employee_id
+  - pr_number
+  - date_created
+  - date_required
+  - request_reason
+  - status
+  - status_desc
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 
+    - '2017-02-13'
+    - '2017-02-13'
+    - ''
+    - false
+    - ''
+    - '2017-02-13 10:22:47.519889'
+    - '2017-02-13 10:22:47.519889'
+  - - 2
+    - 1
+    - 
+    - '2017-02-13'
+    - '2017-02-13'
+    - ''
+    - false
+    - ''
+    - '2017-02-13 10:23:45.632957'
+    - '2017-02-13 10:23:45.632957'
+  - - 3
+    - 2
+    - 321
+    - '2017-02-07'
+    - '2017-02-05'
+    - asdasd
+    - false
+    - ''
+    - '2017-02-13 10:29:24.524388'
+    - '2017-02-13 10:29:24.524388'
+
+---
+religions:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Islam
+    - '2017-02-12 19:01:43.760565'
+    - '2017-02-12 19:01:43.760565'
+  - - 2
+    - Kristen Katolik
+    - '2017-02-12 19:01:43.830023'
+    - '2017-02-12 19:01:43.830023'
+  - - 3
+    - Kristen Protestan
+    - '2017-02-12 19:01:43.939775'
+    - '2017-02-12 19:01:43.939775'
+  - - 4
+    - Hindu
+    - '2017-02-12 19:01:44.039779'
+    - '2017-02-12 19:01:44.039779'
+  - - 5
+    - Budha
+    - '2017-02-12 19:01:44.093823'
+    - '2017-02-12 19:01:44.093823'
+  - - 6
+    - Konghucu
+    - '2017-02-12 19:01:44.175752'
+    - '2017-02-12 19:01:44.175752'
+
+---
+stations:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Station Palangkaraya
+    - '2017-02-12 19:01:41.365076'
+    - '2017-02-12 19:01:41.365076'
+
+---
+suppliers:
+  columns:
+  - id
+  - name
+  - address
+  - contact_person
+  - phone
+  - business_field
+  - management_system
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Supplier 1
+    - jl.supp 1
+    - manager sup 1
+    - 08123123123
+    - food
+    - ms
+    - '2017-02-12 19:01:45.355685'
+    - '2017-02-12 19:01:45.355685'
+  - - 2
+    - Supplier 2
+    - jl.supp 2
+    - manager sup 2
+    - 08321321321
+    - material
+    - sm
+    - '2017-02-12 19:01:45.432093'
+    - '2017-02-12 19:01:45.432093'
+
+---
+users:
+  columns:
+  - id
+  - username
+  - email
+  - password_digest
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - kitchen
+    - kitchen@gmail.com
+    - "$2a$10$qGO8UYYz0SXhnuyGYv3Ave96tlucJV.RbCO.mBdOVHr3Z/SRBYJaa"
+    - '2017-02-12 19:01:42.411252'
+    - '2017-02-12 19:01:42.411252'
+  - - 2
+    - qualitycontrol
+    - qualitycontrol@gmail.com
+    - "$2a$10$/3SbohRalF6ndBB8jlpDneqcQ8WYDqauRBTanOeULspZ/jVu2FLY."
+    - '2017-02-12 19:01:42.652837'
+    - '2017-02-12 19:01:42.652837'
+  - - 3
+    - logistik
+    - logistik@gmail.com
+    - "$2a$10$BmCd0AQ66ReKWYxSILy35eGnRZqZd1rVlIZ3tflFFtiCW4uI6B8uO"
+    - '2017-02-12 19:01:42.898296'
+    - '2017-02-12 19:01:42.898296'
+  - - 4
+    - administrasi
+    - administrasi@gmail.com
+    - "$2a$10$Wkp/2eRqSTCXhqx7FeQC9OJ8YYbCCxTHBoUUZbSOx5wXRxjo5cIXO"
+    - '2017-02-12 19:01:43.122022'
+    - '2017-02-12 19:01:43.122022'
+  - - 5
+    - operational
+    - operational@gmail.com
+    - "$2a$10$w90a/Grgirfgy.ZtRtOw3.t8vB6hnc4O4c7.6jQlItOq1t/Vc8ND."
+    - '2017-02-12 19:01:43.356816'
+    - '2017-02-12 19:01:43.356816'
+  - - 6
+    - administrator
+    - administrator@gmail.com
+    - "$2a$10$44xiLqj5Qz5kBUZNOwsvluapeNBx7XoN/mRl2RyzOlNDCk6u/edGG"
+    - '2017-02-12 19:01:43.627721'
+    - '2017-02-12 19:01:43.627721'
