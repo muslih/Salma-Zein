@@ -1,50 +1,49 @@
 
 <div class="wrapper wrapper-full-page">
-    <!-- <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg"> -->
-    <div class="full-page" data-color="orange" >
+  <!-- <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg"> -->
+  <div class="full-page" data-color="orange" >
 
-    <!--
+  <!--
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
+      Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+      Tip 2: you can also add an image using data-image tag
 
-    -->
+  -->
 
-      <div class="content">
-          <div class="container">
-              <div class="row">
-              <br>
-              <br>
-              <br>
+    <div class="content">
+        <div class="container">
+          <div class="row">
+          <br>
+          <br>
+          <br>
             <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                <div class="card">
-                                    <div class="header text-center"><%= image_tag('logo-login.png') %></div>
-                                    <%= form_for(:login, url: login_path) do |f| %>
-                                        <div class="content">
-
-                                        <div class="form-group">
-                                            <%= f.label :username, 'User' %>
-                                            <%= f.text_field :username, class: 'form-control', 'placeholder': 'Enter user','required': true %>
-                                        </div>
-                                        <div class="form-group">
-                                            <%= f.label :password %>
-                                            <%= f.password_field :password, class: 'form-control', 'placeholder': 'Enter user','required': true %>
-                                            <%= f.label :remember_me do %>
-                                              <%= f.check_box :remember_me %>
-                                              <span>Ingat saya</span>
-                                            <% end %>
-                                        </div>                                   
-                                    </div>
-                                    <div class="footer text-center">
-                                    <%= f.submit 'Masuk', class: 'btn btn-fill btn-warning btn-wd', style: 'margin-bottom:15px;' %>
-                                    </div>
-                                    <% end %>
-                                </div>
-                                <br>
+              <div class="card">
+                <div class="header text-center"><%= image_tag('logo-login.png') %></div>
+                <%= form_for(:login, url: login_path) do |f| %>
+                  <div class="content">
+                    <div class="form-group">
+                        <%= f.label :username, 'User' %>
+                        <%= f.text_field :username, class: 'form-control', 'placeholder': 'Enter user','required': true %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :password %>
+                        <%= f.password_field :password, class: 'form-control', 'placeholder': 'Enter user','required': true %>
+                        <%= f.label :remember_me do %>
+                          <%= f.check_box :remember_me %>
+                          <span>Ingat saya</span>
+                        <% end %>
+                    </div>                                   
+                  </div>
+                  <div class="footer text-center">
+                  <%= f.submit 'Masuk', class: 'btn btn-fill btn-warning btn-wd', style: 'margin-bottom:15px;' %>
+                  </div>
+                <% end %>
+              </div>
+              <br>
             </div>
-      </div>
           </div>
-      </div>
+        </div>
     </div>
+  </div>
 </div>
 
