@@ -4,7 +4,7 @@
             <div class="header">
                 <h4 class="title">
                 Master Pegawai
-                <%= link_to 'Tambah Pegawai', new_employee_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                <%= link_to 'Tambah Pegawai', new_admin_employee_path, :class=>"btn btn-warning btn-fill pull-right" %>
                   
                 </h4>
                 <!-- <p class="category">Data master pegawai</p> -->
@@ -36,8 +36,8 @@
                         <td><%= employee.try(:religion).try(:name) %></td>
                         <td><%= employee.try(:position).try(:name) %></td>
                         <td><%= employee.try(:education).try(:name) %></td>
-                        <td><%= link_to 'Edit', edit_employee_path(employee),class:'text-info' %></td>
-                        <td><%= link_to 'Hapus', employee, method: :delete, class:'text-danger',data: { confirm: 'Yakin hapus data?' } %></td>
+                        <td><%= link_to 'Edit', edit_admin_employee_path(employee),class:'text-info' %></td>
+                        <td><%= link_to 'Hapus', admin_employee_path(employee), method: :delete, class:'text-danger',data: { confirm: 'Yakin hapus data?' } %></td>
                       </tr>
                     <% end %>
                   </tbody>
