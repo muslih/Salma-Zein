@@ -15,7 +15,6 @@
                     <tr>
                       <th>No</th>
                       <th>Nama</th>
-                      <th>Email</th>
                       <th>Usia</th>
                       <th>TTL</th>
                       <th>Gender</th>
@@ -31,7 +30,6 @@
                       <tr>
                         <td><%= index + 1 %></td>
                         <td><%= employee.name %></td>
-                        <td><%= employee.try(:user).try(:email) %></td>
                         <td><%= employee.age %></td>
                         <td><%= employee.birth_place + "," + employee.birth_date.strftime('%d %B %Y') %></td>
                         <td><%= employee.try(:gender).try(:name) %></td>

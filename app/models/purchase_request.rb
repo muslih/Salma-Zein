@@ -1,5 +1,5 @@
 class PurchaseRequest < ApplicationRecord
-  belongs_to :employee
+  belongs_to :employee, optional: true
   has_many :purchase_request_details
   accepts_nested_attributes_for :purchase_request_details, allow_destroy: true
 

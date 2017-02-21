@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def cekproses(status)
-    return "<span class='label label-warning'>DiProses</span>".html_safe if status == nil
+    return "<span class='label label-warning'>DiProses</span>".html_safe if status != true && status != false
     return "<span class='label label-success'>Diterima</span>".html_safe if status == true
     return "<span class='label label-danger'>Ditolak</span>".html_safe if status == false
   end
