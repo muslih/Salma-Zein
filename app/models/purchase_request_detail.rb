@@ -18,4 +18,18 @@ class PurchaseRequestDetail < ApplicationRecord
   		self.qty * self.item.price
   	end
   end
+
+  def total_rp
+    "Rp. #{helper.number_with_delimiter(self.total, delimiter: ".") }"
+  end
+
+  private
+  def helper
+    Helper.instance
+  end
+
+  class Helper
+    include Singleton
+    include ActionView::Helpers::NumberHelper
+  end
 end

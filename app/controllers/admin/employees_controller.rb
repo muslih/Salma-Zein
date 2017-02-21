@@ -8,7 +8,7 @@ class Admin::EmployeesController < AdminController
 
   # GET /employees/new
   def new
-    @employees = Employee.new
+    @employee = Employee.new
   end
 
   # GET /employees/1/edit
@@ -18,6 +18,7 @@ class Admin::EmployeesController < AdminController
   # POST /employees
   def create
     @employee = Employee.new(employee_params)
+    @employee.user_id = current_user.id
     if @employee.save
       flash[:success] = 'Pegawai berhasil di tambah'
       redirect_to admin_employees_path
@@ -55,6 +56,6 @@ class Admin::EmployeesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :role, :age, :birth_place, :birth_date, :gender_id, :religion_id, :position_id, :education_id, :experience, :skill)
+      params.require(:employee).permit(:name, :role, :age, :birth_place, :birth_date, :gender_id, :religion_id, :position_id, :education_id, :experience, :skill, :user_id)
     end
 end

@@ -21,7 +21,6 @@
                 <th>Supplier</th>
                 <th>Barang</th>
                 <th>Kategori</th>
-                <th>Satuan</th>
                 <th>price</th>  
                 <th>quantity</th>  
                 <th>total</th>  
@@ -34,10 +33,9 @@
                  <td><%= prd.item.supplier.name %></td> 
                  <td><%= prd.item.name %></td>
                  <td><%= prd.item.item_category.name %></td>
-                 <td><%= prd.item.item_unit.name %></td>
-                 <td><%= prd.item.price %></td>
-                 <td><%= prd.qty %></td>
-                 <td><%= prd.total %></td>
+                 <td><%= prd.item.price_rp %></td>
+                 <td><%= prd.qty %> <%= prd.item.item_unit.name %></td>
+                 <td><%= prd.total_rp %></td>
                 </tr>  
                <% end %>  
               </tbody>  
@@ -45,7 +43,7 @@
              </div>
              <hr>  
               <p> Total </p>  
-              <%= @purchase_request.total_all%>  
+              <%= @purchase_request.total_rp%>  
              <hr>  
               <fieldset>
                     <%= link_to 'Edit', edit_admin_purchase_request_path(@purchase_request), class:"btn btn-fill btn-primary" %>

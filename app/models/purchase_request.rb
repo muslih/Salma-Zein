@@ -10,4 +10,22 @@ class PurchaseRequest < ApplicationRecord
   def total_all
   	subtotals.sum
   end
+
+  def total_rp
+    "Rp. #{helper.number_with_delimiter(self.total, delimiter: ".") }"
+  end
+
+  def item_price_rp
+    "Rp. #{helper.number_with_delimiter(self.price, delimiter: ".") }"
+  end
+
+  private
+  def helper
+    Helper.instance
+  end
+
+  class Helper
+    include Singleton
+    include ActionView::Helpers::NumberHelper
+  end
 end

@@ -3,6 +3,7 @@ class Employee < ApplicationRecord
 	belongs_to :religion, optional: :true
 	belongs_to :position, optional: :true
 	belongs_to :education, optional: :true
+	belongs_to :user, optional: :true
 
 	validates :gender_id, :presence => {message: "Gender harus di isi !!"}
 	validates :religion_id, :presence => {message: "Agama harus di isi !!"}
