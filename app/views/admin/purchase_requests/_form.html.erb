@@ -1,0 +1,113 @@
+<%= form_for [:admin, @purchase_request] do |f| %>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :employee_id,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :employee_id, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :pr_number,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.number_field :pr_number, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :date_created,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.date_select(:date_created, {:order => [:day, :month, :year]},{:class=>"form-control datepicker",:style=>"width:32%;display:inline-block"})%>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :date_required,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.date_select(:date_required, {:order => [:day, :month, :year]},{:class=>"form-control datepicker",:style=>"width:32%;display:inline-block"})%>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :request_reason,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :request_reason, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :purchase_request_details, "Item",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= f.fields_for :purchase_request_details do |builder| %>   
+              <%= render 'purchase_request_detail_fields', f: builder %>   
+            <% end %>
+            <div class="col-sm-2 col-sm-10">
+              <%= link_to_add_fields "Tambah Item", f, :purchase_request_details %>   
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :status,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+          <%= f.radio_button(:status, nil)%>
+          <%= f.label(:status, "Diproses") %> <br>
+          <%= f.radio_button(:status, true) %>
+          <%= f.label(:status, "Diterima") %> <br>
+          <%= f.radio_button(:status, false) %>
+          <%= f.label(:status, "Ditolak") %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :status_desc,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :status_desc, class: 'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
+<% end %>
+
+
+<script type="text/javascript">   
+  jQuery(function() {   
+   $('form').on('click', '.remove_fields', function(event) {   
+   $(this).prev('input[type=hidden]').val('1');   
+   $(this).closest('fieldset').hide();   
+   return event.preventDefault();   
+   });   
+   return $('form').on('click', '.add_fields', function(event) {   
+   var regexp, time;   
+   time = new Date().getTime();   
+   regexp = new RegExp($(this).data('id'), 'g');   
+   $(this).before($(this).data('fields').replace(regexp, time));   
+   return event.preventDefault();   
+   });   
+  });   
+  </script>

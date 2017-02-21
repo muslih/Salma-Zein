@@ -3,13 +3,13 @@
         <div class="card">
             <div class="header">
                 <h4 class="title">
-                Edit Pegawai
-                <%= link_to 'Kembali', admin_employees_path, class: "btn btn-fill btn-danger pull-right" %>
+                Tambah Gender
+                <%= link_to 'Kembali', admin_genders_path, class: "btn btn-fill btn-danger pull-right" %>
                 </h4>
                 <hr>
             </div>
             <div class="content table-responsive table-full-width">
-				<%= render 'form', employee: @employee %>
+				<%= render 'form', gender: @gender %>
 			</div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 class PurchaseRequestDetail < ApplicationRecord
-  belongs_to :purchase_request
+  belongs_to :purchase_request, optional: true
   belongs_to :item
 
   before_save :set_total

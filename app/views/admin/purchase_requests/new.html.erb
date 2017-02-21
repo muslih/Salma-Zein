@@ -3,14 +3,14 @@
         <div class="card">
             <div class="header">
                 <h4 class="title">
-                Edit Pegawai
-                <%= link_to 'Kembali', admin_employees_path, class: "btn btn-fill btn-danger pull-right" %>
+                Tambah Purchase Request
+                <%= link_to 'Kembali', admin_purchase_requests_path, class: "btn btn-fill btn-danger pull-right" %>
                 </h4>
                 <hr>
             </div>
             <div class="content table-responsive table-full-width">
-				<%= render 'form', employee: @employee %>
-			</div>
+				<%= render 'form', purchase_request: @purchase_request %>
+            </div>
         </div>
     </div>
 </div>

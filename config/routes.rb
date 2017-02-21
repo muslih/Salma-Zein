@@ -1,20 +1,5 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-
-  resources :purchase_requests
- 
-  resources :positions
-  resources :departments
-  resources :stations
-  resources :religions
-  resources :educations
-  resources :genders
-  resources :users
-
-  resources :items
-  resources :item_units
-  resources :item_categories
-  resources :suppliers
   
   root 'login#new'
   get 'login/index'
@@ -25,6 +10,18 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :employees
+    resources :users
+    resources :positions
+    resources :departments
+    resources :religions
+    resources :educations
+    resources :genders
+    resources :suppliers
+    resources :stations
+    resources :items
+    resources :item_categories
+    resources :item_units
+    resources :purchase_requests
   end
 
   
