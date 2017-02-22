@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     resources :item_categories
     resources :item_units
     resources :purchase_requests
+    resources :foods
+    resources :food_menus
   end
 
   

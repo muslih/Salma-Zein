@@ -4,7 +4,7 @@
             <div class="header">
                 <h4 class="title">
                 Master Makanan
-                <%= link_to 'Tambah Makanan', new_food_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                <%= link_to 'Tambah Makanan', new_admin_food_path, :class=>"btn btn-warning btn-fill pull-right" %>
                   
                 </h4>
             </div>
@@ -21,9 +21,9 @@
                   <% @foods.each do |food| %>
                     <tr>
                       <td><%= food.name %></td>
-                      <td><%= link_to 'Detail', food %></td>
-                      <td><%= link_to 'Edit', edit_food_path(food),class:'text-info' %></td>
-                      <td><%= link_to 'Hapus', food, method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                      <td><%= link_to 'Detail', admin_food_path(food) %></td>
+                      <td><%= link_to 'Edit', edit_admin_food_path(food),class:'text-info' %></td>
+                      <td><%= link_to 'Hapus', admin_food_path(food), method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
                     </tr>
                   <% end %>
                 </tbody>

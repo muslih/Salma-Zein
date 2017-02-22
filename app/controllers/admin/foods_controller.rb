@@ -1,4 +1,4 @@
-class FoodsController < ApplicationController
+class Admin::FoodsController < AdminController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
   # GET /foods
@@ -25,7 +25,7 @@ class FoodsController < ApplicationController
     
     if @food.save
       flash[:success] = 'Makanan berhasil di tambah'
-      redirect_to foods_path
+      redirect_to admin_foods_path
     else
       @model = @food
       flash.now[:danger] = 'Makanan gagal di tambah'
@@ -37,7 +37,7 @@ class FoodsController < ApplicationController
   def update
     if @food.update(food_params)
       flash[:success] = 'Makanan berhasil di update'
-      redirect_to foods_path
+      redirect_to admin_foods_path
     else
       @model = @food
       flash.now[:danger] = 'Makanan gagal di update'
@@ -49,7 +49,7 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy 
     flash[:success] = 'Makanan berhasil di hapus'
-    redirect_to foods_path  
+    redirect_to admin_foods_path  
   end
 
   private

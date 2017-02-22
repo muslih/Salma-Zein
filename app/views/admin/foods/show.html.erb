@@ -3,7 +3,7 @@
         <div class="card">
         <div class="header">
             <h4 class="title">
-              <%= link_to 'Kembali', foods_path, :class=>"btn btn-warning btn-fill pull-right" %>
+              <%= link_to 'Kembali', admin_foods_path, :class=>"btn btn-warning btn-fill pull-right" %>
             </h4>
           </div>
 			<h2>Resep <%= @food.name%></h2>
@@ -27,7 +27,7 @@
              </div>
 
               <fieldset>
-                    <%= link_to 'Edit', edit_food_path(@food), class:"btn btn-fill btn-primary" %>
+                    <%= link_to 'Edit', edit_admin_food_path(@food), class:"btn btn-fill btn-primary" %>
               </fieldset>
             </div>
           </div>

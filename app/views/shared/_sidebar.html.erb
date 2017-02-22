@@ -91,6 +91,22 @@
                     </div>
                 </li>
                 <li>
+                    <a data-toggle="collapse" href="#foodMenu" class="collapsed" aria-expanded="false">
+                        <i class="pe-7s-coffee"></i>
+                        <p>Food <b class="caret"></b></p>
+                    </a>
+                    <div class="collapse" id="foodMenu" aria-expanded="false" style="height: auto;">
+                        <ul class="nav subnav">
+                            <li class="<%= active_class admin_foods_path %>" >
+                                <%= link_to 'food', admin_foods_path %>
+                            </li>
+                            <li class="<%= active_class admin_food_menus_path %>" >
+                                <%= link_to 'Supplier', admin_food_menus_path %>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
                     <a href="user.html">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
