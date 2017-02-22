@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cycle:</strong>
+  <%= @food_menu.cycle %>
+</p>
+
+<p>
+  <strong>Flight class:</strong>
+  <%= @food_menu.flight_class %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @food_menu.name %>
+</p>
+
+<p>
+  <strong>Start date peroid:</strong>
+  <%= @food_menu.start_date_peroid %>
+</p>
+
+<p>
+  <strong>Date peroid end:</strong>
+  <%= @food_menu.date_peroid_end %>
+</p>
+
+<%= link_to 'Edit', edit_food_menu_path(@food_menu) %> |
+<%= link_to 'Back', food_menus_path %>

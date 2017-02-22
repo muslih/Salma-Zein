@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Master Menu Makanan
+                <%= link_to 'Tambah Menu Makanan', new_food_menu_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                  
+                </h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th>Cycle</th>
+                    <th>Flight class</th>
+                    <th>Nama Menu</th>
+                    <th>Start date peroid</th>
+                    <th>Date peroid end</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @food_menus.each do |food_menu| %>
+                    <tr>
+                      <td><%= food_menu.cycle_id %></td>
+                      <td><%= food_menu.flight_class_id %></td>
+                      <td><%= food_menu.name %></td>
+                      <td><%= food_menu.start_date_peroid.strftime('%d %B %Y') %></td>
+                      <td><%= food_menu.date_peroid_end.strftime('%d %B %Y') %></td>
+                      <td><%= link_to 'Detail', food_menu %></td>
+                      <td><%= link_to 'Edit', edit_food_menu_path(food_menu), class:'text-info' %></td>
+                      <td><%= link_to 'Hapus', food_menu, method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222104305) do
+ActiveRecord::Schema.define(version: 20170222114814) do
 
   create_table "departments", force: :cascade do |t|
     t.integer  "station_id"
@@ -42,6 +42,30 @@ ActiveRecord::Schema.define(version: 20170222104305) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "food_menu_details", force: :cascade do |t|
+    t.integer  "food_menu_id"
+    t.integer  "food_id"
+    t.integer  "food_qty"
+    t.decimal  "weight"
+    t.boolean  "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["food_id"], name: "index_food_menu_details_on_food_id"
+    t.index ["food_menu_id"], name: "index_food_menu_details_on_food_menu_id"
+  end
+
+  create_table "food_menus", force: :cascade do |t|
+    t.integer  "cycle_id"
+    t.integer  "flight_class_id"
+    t.string   "name"
+    t.date     "start_date_peroid"
+    t.date     "date_peroid_end"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["cycle_id"], name: "index_food_menus_on_cycle_id"
+    t.index ["flight_class_id"], name: "index_food_menus_on_flight_class_id"
   end
 
   create_table "food_recipes", force: :cascade do |t|
