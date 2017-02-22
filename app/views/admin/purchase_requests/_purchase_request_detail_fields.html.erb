@@ -1,9 +1,14 @@
 <fieldset>
-    <div class="form-group">
-    <% @suplier = Supplier.find(1)%>
-	  <%= f.collection_select(:item_id, @suplier.items.all, :id, :name) %>  
-	  <%= f.number_field :qty %>  
-	  <%= f.hidden_field :_destroy %>
-	  <%= link_to "remove", '#', class: "btn btn-sm btn-danger remove_fields" %>  
+
+	<div class="col-sm-6" >
+		<%= f.collection_select(:item_id, Item.all, :id, :name, {prompt: "Pilih Item Berdasarkan Supplier"}, {class: "form-control"}) %>
 	</div>
- </fieldset>
+	<div class="col-sm-2">
+		<%= f.number_field :qty, class: 'form-control' %> 
+	</div>
+	<div class="col-sm-2">
+		<%= f.hidden_field :_destroy %>
+		<%= link_to "remove", '#', class: "btn btn-sm btn-danger remove_fields" %>
+	</div>
+
+</fieldset>

@@ -25,8 +25,9 @@ class Admin::PurchaseRequestsController < AdminController
     @purchase_request.employee_id = current_user.employees.first.id
     @purchase_request.date_created = DateTime.now
     @purchase_request.total = @purchase_request.total_all
+    @purchase_request.status = ''
     if @purchase_request.save
-      flash[:success] = 'Purchase Request di tambah'
+      flash[:success] = 'Purchase Request berhasil di tambah'
       redirect_to admin_purchase_requests_path
     else
       flash.now[:danger] = 'Barang gagal di tambah'
@@ -39,7 +40,7 @@ class Admin::PurchaseRequestsController < AdminController
   def update
     @purchase_request.total = @purchase_request.total_all
     if @purchase_request.update(purchase_request_params)
-      flash[:success] = 'Purchase Request di update'
+      flash[:success] = 'Purchase Request berhasil di update'
       redirect_to admin_purchase_requests_path
     else
       @model = @purchase_request

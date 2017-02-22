@@ -30,13 +30,12 @@
     <div class="form-group">
       <%= f.label :purchase_request_details, "Item",class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
+        
         <div class="panel panel-default">
           <div class="panel-body">
-            <%= f.fields_for :purchase_request_details do |builder| %>   
-              <%= render 'purchase_request_detail_fields', f: builder %>   
-            <% end %>
-            <div class="col-sm-2 col-sm-10">
-              <%= link_to_add_fields "Tambah Item", f, :purchase_request_details %>   
+            <div class="col-sm-4 col-sm-10">
+              <%= link_to_add_fields "Tambah Item", f, :purchase_request_details %>
+              
             </div>
           </div>
         </div>
@@ -75,21 +74,3 @@
       </div>
   </fieldset>
 <% end %>
-
-
-<script type="text/javascript">   
-  jQuery(function() {   
-   $('form').on('click', '.remove_fields', function(event) {   
-   $(this).prev('input[type=hidden]').val('1');   
-   $(this).closest('fieldset').hide();   
-   return event.preventDefault();   
-   });   
-   return $('form').on('click', '.add_fields', function(event) {   
-   var regexp, time;   
-   time = new Date().getTime();   
-   regexp = new RegExp($(this).data('id'), 'g');   
-   $(this).before($(this).data('fields').replace(regexp, time));   
-   return event.preventDefault();   
-   });   
-  });   
-  </script>
