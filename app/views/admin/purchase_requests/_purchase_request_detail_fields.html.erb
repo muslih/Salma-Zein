@@ -1,5 +1,5 @@
 <fieldset>
-
+<div class="form-group">
 	<div class="col-sm-6" >
 		<%= f.collection_select(:item_id, Item.all, :id, :name, {prompt: "Pilih Item Berdasarkan Supplier"}, {class: "form-control"}) %>
 	</div>
@@ -10,5 +10,5 @@
 		<%= f.hidden_field :_destroy %>
 		<%= link_to "remove", '#', class: "btn btn-sm btn-danger remove_fields" %>
 	</div>
-
+</div>
 </fieldset>
