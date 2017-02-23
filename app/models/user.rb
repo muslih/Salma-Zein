@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	attr_accessor :remember_token
+	has_many :employees
 	has_secure_password
 	validates :username, :presence => {message: "Username harus di isi !!"}
 	validates :email, :presence => {message: "Email harus di isi !!"}

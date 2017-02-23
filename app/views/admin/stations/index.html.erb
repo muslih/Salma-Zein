@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Master Station
+                <%= link_to 'Tambah Station', new_admin_station_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                  
+                </h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                  <thead>
+                  <tr>
+                    <th>Nama Station</th>
+                    <th colspan="2"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @stations.each do |station| %>
+                    <tr>
+                      <td><%= station.name %></td>
+                      <td><%= link_to 'Edit', edit_admin_station_path(station),class:'text-info' %></td>
+                      <td><%= link_to 'Hapus', admin_station_path(station), method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>

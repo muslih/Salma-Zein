@@ -1,0 +1,18 @@
+<%= form_for [:admin, @education] do |f| %>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name, "Pendidikan",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
+<% end %>

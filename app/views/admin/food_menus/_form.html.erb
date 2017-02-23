@@ -1,0 +1,70 @@
+<%= form_for [:admin, @food_menu] do |f| %>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :cycle_id,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :cycle_id, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :flight_class_id, class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :flight_class_id, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class:'form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :start_date_peroid,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.date_select(:start_date_peroid, {:order => [:day, :month, :year]},{:class=>"form-control datepicker",:style=>"width:32%;display:inline-block"})%>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :date_peroid_end,class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.date_select(:date_peroid_end, {:order => [:day, :month, :year]},{:class=>"form-control datepicker",:style=>"width:32%;display:inline-block"})%>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :food_menu_details, "Menu",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= f.fields_for :food_menu_details do |builder| %>   
+              <%= render 'food_menu_detail_fields', f: builder %>   
+            <% end %>
+              <%= link_to_add_menus "Tambah Makanan", f, :food_menu_details %>   
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
+<% end %>

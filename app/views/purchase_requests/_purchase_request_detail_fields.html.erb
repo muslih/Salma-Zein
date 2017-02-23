@@ -1,9 +1,0 @@
-<fieldset>
-    <div class="form-group">
-    <% @suplier = Supplier.find(1)%>
-	  <%= f.collection_select(:item_id, @suplier.items.all, :id, :name) %>  
-	  <%= f.number_field :qty %>  
-	  <%= f.hidden_field :_destroy %>
-	  <%= link_to "remove", '#', class: "btn btn-sm btn-danger remove_fields" %>  
-	</div>
- </fieldset>

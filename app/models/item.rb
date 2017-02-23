@@ -12,4 +12,18 @@ class Item < ApplicationRecord
 	validates :spec, :presence => {message: "Spesifikasi Barang harus di isi !!"}
 	validates :price, :presence => {message: "Harga Barang harus di isi !!"}
 	validates :desc, :presence => {message: "Deskripsi Barang harus di isi !!"}
+
+	def price_rp
+	  "Rp. #{helper.number_with_delimiter(self.price, delimiter: ".") }"
+	end
+
+	 private
+	def helper
+		Helper.instance
+	end
+
+	class Helper
+		include Singleton
+		include ActionView::Helpers::NumberHelper
+	end
 end
