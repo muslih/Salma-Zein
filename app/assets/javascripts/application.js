@@ -37,7 +37,11 @@ $(document).ready(function(){
 });
 
 $(document).on("focus", "[data-behaviour~='pickadate']", function(e) {
-  $(this).pickadate()
+  $(this).pickadate({
+  	selectYears: true,
+ 	selectMonths: true
+  })
+
 });
 
 // jQuery(function() {   
