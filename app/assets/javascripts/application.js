@@ -38,8 +38,9 @@ $(document).ready(function(){
 
 $(document).on("focus", "[data-behaviour~='pickadate']", function(e) {
   $(this).pickadate({
-  	selectYears: true,
+  	selectYears: 40,
  	selectMonths: true
+
   })
 
 });
