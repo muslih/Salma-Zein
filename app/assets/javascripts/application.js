@@ -14,13 +14,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap-datepicker
-//= require_tree .
 
+//= require pickdate/picker
+//= require pickdate/picker.date 
+//= require pickdate/picker.time 
+//= require_tree .
+//= require_self
 
 $(document).ready(function(){
 
-    demo.initChartist();
+    // demo.initChartist();
 
     // $.notify({
     //     icon: 'pe-7s-gift',
@@ -30,6 +33,15 @@ $(document).ready(function(){
     //       type: 'info',
     //       timer: 4000
     //   });
+
+});
+
+$(document).on("focus", "[data-behaviour~='pickadate']", function(e) {
+  $(this).pickadate({
+  	selectYears: 40,
+ 	selectMonths: true
+
+  })
 
 });
 
