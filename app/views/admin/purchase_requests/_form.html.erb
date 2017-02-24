@@ -27,20 +27,64 @@
   </fieldset>
 
   <fieldset>
-    <div class="form-group">
-      <%= f.label :purchase_request_details, "Item",class:"col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <%= f.fields_for :purchase_request_details do |builder| %>   
-              <%= render 'purchase_request_detail_fields', f: builder %>   
-            <% end %>
-              <%= link_to_add_fields "Tambah Item", f, :purchase_request_details %>   
+  <%= f.label "test", "Item",class:"col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-title">
+                  Menu Makanan
+              </div>
+            </div>
+            <div class="panel-body">
+              <%= f.fields_for :food_menus do |builder| %>   
+                <%= render 'food_menu_fields', f: builder %>   
+              <% end %>
+              <%= link_to_add_fields "Tambah Menu Makanan", f, :food_menus %>  
+            </div>
           </div>
         </div>
+
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-title">
+                Makanan
+              </div>
+            </div>
+            <div class="panel-body">
+              <%= f.fields_for :foods do |builder| %>   
+                <%= render 'food_fields', f: builder %>   
+              <% end %>
+              <%= link_to_add_fields "Tambah Makanan", f, :foods %>  
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-title">
+                Item
+              </div>
+            </div>
+            <div class="panel-body">
+              <%= f.fields_for :purchase_request_details do |builder| %>   
+                <%= render 'purchase_request_detail_fields', f: builder %>   
+              <% end %>
+              <%= link_to_add_fields "Tambah Item", f, :purchase_request_details %>   
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
+  </div>
   </fieldset>
+
 
   <fieldset>
     <div class="form-group">
