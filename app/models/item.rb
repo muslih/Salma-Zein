@@ -9,9 +9,9 @@ class Item < ApplicationRecord
 	validates :supplier_id, :presence => {message: "Supplier harus di isi !!"}
 	validates :code, :presence => {message: "Kode Barang harus di isi !!"}
 	validates :name, :presence => {message: "Nama Barang harus di isi !!"}
-	validates :spec, :presence => {message: "Spesifikasi Barang harus di isi !!"}
+	# validates :spec, :presence => {message: "Spesifikasi Barang harus di isi !!"}
 	validates :price, :presence => {message: "Harga Barang harus di isi !!"}
-	validates :desc, :presence => {message: "Deskripsi Barang harus di isi !!"}
+	# validates :desc, :presence => {message: "Deskripsi Barang harus di isi !!"}
 
 	def price_rp
 	  "Rp. #{helper.number_with_delimiter(self.price, delimiter: ".") }"
@@ -25,5 +25,9 @@ class Item < ApplicationRecord
 	class Helper
 		include Singleton
 		include ActionView::Helpers::NumberHelper
+	end
+
+	def name_item
+		"#{self.name} - (#{self.item_unit.name})"
 	end
 end

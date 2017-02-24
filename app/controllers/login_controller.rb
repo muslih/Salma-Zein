@@ -14,7 +14,7 @@ class LoginController < ApplicationController
     	flash[:success] = 'Berhasil login'
       	redirect_to admin_items_path
     else
-    	flash.now[:danger] = 'Username / Password salah'
+    	flash[:danger] = 'Username / Password salah'
     	render 'new',layout: 'blank'
     end
   end

@@ -13,6 +13,7 @@ class Admin::UsersController < AdminController
 
   # GET /users/1/edit
   def edit
+    @employee = Employee.all
   end
 
   # POST /users
