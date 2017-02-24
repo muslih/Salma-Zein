@@ -1,13 +1,13 @@
 <fieldset>
-<div class="form-group">
+<div class="form-group row">
 	<div class="col-sm-6" >
-		<%= f.collection_select(:item_id, Item.order(:name), :id, :name, {prompt: "Pilih Item Berdasarkan Supplier"}, {class: "form-control"}) %>
+		<%= f.select :item_id, options_for_select(Item.order(:name).map{ |c| [c.name, c.id, {'data-unit'=>c.item_unit.name}] }),{},class:"form-control item_select" %>
 	</div>
 	<div class="col-sm-1">
 		<%= f.number_field :qty, class: 'form-control' %> 
 	</div>
 	<div class="col-sm-1 unit">
-		
+		<%= f.text_field :show_unit, class: 'form-control', disabled:true %>
 	</div>
 	<div class="col-sm-2">
 		<%= f.hidden_field :_destroy %>

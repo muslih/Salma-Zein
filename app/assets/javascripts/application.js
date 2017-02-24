@@ -40,10 +40,17 @@ $(document).on("focus", "[data-behaviour~='pickadate']", function(e) {
   $(this).pickadate({
   	selectYears: 40,
  	selectMonths: true
-
   })
-
 });
+
+$(document).on("change", ".item_select", function(e) {
+  // console.log($(this));
+  console.log($(this).find("option:selected").data('unit'));
+  unit_val = $(this).find("option:selected").data('unit');
+  $(this).parent().parent().parent().find('.unit input').val(unit_val);
+});
+
+
 
 // jQuery(function() {   
 //    $('form').on('click', '.remove_fields', function(event) {   

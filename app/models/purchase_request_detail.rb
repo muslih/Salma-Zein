@@ -23,7 +23,12 @@ class PurchaseRequestDetail < ApplicationRecord
     "Rp. #{helper.number_with_delimiter(self.total, delimiter: ".") }"
   end
 
+  def show_unit
+    self.try(:item).try(:item_unit).try(:name)
+  end
+  
   private
+
   def helper
     Helper.instance
   end
