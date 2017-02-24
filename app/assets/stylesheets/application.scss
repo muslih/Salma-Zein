@@ -5,6 +5,10 @@
 @import "dash_theme";
 @import "icon";
 
+@import "pickdate/themes/default";
+@import "pickdate/themes/default.date";
+@import "pickdate/themes/default.time";
+
 .panel-heading{
   height: 45px !important;
   line-height: 30px !important;
