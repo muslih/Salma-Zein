@@ -1,0 +1,11 @@
+<fieldset>
+<div class="form-group">
+	<div class="col-md-9" >
+		<%= f.collection_select(:food_recipes, Food.all, :id, :name, {prompt: "Pilih Makanan"}, {class: "form-control"}) %>
+	</div>
+	<div class="col-sm-2">
+		<%= f.hidden_field :_destroy %>
+		<%= link_to "remove", '#', class: "btn btn-md btn-danger remove_fields" %>
+	</div>
+</div>
+</fieldset>

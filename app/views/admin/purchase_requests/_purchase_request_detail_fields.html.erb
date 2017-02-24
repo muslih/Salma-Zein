@@ -3,15 +3,15 @@
 	<div class="col-sm-6" >
 		<%= f.select :item_id, options_for_select(Item.order(:name).map{ |c| [c.name, c.id, {'data-unit'=>c.item_unit.name}] },selected: f.object.item_id),{prompt: "-- Pilih Item --"},class:"form-control item_select" %>
 	</div>
-	<div class="col-sm-1">
+	<div class="col-sm-2">
 		<%= f.number_field :qty, class: 'form-control' %> 
 	</div>
-	<div class="col-sm-1 unit">
+	<div class="col-sm-2 unit">
 		<%= f.text_field :show_unit, class: 'form-control', disabled:true %>
 	</div>
 	<div class="col-sm-2">
 		<%= f.hidden_field :_destroy %>
-		<%= link_to "remove", '#', class: "btn btn-sm btn-danger remove_fields" %>
+		<%= link_to "remove", '#', class: "btn btn-md btn-danger remove_fields" %>
 	</div>
 </div>
 </fieldset>
