@@ -71,6 +71,12 @@
             admin_tolak_pr_path(@purchase_request),
             method: "patch",data:{
             confirm: "Tolak PR #{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-danger' %>
+        <% if @purchase_request.status == true %>
+        <%= link_to 'Terbitkan PO',
+            admin_terbitkan_po_path(@purchase_request),
+            method: "get",data:{
+            confirm: "Terbitkan PO ##{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>

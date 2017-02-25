@@ -1,4 +1,5 @@
 class Admin::PurchaseOrdersController < AdminController
+  before_action :set_pr
   before_action :set_purchase_order, only: [:show, :edit, :update, :destroy]
 
   # GET /purchase_orders
@@ -23,6 +24,7 @@ class Admin::PurchaseOrdersController < AdminController
   def create
     @purchase_order = PurchaseOrder.new(purchase_order_params)
 
+    @purchase_order.purchase_request_id = @pr.id
     if @purchase_order.save
       flash[:success] = 'Purchase Order berhasil di tambah'
       redirect_to admin_purchase_orders_path
@@ -53,13 +55,16 @@ class Admin::PurchaseOrdersController < AdminController
   end
 
   private
+    def set_pr
+      @pr = PurchaseRequest.find(params[:id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase_order
-      @purchase_order = PurchaseOrder.find(params[:id])
+      @purchase_order = PurchaseOrder.find(params[:purchase_order_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_order_params
-      params.require(:purchase_order).permit(:purchase_order_id, :purchase_order_address_id, :po_number, :arrival_estimated, :status)
+      params.require(:purchase_order).permit(:purchase_request_id, :purchase_order_address_id, :po_number, :arrival_estimated, :status)
     end
 end

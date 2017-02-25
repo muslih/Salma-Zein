@@ -25,8 +25,10 @@ Rails.application.routes.draw do
     resources :foods
     resources :food_menus
     resources :purchase_orders
+    get 'terbitkan_po/:id', to: "purchase_orders#new", as: :terbitkan_po
     patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
-      patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
+    patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
+
   end
 
 
