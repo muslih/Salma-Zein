@@ -34,7 +34,7 @@
                       <td><%= cekproses(purchase_request.status) %></td>
                       <td><%= link_to 'Detail', admin_purchase_request_path(purchase_request),class:'text-info' %></td>
                       <td><%= link_to 'Edit', edit_admin_purchase_request_path(purchase_request),class:'text-info' %></td>
-                      <td><%= link_to 'Destroy', admin_purchase_request_path(purchase_request),class:'text-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td><%= link_to 'Hapus', admin_purchase_request_path(purchase_request),class:'text-danger', method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
                     </tr>
                   <% end %>
                 </tbody>

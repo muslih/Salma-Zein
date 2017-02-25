@@ -1,4 +1,5 @@
 class Admin::PurchaseRequestsController < AdminController
+  before_action :set_pr
   before_action :set_purchase_request, only: [:show, :edit, :update, :destroy]
 
   # GET /purchase_requests
@@ -25,6 +26,7 @@ class Admin::PurchaseRequestsController < AdminController
     @purchase_request.employee_id = current_user.employees.first.id
     @purchase_request.date_created = DateTime.now
     @purchase_request.total = @purchase_request.total_all
+    @purchase_request.pr_number = @purchase_request.generate_pr_number
     @purchase_request.status = ''
     if @purchase_request.save
       flash[:success] = 'Purchase Request berhasil di tambah'
@@ -56,7 +58,31 @@ class Admin::PurchaseRequestsController < AdminController
     redirect_to admin_purchase_requests_path  
   end
 
+  def accept_pr
+    if @pr.update_attribute(:status, true)
+      flash[:success] = 'Purchase request berhasil di direkomendasikan'
+      redirect_to admin_purchase_request_path(@pr.id)  
+    else
+      flash[:danger] = 'Purchase request gagal di direkomendasikan'
+      redirect_to admin_purchase_request_path(purchase_request) 
+    end
+  end
+
+  def reject_pr
+    if @pr.update_attribute(:status, false)
+      flash[:success] = 'Purchase request di tolak'
+      redirect_to admin_purchase_request_path(@pr.id)  
+    else
+      flash[:danger] = 'Purchase request gagal di tolak'
+      redirect_to admin_purchase_request_path(purchase_request) 
+    end
+  end
+
   private
+    def set_pr
+        @pr = PurchaseRequest.find(params[:id]) if params[:id]
+      end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase_request
       @purchase_request = PurchaseRequest.find(params[:id])

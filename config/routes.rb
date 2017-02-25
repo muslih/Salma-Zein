@@ -26,7 +26,10 @@ Rails.application.routes.draw do
     resources :purchase_requests
     resources :foods
     resources :food_menus
+    patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
+      patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
   end
+
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

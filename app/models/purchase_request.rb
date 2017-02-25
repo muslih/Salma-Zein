@@ -9,6 +9,11 @@ class PurchaseRequest < ApplicationRecord
   	self.purchase_request_details.map { |i| i.subtotal }
   end
 
+  def generate_pr_number
+    @lpn = PurchaseRequest.last.pr_number
+    self.pr_number = (@lpn.to_i + 1).to_s.rjust(5, '0')
+  end
+
   def total_all
   	subtotals.sum
   end
