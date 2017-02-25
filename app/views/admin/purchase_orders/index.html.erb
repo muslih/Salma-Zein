@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Master Purchase Order
+                <%= link_to 'Tambah Data', new_admin_purchase_order_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                </h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th>Purchase request</th>
+                    <th>Purchase order address</th>
+                    <th>Po number</th>
+                    <th>Arrival estimated</th>
+                    <th>Status</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @purchase_orders.each do |purchase_order| %>
+                    <tr>
+                      <td><%= purchase_order.purchase_request %></td>
+                      <td><%= purchase_order.purchase_order_address %></td>
+                      <td><%= purchase_order.po_number %></td>
+                      <td><%= purchase_order.arrival_estimated %></td>
+                      <td><%= purchase_order.status %></td>
+                      <td><%= link_to 'Show', purchase_order %></td>
+                      <td><%= link_to 'Edit', edit_purchase_order_path(purchase_order) %></td>
+                      <td><%= link_to 'Destroy', purchase_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>

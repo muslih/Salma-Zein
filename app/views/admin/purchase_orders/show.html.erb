@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Purchase request:</strong>
+  <%= @purchase_order.purchase_request %>
+</p>
+
+<p>
+  <strong>Purchase order address:</strong>
+  <%= @purchase_order.purchase_order_address %>
+</p>
+
+<p>
+  <strong>Po number:</strong>
+  <%= @purchase_order.po_number %>
+</p>
+
+<p>
+  <strong>Arrival estimated:</strong>
+  <%= @purchase_order.arrival_estimated %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @purchase_order.status %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_order_path(@purchase_order) %> |
+<%= link_to 'Back', purchase_orders_path %>

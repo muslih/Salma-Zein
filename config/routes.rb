@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :food_menus
-  resources :foods
   get 'sessions/new'
   
   root 'login#new'
@@ -26,6 +24,7 @@ Rails.application.routes.draw do
     resources :purchase_requests
     resources :foods
     resources :food_menus
+    resources :purchase_orders
     patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
       patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
   end

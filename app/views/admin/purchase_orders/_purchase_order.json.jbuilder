@@ -1,0 +1,2 @@
+json.extract! purchase_order, :id, :purchase_request_id, :purchase_order_address_id, :po_number, :arrival_estimated, :status, :created_at, :updated_at
+json.url purchase_order_url(purchase_order, format: :json)
