@@ -3,7 +3,7 @@ class PurchaseRequest < ApplicationRecord
   has_many :purchase_request_details
   has_many :foods
   has_many :food_menus
-  has_one :purchase_order
+  has_many :purchase_orders
   accepts_nested_attributes_for :purchase_request_details, allow_destroy: true
 
   def subtotals

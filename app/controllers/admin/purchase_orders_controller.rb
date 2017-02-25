@@ -13,7 +13,8 @@ class Admin::PurchaseOrdersController < AdminController
 
   # GET /purchase_orders/new
   def new
-    @purchase_order = PurchaseOrder.new
+    # @purchase_order = PurchaseOrder.new
+    @purchase_order = @pr.purchase_orders.new
   end
 
   # GET /purchase_orders/1/edit
@@ -56,7 +57,7 @@ class Admin::PurchaseOrdersController < AdminController
 
   private
     def set_pr
-      @pr = PurchaseRequest.find(params[:id])
+      @pr = PurchaseRequest.find(params[:purchase_request_id])
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase_order

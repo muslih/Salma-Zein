@@ -41,7 +41,7 @@
             <th>Kategori</th>
             <th>price</th>  
             <th>quantity</th>  
-            <th>total</th>
+            <th class="currency">total</th>
            </tr>  
           </thead>  
           <tbody>  
@@ -52,13 +52,16 @@
              <td><%= prd.item.item_category.name %></td>
              <td><%= prd.item.price_rp %></td>
              <td><%= prd.qty %> <%= prd.item.item_unit.name %></td>
-             <td><%= prd.total_rp %></td>
+             <td class="currency"><%= prd.total_rp %></td>
             </tr>  
            <% end %>  
+           <tr>
+             <td colspan="5" class="currency"><strong>TOTAL</strong></td>
+             <td class="currency"><%= @purchase_request.total_rp%></td>
+           </tr>
           </tbody>  
          </table>  
-      </div>
-      <p class="pull-right"> <u> Total : <%= @purchase_request.total_rp%> </u></p>  
+      </div> 
        <br><br>
       <%= link_to 'Edit', edit_admin_purchase_request_path(@purchase_request), class:"btn btn-fill btn-primary" %>
       <div class="panel pull-right">
@@ -73,7 +76,7 @@
             confirm: "Tolak PR #{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-danger' %>
         <% if @purchase_request.status == true %>
         <%= link_to 'Terbitkan PO',
-            admin_terbitkan_po_path(@purchase_request),
+            new_admin_purchase_request_purchase_order_path(@purchase_request),
             method: "get",data:{
             confirm: "Terbitkan PO ##{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-primary' %>
         <% end %>

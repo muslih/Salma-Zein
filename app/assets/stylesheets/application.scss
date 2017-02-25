@@ -19,3 +19,8 @@ input[type="radio"] {
     -moz-appearance: none; /* Remove default appearance styling for Firefox */
 }
 
+td,th{
+	&.currency{
+		text-align:right !important;
+	}
+}

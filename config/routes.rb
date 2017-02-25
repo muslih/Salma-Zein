@@ -21,11 +21,13 @@ Rails.application.routes.draw do
     resources :items
     resources :item_categories
     resources :item_units
-    resources :purchase_requests
+    resources :purchase_requests do
+      resources :purchase_orders
+    end
     resources :foods
     resources :food_menus
-    resources :purchase_orders
-    get 'terbitkan_po/:id', to: "purchase_orders#new", as: :terbitkan_po
+    
+    # get 'terbitkan_po/:id', to: "purchase_orders#new", as: :terbitkan_po
     patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
     patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
 
