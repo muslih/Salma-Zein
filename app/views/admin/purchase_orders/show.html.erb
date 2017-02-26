@@ -1,29 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="panel panel-default nobreakinside">
+    <div class="panel-body">
+      <div class="col-sm-4">
+              Diminta oleh : <strong><%= @purchase_order.purchase_request.employee.name %></strong><br>
+              Posisi : <strong><%= @purchase_order.purchase_request.employee.position.name %></strong><br>
+              Departemen : <strong><%= @purchase_order.purchase_request.employee.position.department.name %></strong><br>
+              Manajer Departemen : <strong><%= @purchase_order.purchase_request.employee.position.department.manager %></strong>
+            </div>
+            <div class="col-sm-4">
+              No. PO : <strong><%= @purchase_order.po_number %></strong><br>
+              No. PR : <strong><%= @purchase_order.purchase_request.pr_number %></strong><br>
+              Tanggal : <code><strong><%= @purchase_order.purchase_request.date_created.strftime('%d %B %Y') %></strong></code><br>
+              Status : <%= cekproses(@purchase_order.purchase_request.status) %>
+            </div>
+            <div class="col-sm-4">
+             <%= link_to 'Kembali', admin_purchase_orders_path, :class=>"btn btn-warning btn-fill pull-right" %>
+            </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Purchase request:</strong>
-  <%= @purchase_order.purchase_request %>
-</p>
+<% if @purchase_order.purchase_request.status_desc.present? && @purchase_order.purchase_request.status != true %>
+  <div class="panel panel-danger">
+  <div class="panel-heading">
+    Keterangan:
+  </div>
+    <div class="panel-body">
+        <%= @purchase_order.purchase_request.status_desc%>
+    </div>
+  </div>
+<% end %>
 
-<p>
-  <strong>Purchase order address:</strong>
-  <%= @purchase_order.purchase_order_address %>
-</p>
+  <div class="panel panel-default">
+    <div class="panel-body">   
+    <%= link_to 'Print', '#', class:"btn btn-xs btn-warning pull-right" if @purchase_order.purchase_request.status == true & current_user_kitchen & current_user_administrasi & current_user_quality_control %>    
+    <h3>List Barang</h3>
+      <div class="content table-responsive table-full-width">
+        <table class="table table-hover table-striped">
+          <thead>  
+           <tr>  
+            <th>Supplier</th>
+            <th>Barang</th>
+            <th>Kategori</th>
+            <th>price</th>  
+            <th>quantity</th>  
+            <th class="currency">total</th>
+           </tr>  
+          </thead>  
+          <tbody>  
+           <% @purchase_order.purchase_request.purchase_request_details.each do |prd| %>  
+            <tr> 
+             <td><%= prd.item.supplier.name %></td> 
+             <td><%= prd.item.name %></td>
+             <td><%= prd.item.item_category.name %></td>
+             <td><%= ke_rp(prd.item.price) %></td>
+             <td><%= prd.qty %> <%= prd.item.item_unit.name %></td>
+             <td class="currency"><%= ke_rp(prd.total) %></td>
+            </tr>  
+           <% end %>  
+           <tr>
+             <td colspan="5" class="currency"><strong>TOTAL</strong></td>
+             <td class="currency"><%= ke_rp(@purchase_order.purchase_request.total)%></td>
+           </tr>
+          </tbody>  
+         </table>  
+      </div> 
+       <br><br>
+      <%= link_to 'Edit', '#', class:"btn btn-fill btn-primary" %>
+    </div>
+  </div>
 
-<p>
-  <strong>Po number:</strong>
-  <%= @purchase_order.po_number %>
-</p>
-
-<p>
-  <strong>Arrival estimated:</strong>
-  <%= @purchase_order.arrival_estimated %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @purchase_order.status %>
-</p>
-
-<%= link_to 'Edit', edit_admin_purchase_order_path(@purchase_order) %> |
-<%= link_to 'Back', admin_purchase_orders_path %>
+</div>

@@ -37,7 +37,8 @@ Rails.application.routes.draw do
     get 'dashboard_administrasi', to: 'dashboard#index_administrasi', as: 'administrasi_dash'
     get 'dashboard_admin', to: 'dashboard#index_admin', as: 'admin_dash'
 
-
+    patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
+    patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
   end
 
 

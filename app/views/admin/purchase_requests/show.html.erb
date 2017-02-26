@@ -30,8 +30,9 @@
 <% end %>
 
   <div class="panel panel-default">
-    <div class="panel-body">       
-    <h3>List Barang</h3>  
+    <div class="panel-body">   
+    <%= link_to 'Print', '#', class:"btn btn-xs btn-warning pull-right" if @purchase_request.status == true | current_user_kitchen | current_user_administrasi | current_user_quality_control%>    
+    <h3>List Barang</h3>
       <div class="content table-responsive table-full-width">
         <table class="table table-hover table-striped">
           <thead>  
@@ -64,7 +65,9 @@
       </div> 
        <br><br>
       <%= link_to 'Edit', edit_admin_purchase_request_path(@purchase_request), class:"btn btn-fill btn-primary" %>
+
       <div class="panel pull-right">
+      <% if current_user_quality_control %>
         <%= link_to 'Rekomendasikan',
             admin_rekomendasikan_pr_path(@purchase_request),
             method: "patch",data:{
@@ -74,7 +77,8 @@
             admin_tolak_pr_path(@purchase_request),
             method: "patch",data:{
             confirm: "Tolak PR #{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-danger' %>
-        <% if @purchase_request.status == true %>
+      <% end %>
+        <% if @purchase_request.status == true | current_user_administrasi | current_user_logistik %>
         <%= link_to 'Terbitkan PO',
             new_admin_purchase_request_purchase_order_path(@purchase_request),
             method: "get",data:{
