@@ -1,4 +1,12 @@
-    <%# Menu data pegawai %>
+<%= sidemenu admin_administrasi_dash_path, "Dashboard", "pe-7s-graph" %>
+    <%# Profile Pegawai %>
+    <li>
+        <a href="<%= edit_admin_user_path(current_user)%>">
+            <i class="pe-7s-user"></i>
+            <p>User Profile</p>
+        </a>
+    </li>
+<%# Menu data pegawai %>
     <li>
         <a data-toggle="collapse" href="#employeeMenu" class="collapsed" aria-expanded="false">
             <i class="pe-7s-users"></i>

@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
       redirect_to admin_items_path
     end
   end
+
+  def kitchen_only
+    unless current_user.employee.role == 'kitchen'
+      redirect_to admin_index_kitchen_path
+    end
+  end
 end

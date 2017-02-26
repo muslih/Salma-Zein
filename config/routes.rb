@@ -29,10 +29,13 @@ Rails.application.routes.draw do
     resources :purchase_order_addresses
     resources :foods
     resources :food_menus
-    
-    # get 'terbitkan_po/:id', to: "purchase_orders#new", as: :terbitkan_po
-    patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
-    patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
+
+    get 'dashboard', to: 'dashboard#index_administrator', as: 'administrator_dash'
+    get 'dashboard', to: 'dashboard#index_kitchen', as: 'kitchen_dash'
+    get 'dashboard', to: 'dashboard#index_quality_control', as: 'quality_control_dash'
+    get 'dashboard', to: 'dashboard#index_logistik', as: 'logistik_dash'
+    get 'dashboard', to: 'dashboard#index_administrasi', as: 'administrasi_dash'
+    get 'dashboard', to: 'dashboard#index_operational', as: 'operational_dash'
 
   end
 

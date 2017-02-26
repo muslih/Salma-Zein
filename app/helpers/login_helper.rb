@@ -13,6 +13,30 @@ module LoginHelper
 		user == current_user
 	end
 
+	def current_user_administrator
+		current_user.employee.role == 'administrator'
+	end
+
+	def current_user_kitchen
+		current_user.employee.role == 'kitchen'
+	end
+
+	def current_user_quality_control
+		current_user.employee.role == 'quality_control'
+	end
+
+	def current_user_logistik
+		current_user.employee.role == 'logistik'
+	end
+
+	def current_user_administrasi
+		current_user.employee.role == 'administrasi'
+	end
+
+	def current_user_operational
+		current_user.employee.role == 'operational'
+	end
+
   	def current_user
 		if (user_id = session[:user_id])
 			@current_user ||= User.find_by(id: user_id)
