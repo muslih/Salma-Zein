@@ -1,5 +1,5 @@
 class Admin::PurchaseOrdersController < AdminController
-  before_action :set_pr
+  before_action :set_pr, on: [:new, :create]
   before_action :set_purchase_order, only: [:show, :edit, :update, :destroy]
 
   # GET /purchase_orders
@@ -13,8 +13,11 @@ class Admin::PurchaseOrdersController < AdminController
 
   # GET /purchase_orders/new
   def new
-    # @purchase_order = PurchaseOrder.new
-    @purchase_order = @pr.purchase_orders.new
+    if @pr
+      @purchase_order = @pr.purchase_orders.new
+    else
+      @purchase_order = PurchaseOrder.new
+    end
   end
 
   # GET /purchase_orders/1/edit
@@ -57,11 +60,15 @@ class Admin::PurchaseOrdersController < AdminController
 
   private
     def set_pr
-      @pr = PurchaseRequest.find(params[:purchase_request_id])
+      @pr = PurchaseRequest.find(params[:purchase_request_id]) if params[:purchase_request_id]
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase_order
-      @purchase_order = PurchaseOrder.find(params[:purchase_order_id])
+      if params[:purchase_order_id]
+        @purchase_order = PurchaseOrder.find(params[:purchase_order_id])
+      else
+        @purchase_order = PurchaseOrder.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

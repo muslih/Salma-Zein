@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @purchase_order_address.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @purchase_order_address.address %>
+</p>
+
+<p>
+  <strong>Pic:</strong>
+  <%= @purchase_order_address.pic %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @purchase_order_address.phone %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_order_address_path(@purchase_order_address) %> |
+<%= link_to 'Back', purchase_order_addresses_path %>

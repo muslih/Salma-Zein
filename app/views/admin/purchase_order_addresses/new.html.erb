@@ -3,13 +3,13 @@
         <div class="card">
             <div class="header">
                 <h4 class="title">
-                Tambah Purchase Order
-                <%= link_to 'Kembali', admin_purchase_orders_path, class: "btn btn-fill btn-danger pull-right" %>
+                Tambah Alamat Purchase Order
+                <%= link_to 'Kembali', admin_purchase_order_addresses_path, class: "btn btn-fill btn-danger pull-right" %>
                 </h4>
                 <hr>
             </div>
             <div class="content table-responsive table-full-width">
-				<%= render 'form', purchase_order: @purchase_order %>
+				<%= render 'form', purchase_order_address: @purchase_order_address %>
             </div>
         </div>
     </div>

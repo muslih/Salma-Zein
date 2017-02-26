@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'sessions/new'
   
   root 'login#new'
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
     resources :purchase_requests do
       resources :purchase_orders
     end
+    resources :purchase_orders
+    resources :purchase_order_addresses
     resources :foods
     resources :food_menus
     

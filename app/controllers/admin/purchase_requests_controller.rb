@@ -26,7 +26,7 @@ class Admin::PurchaseRequestsController < AdminController
     @purchase_request.employee_id = current_user.employees.first.id
     @purchase_request.date_created = DateTime.now
     @purchase_request.total = @purchase_request.total_all
-    @purchase_request.pr_number = @purchase_request.generate_pr_number
+    # @purchase_request.pr_number = @purchase_request.generate_pr_number
     @purchase_request.status = ''
     if @purchase_request.save
       flash[:success] = 'Purchase Request berhasil di tambah'
