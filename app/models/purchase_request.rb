@@ -13,8 +13,8 @@ class PurchaseRequest < ApplicationRecord
   end
 
   def generate_pr_number
-    @lpn = PurchaseRequest.last.pr_number
-    self.pr_number = "PR-#{DateTime.now.strftime('%y%m%e')}"+(@lpn.to_i + 2).to_s.rjust(7, '0')
+    @lpn = PurchaseRequest.last.try(:pr_number)
+    self.pr_number = "PR-#{DateTime.now.strftime('%y%m%e')}"+(@lpn.to_i + 1).to_s.rjust(7, '0')
   end
 
   def total_all

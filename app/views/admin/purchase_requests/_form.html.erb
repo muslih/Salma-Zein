@@ -2,18 +2,18 @@
 
   <fieldset>
     <div class="form-group">
-      <%= f.label :date_required,class:"col-sm-2 control-label" %>
+      <%= f.label :date_required, 'Tanggal Diperlukan',class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.date_select(:date_required, {:order => [:day, :month, :year]},{:class=>"form-control datepicker",:style=>"width:32%;display:inline-block"})%>
+        <%= f.text_field :date_required,'data-value'=>@purchase_request.date_required,'data-behaviour' => 'pickadate',class:'form-control', paceholder: 'Pick a date' %>
       </div>
     </div>
   </fieldset>
 
   <fieldset>
     <div class="form-group">
-      <%= f.label :request_reason,class:"col-sm-2 control-label" %>
+      <%= f.label :request_reason, 'Alasan pengajuan',class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :request_reason, class:'form-control' %>
+        <%= f.text_field :request_reason, class:'form-control', placeholder: 'Alasan pengajuan' %>
       </div>
     </div>
   </fieldset>
@@ -81,7 +81,7 @@
     <div class="form-group">
       <%= f.label :status_desc, 'Keterangan',class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :status_desc, class: 'form-control' %>
+        <%= f.text_field :status_desc, class: 'form-control', placeholder: 'Keterangan' %>
       </div>
     </div>
   </fieldset>
