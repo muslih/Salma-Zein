@@ -11,10 +11,10 @@ class LoginController < ApplicationController
     if user && user.authenticate(params[:login][:password])
     	log_in user
     	params[:login][:remember_me] == '1' ? remember(user) : forget(user)
-    	flash[:success] = 'Berhasil login'
+    	flash[:success] = "Selamat datang #{user.employee.name} - #{user.employee.role}"
       if current_user_administrator
         redirect_to admin_administrator_dash_path
-      elsif current_user_kitchen
+      elsif user.employee.role == 'kitchen'
         redirect_to admin_kitchen_dash_path
       elsif current_user_quality_control
         redirect_to admin_quality_control_dash_path

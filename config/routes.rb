@@ -30,12 +30,12 @@ Rails.application.routes.draw do
     resources :foods
     resources :food_menus
 
-    get 'dashboard', to: 'dashboard#index_administrator', as: 'administrator_dash'
-    get 'dashboard', to: 'dashboard#index_kitchen', as: 'kitchen_dash'
-    get 'dashboard', to: 'dashboard#index_quality_control', as: 'quality_control_dash'
-    get 'dashboard', to: 'dashboard#index_logistik', as: 'logistik_dash'
-    get 'dashboard', to: 'dashboard#index_administrasi', as: 'administrasi_dash'
-    get 'dashboard', to: 'dashboard#index_operational', as: 'operational_dash'
+    get 'dashboard_administrator', to: 'dashboard#index_administrator', as: 'administrator_dash'
+    get 'dashboard_kitchen', to: 'dashboard#index_kitchen', as: 'kitchen_dash'
+    get 'dashboard_quality_control', to: 'dashboard#index_quality_control', as: 'quality_control_dash'
+    get 'dashboard_logistik', to: 'dashboard#index_logistik', as: 'logistik_dash'
+    get 'dashboard_administrasi', to: 'dashboard#index_administrasi', as: 'administrasi_dash'
+    get 'dashboard_operational', to: 'dashboard#index_operational', as: 'operational_dash'
 
   end
 

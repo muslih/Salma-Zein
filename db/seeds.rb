@@ -23,12 +23,12 @@ pn5 = Position.create(name: 'Administrasi', department_id: 1)
 pn6 = Position.create(name: 'Operational', department_id: 1)
 
 # user
-us1 = User.create(username: 'administrator', password: 'administrator', password_confirmation: 'asdasd', email: 'administrator@gmail.com')
-us2 = User.create(username: 'kitchen', password: 'kitchen', password_confirmation: 'asdasd', email: 'kitchen@gmail.com')
-us3 = User.create(username: 'qualitycontrol', password: 'qualitycontrol', password_confirmation: 'asdasd', email: 'qualitycontrol@gmail.com')
-us4 = User.create(username: 'logistik', password: 'logistik', password_confirmation: 'asdasd', email: 'logistik@gmail.com')
-us5 = User.create(username: 'administrasi', password: 'administrasi', password_confirmation: 'asdasd', email: 'administrasi@gmail.com')
-us6 = User.create(username: 'operational', password: 'operational', password_confirmation: 'asdasd', email: 'operational@gmail.com')
+us1 = User.create(username: 'administrator', password: 'administrator', password_confirmation: 'administrator', email: 'administrator@gmail.com')
+us2 = User.create(username: 'kitchen', password: 'kitchen', password_confirmation: 'kitchen', email: 'kitchen@gmail.com')
+us3 = User.create(username: 'qualitycontrol', password: 'qualitycontrol', password_confirmation: 'qualitycontrol', email: 'qualitycontrol@gmail.com')
+us4 = User.create(username: 'logistik', password: 'logistik', password_confirmation: 'logistik', email: 'logistik@gmail.com')
+us5 = User.create(username: 'administrasi', password: 'administrasi', password_confirmation: 'administrasi', email: 'administrasi@gmail.com')
+us6 = User.create(username: 'operational', password: 'operational', password_confirmation: 'operational', email: 'operational@gmail.com')
 
 
 # Religion
