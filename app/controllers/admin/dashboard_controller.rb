@@ -6,6 +6,9 @@ class Admin::DashboardController < AdminController
 	before_action :current_user_administrasi ,only: [:index_administrasi]
 	before_action :current_user_operational ,only: [:index_operational]
 	
+	def index_admin
+	end
+
 	def index_administrator
 	end
 

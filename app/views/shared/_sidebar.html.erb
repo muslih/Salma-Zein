@@ -14,6 +14,7 @@
                 </a>
             </div>
             <ul class="nav">
+            <%= render 'shared/sidebar/admin_sidebar' if current_user_admin %>
             <%= render 'shared/sidebar/administrator_sidebar' if current_user_administrator %>
             <%= render 'shared/sidebar/kitchen_sidebar' if current_user_kitchen %>
             <%= render 'shared/sidebar/quality_control_sidebar' if current_user_quality_control %>

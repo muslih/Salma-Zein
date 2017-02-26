@@ -3,8 +3,8 @@
         <div class="card">
             <div class="header">
                 <h4 class="title">
-                Master Purchase Request
-                <%= link_to 'Tambah Data', new_admin_purchase_request_path, :class=>"btn btn-warning btn-fill pull-right" if !current_user_quality_control %>
+                Purchase Request
+                <%= link_to 'Tambah Data', new_admin_purchase_request_path, :class=>"btn btn-warning btn-fill pull-right" if !current_user_quality_control & !current_user_logistik & !current_user_administrasi %>
                 </h4>
             </div>
             <div class="content table-responsive table-full-width">
@@ -33,8 +33,10 @@
                       <td><%= ke_rp(purchase_request.total)%></td>
                       <td><%= cekproses(purchase_request.status) %></td>
                       <td><%= link_to 'Detail', admin_purchase_request_path(purchase_request),class:'text-info' %></td>
+                      <% if !current_user_logistik %>
                       <td><%= link_to 'Edit', edit_admin_purchase_request_path(purchase_request),class:'text-info' %></td>
                       <td><%= link_to 'Hapus', admin_purchase_request_path(purchase_request),class:'text-danger', method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>

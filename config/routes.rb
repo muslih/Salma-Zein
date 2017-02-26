@@ -35,7 +35,8 @@ Rails.application.routes.draw do
     get 'dashboard_quality_control', to: 'dashboard#index_quality_control', as: 'quality_control_dash'
     get 'dashboard_logistik', to: 'dashboard#index_logistik', as: 'logistik_dash'
     get 'dashboard_administrasi', to: 'dashboard#index_administrasi', as: 'administrasi_dash'
-    get 'dashboard_operational', to: 'dashboard#index_operational', as: 'operational_dash'
+    get 'dashboard_admin', to: 'dashboard#index_admin', as: 'admin_dash'
+
 
   end
 

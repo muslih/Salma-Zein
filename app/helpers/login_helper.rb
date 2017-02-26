@@ -13,6 +13,10 @@ module LoginHelper
 		user == current_user
 	end
 
+	def current_user_admin
+		current_user.employee.role == 'admin'
+	end
+
 	def current_user_administrator
 		current_user.employee.role == 'administrator'
 	end
