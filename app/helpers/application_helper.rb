@@ -21,5 +21,10 @@ module ApplicationHelper
     output +="<p>"+text+"</p></a></li>"
     output.html_safe
   end
+
+  def ke_rp(nomor)
+    @val = number_with_delimiter(nomor, delimiter: ".") 
+    "Rp. #{@val}"
+  end
   
 end

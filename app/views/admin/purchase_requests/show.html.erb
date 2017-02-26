@@ -18,7 +18,7 @@
     </div>
   </div>
 
-<% if @purchase_request.status_desc.present?%>
+<% if @purchase_request.status_desc.present? && @purchase_request.status != true %>
   <div class="panel panel-danger">
   <div class="panel-heading">
     Keterangan:
@@ -50,14 +50,14 @@
              <td><%= prd.item.supplier.name %></td> 
              <td><%= prd.item.name %></td>
              <td><%= prd.item.item_category.name %></td>
-             <td><%= prd.item.price_rp %></td>
+             <td><%= ke_rp(prd.item.price) %></td>
              <td><%= prd.qty %> <%= prd.item.item_unit.name %></td>
-             <td class="currency"><%= prd.total_rp %></td>
+             <td class="currency"><%= ke_rp(prd.total) %></td>
             </tr>  
            <% end %>  
            <tr>
              <td colspan="5" class="currency"><strong>TOTAL</strong></td>
-             <td class="currency"><%= @purchase_request.total_rp%></td>
+             <td class="currency"><%= ke_rp(@purchase_request.total)%></td>
            </tr>
           </tbody>  
          </table>  

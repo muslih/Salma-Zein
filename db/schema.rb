@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226053121) do
+ActiveRecord::Schema.define(version: 20170226064456) do
 
   create_table "departments", force: :cascade do |t|
     t.integer  "station_id"
@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(version: 20170226053121) do
 
   create_table "purchase_requests", force: :cascade do |t|
     t.integer  "employee_id"
-    t.integer  "pr_number"
+    t.string   "pr_number"
     t.date     "date_created"
     t.date     "date_required"
     t.string   "request_reason"

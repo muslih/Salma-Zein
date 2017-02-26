@@ -12,7 +12,7 @@ class LoginController < ApplicationController
     	log_in user
     	params[:login][:remember_me] == '1' ? remember(user) : forget(user)
     	flash[:success] = 'Berhasil login'
-      	redirect_to admin_items_path
+      redirect_to admin_items_path
     else
     	flash[:danger] = 'Username / Password salah'
     	render 'new',layout: 'blank'
