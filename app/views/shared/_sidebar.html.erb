@@ -1,4 +1,4 @@
-    <div class="sidebar" data-color="orange">
+    <div class="sidebar" data-color="grey">
 
     <!--
 
@@ -15,7 +15,6 @@
             </div>
             <ul class="nav">
             <%= render 'shared/sidebar/administrator_sidebar' if current_user_administrator %>
-            <%#= "administrator" if current_user_administrator %>
             <%= render 'shared/sidebar/kitchen_sidebar' if current_user_kitchen %>
             <%= render 'shared/sidebar/quality_control_sidebar' if current_user_quality_control %>
             <%= render 'shared/sidebar/logistik_sidebar' if current_user_logistik %>

@@ -14,7 +14,7 @@ class LoginController < ApplicationController
     	flash[:success] = "Selamat datang #{user.employee.name} - #{user.employee.role}"
       if current_user_administrator
         redirect_to admin_administrator_dash_path
-      elsif user.employee.role == 'kitchen'
+      elsif current_user_kitchen
         redirect_to admin_kitchen_dash_path
       elsif current_user_quality_control
         redirect_to admin_quality_control_dash_path

@@ -1,1 +1,44 @@
-_quality_control_sidebar.html.erb
+<%= sidemenu admin_quality_control_dash_path, "Dashboard", "pe-7s-graph" %>
+    <%# Profile Pegawai %>
+    <li class="<%= active_class edit_admin_user_path(current_user) %>">
+        <a href="<%= edit_admin_user_path(current_user) %>">
+            <i class="pe-7s-user"></i>
+            <p>User Profile</p>
+        </a>
+    </li>
+    <li class="<%= active_class admin_purchase_requests_path %>" >
+        <a href="<%= admin_purchase_requests_path %>">
+            <i class="pe-7s-note2"></i>
+            <p>Purchase Request</p>
+        </a>
+    </li>
+    <li class="<%= active_class admin_suppliers_path %>">
+        <a href="<%= admin_suppliers_path%>">
+            <i class="pe-7s-culture"></i>
+            <p>Supplier</p>
+        </a>
+    </li>
+    <li class="<%= active_class admin_food_menus_path %>">
+        <a href="<%= admin_food_menus_path%>">
+            <i class="pe-7s-coffee"></i>
+            <p>Food Menu</p>
+        </a>
+    </li>
+    <li class="<%= active_class '#' %>">
+        <a href="#">
+            <i class="pe-7s-box2"></i>
+            <p>Pemakaian Barang</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-box1"></i>
+            <p>Inventory</p>
+        </a>
+    </li>
+    <li class="<%= active_class admin_purchase_orders_path %>">
+        <a href="<%= admin_purchase_orders_path %>">
+            <i class="pe-7s-ticket"></i>
+            <p>Purchase Order</p>
+        </a>
+    </li>

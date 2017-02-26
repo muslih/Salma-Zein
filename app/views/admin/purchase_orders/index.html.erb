@@ -4,7 +4,7 @@
             <div class="header">
                 <h4 class="title">
                 Master Purchase Order
-                <%= link_to 'Tambah PO', admin_purchase_requests_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                <%= link_to 'Tambah PO', admin_purchase_requests_path, :class=>"btn btn-warning btn-fill pull-right" if !current_user_quality_control %>
                 </h4>
             </div>
             <div class="content table-responsive table-full-width">
@@ -29,8 +29,10 @@
                       <td><%= purchase_order.arrival_estimated.strftime('%d %B %Y %H:%M %p') %></td>
                       <td><%= cekproses(purchase_order.status) %></td>
                       <td><%= link_to 'Detail', admin_purchase_order_path(purchase_order) %></td>
+                      <% if !current_user_quality_control %>
                       <td><%= link_to 'Edit', edit_admin_purchase_order_path(purchase_order) %></td>
                       <td><%= link_to 'Hapus', admin_purchase_order_path(purchase_order), method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>

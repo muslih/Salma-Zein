@@ -22,7 +22,7 @@ module LoginHelper
 	end
 
 	def current_user_quality_control
-		current_user.employee.role == 'quality_control'
+		current_user.employee.role == 'qualitycontrol'
 	end
 
 	def current_user_logistik

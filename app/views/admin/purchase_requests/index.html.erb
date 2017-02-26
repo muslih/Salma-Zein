@@ -4,7 +4,7 @@
             <div class="header">
                 <h4 class="title">
                 Master Purchase Request
-                <%= link_to 'Tambah Data', new_admin_purchase_request_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                <%= link_to 'Tambah Data', new_admin_purchase_request_path, :class=>"btn btn-warning btn-fill pull-right" if !current_user_quality_control %>
                 </h4>
             </div>
             <div class="content table-responsive table-full-width">
