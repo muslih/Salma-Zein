@@ -53,17 +53,19 @@ gd1 = Gender.create(name: 'Laki-Laki')
 gd2 = Gender.create(name: 'Perempuan')
 
 # Employee
-pg1 = Employee.create(name: 'Pegawai administrator', role: 'administrator', age: 18, birth_place: 'Palangkaraya', birth_date: '1998-07-09', gender_id: 1, religion_id: 1, position_id: 1 ,education_id: 3, experience: '', skill: '')
-pg2 = Employee.create(name: 'Pegawai kitchen', role: 'kitchen', age: 19, birth_place: 'Palangkaraya', birth_date: '1992-02-02', gender_id: 2, religion_id: 1, position_id: 2, education_id: 3, experience: '', skill: '')
-pg3 = Employee.create(name: 'Pegawai qualitycontrol', role: 'qualitycontrol', age: 20, birth_place: 'Palangkaraya', birth_date: '1993-03-03', gender_id: 1, religion_id: 1, position_id: 3, education_id: 3, experience: '', skill: '')
-
+pg1 = Employee.create(name: 'Pegawai administrator', role: 'administrator', age: 18, birth_place: 'Palangkaraya', birth_date: '1998-07-09', gender_id: 1, religion_id: 1, position_id: 1 ,education_id: 3, experience: '', skill: '', user_id: 1)
+pg2 = Employee.create(name: 'Pegawai kitchen', role: 'kitchen', age: 19, birth_place: 'Palangkaraya', birth_date: '1998-07-20', gender_id: 2, religion_id: 1, position_id: 2, education_id: 3, experience: '', skill: '', user_id: 2)
+pg3 = Employee.create(name: 'Pegawai qualitycontrol', role: 'qualitycontrol', age: 20, birth_place: 'Palangkaraya', birth_date: '1998-07-21', gender_id: 1, religion_id: 1, position_id: 3, education_id: 3, experience: '', skill: '', user_id: 3)
+pg3 = Employee.create(name: 'Pegawai logistik', role: 'logistik', age: 21, birth_place: 'Palangkaraya', birth_date: '1998-07-22', gender_id: 1, religion_id: 1, position_id: 3, education_id: 3, experience: '', skill: '', user_id: 4)
+pg3 = Employee.create(name: 'Pegawai administrasi', role: 'administrasi', age: 22, birth_place: 'Palangkaraya', birth_date: '1998-07-23', gender_id: 1, religion_id: 1, position_id: 4, education_id: 3, experience: '', skill: '', user_id: 5)
+pg3 = Employee.create(name: 'Pegawai operational', role: 'operational', age: 23, birth_place: 'Palangkaraya', birth_date: '1998-07-24', gender_id: 1, religion_id: 1, position_id: 5, education_id: 3, experience: '', skill: '', user_id: 6)
 # Supplier
 supp1 = Supplier.create(name: 'Supplier 1', address: 'jl.supp 1', contact_person: 'manager sup 1', phone: '08123123123', business_field: 'food', management_system: 'ms')
 supp2 = Supplier.create(name: 'Supplier 2', address: 'jl.supp 2', contact_person: 'manager sup 2', phone: '08321321321', business_field: 'material', management_system: 'sm')
 
 # Kategori
-kt1 = ItemCategory.create(name: 'Makanan')
-kt2 = ItemCategory.create(name: 'Minuman')
+kt1 = ItemCategory.create(name: 'Buah')
+kt2 = ItemCategory.create(name: 'Sayur')
 kt3 = ItemCategory.create(name: 'Material')
 
 # Satuan
