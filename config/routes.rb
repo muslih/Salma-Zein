@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   get 'sessions/new'
   
   root 'login#new'
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     resources :purchase_order_addresses
     resources :foods
     resources :food_menus
+    resources :fund_administrations
 
     get 'dashboard_administrator', to: 'dashboard#index_administrator', as: 'administrator_dash'
     get 'dashboard_kitchen', to: 'dashboard#index_kitchen', as: 'kitchen_dash'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226064456) do
+ActiveRecord::Schema.define(version: 20170227160826) do
 
   create_table "departments", force: :cascade do |t|
     t.integer  "station_id"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 20170226064456) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fund_administrations", force: :cascade do |t|
+    t.integer  "purchase_order_id"
+    t.integer  "ammount"
+    t.date     "date_out"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["purchase_order_id"], name: "index_fund_administrations_on_purchase_order_id"
   end
 
   create_table "genders", force: :cascade do |t|

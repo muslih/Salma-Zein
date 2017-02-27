@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Purchase order:</strong>
+  <%= @fund_administration.purchase_order %>
+</p>
+
+<p>
+  <strong>Ammount:</strong>
+  <%= @fund_administration.ammount %>
+</p>
+
+<p>
+  <strong>Date out:</strong>
+  <%= @fund_administration.date_out %>
+</p>
+
+<%= link_to 'Edit', edit_fund_administration_path(@fund_administration) %> |
+<%= link_to 'Back', fund_administrations_path %>
