@@ -1,7 +1,7 @@
 <%= sidemenu admin_logistik_dash_path, "Dashboard", "pe-7s-graph" %>
     <%# Profile Pegawai %>
-    <li class="<%= active_class edit_admin_user_path(current_user) %>">
-        <a href="<%= edit_admin_user_path(current_user) %>">
+    <li class="<%= active_class admin_user_profile_path(current_user) %>">
+        <a href="<%= admin_user_profile_path(current_user) %>">
             <i class="pe-7s-user"></i>
             <p>User Profile</p>
         </a>
