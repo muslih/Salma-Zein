@@ -1,0 +1,134 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Profile</h4>
+                    </div>
+                    <div class="content">
+                        <%= form_for [:admin, @user] do |u| %>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <%= u.label :username, "Username"%>
+                                        <%= u.text_field :username, placeholder: 'Username' ,class:'form-control' %>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <%= u.label :email, "Email"%>
+                                        <%= u.email_field :email, placeholder: 'Email', class:'form-control' %>
+                                    </div>
+                                </div>
+                            </div>
+                        <%= u.fields_for :employee do |e| %>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <%= e.label :name, "Nama" %>
+                                        <%= e.text_field :name,class:'form-control' %>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <%= e.label :age, "Usia" %>
+                                        <%= e.text_field :age,class:'form-control' %>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <%= e.label :position_id, "Posisi"%>
+                                        <%= e.collection_select(:position_id,Position.all,:id,:name,{:prompt => "Pilih Posisi"},disabled: true, class:'form-control') %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <%= e.label :birth_place, "Tempat" %>
+                                        <%= e.text_field :birth_place,class:'form-control',placeholder:"Tempat lahir" %>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <%= e.label :birth_date, "Tanggal Lahir" %>
+                                        <%= e.text_field :birth_date,class:'form-control',placeholder:"Tempat lahir" %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <%= e.label :gender_id, "Gender"%>
+                                        <%= e.collection_select(:gender_id,Gender.all,:id,:name,{:prompt => "Pilih gender"}, class:'form-control') %>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <%= e.label :religion_id, "Agama"%>
+                                        <%= e.collection_select(:religion_id,Religion.all,:id,:name,{:prompt => "Pilih Agama"}, class:'form-control') %>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <%= e.label :education_id, "Pendidikan"%>
+                                        <%= e.collection_select(:education_id,Education.all,:id,:name,{:prompt => "Pilih Pendidikan"}, class:'form-control') %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= e.label :experience, "Pengalaman" %>
+                                        <%= e.text_area :experience,class:'form-control',placeholder:"Pengalaman" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= e.label :skill, "Skill" %>
+                                        <%= e.text_field :skill,class:'form-control',placeholder:"Skill" %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%= e.submit "Update Profile", class:"btn btn-info btn-fill pull-right" %>
+                        <% end %>
+                            <div class="clearfix"></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                
+                            </div>
+                            <div class="content">
+                                <div class="author border-gray">
+                                     <a href="#">
+                                      <%= image_tag "default-avatar.png", class: 'avatar border-gray'%>
+
+                                      <h4 class="title"><%= @user.employee.name%><br />
+                                         <small><%= @user.username %></small>
+                                      </h4>
+                                    </a>
+                                    <br>
+                                    <%= link_to 'Ubah Password', edit_admin_user_path(current_user), class:"btn btn-info btn-fill" %>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+        </div>
+    </div>
+</div>

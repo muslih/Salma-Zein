@@ -1,12 +1,15 @@
 class User < ApplicationRecord
 	attr_accessor :remember_token
-	has_one :employee
+	
 	has_secure_password
 	validates :username, :presence => {message: "Username harus di isi !!"}
 	validates :email, :presence => {message: "Email harus di isi !!"}
 	validates :password, :presence => {message: "Password harus di isi !!"}, on: :create
 	validates :password_confirmation, :presence => {message: "Konfirmasi password harus di isi !!"}, on: :create
 
+	has_one :employee, dependent: :destroy
+	accepts_nested_attributes_for :employee
+	
 	def self.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
 		                                              BCrypt::Engine.cost

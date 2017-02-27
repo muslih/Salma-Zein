@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :employees
-    resources :users
+    resources :users do
+      resources :employees
+      get 'profile', to: 'users#profile', as: 'profile'   
+    end
     resources :positions
     resources :departments
     resources :religions
