@@ -22,12 +22,12 @@
                 <tbody>
                   <% @fund_administrations.each do |fund_administration| %>
                     <tr>
-                      <td><%= fund_administration.purchase_order %></td>
-                      <td><%= fund_administration.ammount %></td>
-                      <td><%= fund_administration.date_out %></td>
-                      <td><%= link_to 'Show', fund_administration %></td>
-                      <td><%= link_to 'Edit', edit_fund_administration_path(fund_administration) %></td>
-                      <td><%= link_to 'Destroy', fund_administration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td><%= fund_administration.purchase_order.po_number %></td>
+                      <td><%= ke_rp(fund_administration.ammount) %></td>
+                      <td><%= fund_administration.date_out.strftime('%d %B %Y') %></td>
+                      <td><%= link_to 'Detail', admin_fund_administration_path(fund_administration) %></td>
+                      <td><%= link_to 'Edit', edit_admin_fund_administration_path(fund_administration) %></td>
+                      <td><%= link_to 'Hapus', admin_fund_administration_path(fund_administration), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                   <% end %>
                 </tbody>
