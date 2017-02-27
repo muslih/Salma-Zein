@@ -3,7 +3,11 @@
     <div class="form-group">
       <%= f.label :purchase_order_id, "PO",class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :purchase_order_id,class:'form-control' %>
+        <% if @po.present? %>
+          #<%= @po.po_number %>
+          <% else %>
+          #<%= @fund_administration.purchase_order.po_number %>
+        <% end %>
       </div>
     </div>
   </fieldset>
@@ -13,18 +17,6 @@
       <%= f.label :ammount, "Total",class:"col-sm-2 control-label" %>
       <div class="col-sm-10">
         <%= f.number_field :ammount, class:'form-control' %>
-      </div>
-    </div>
-  </fieldset>
-
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :date_out, "Tanggal Keluar  ",class:"col-sm-2 control-label" %>
-      <div class="col-sm-3">
-        <%= f.text_field :date_out,class:'form-control',placeholder:"Tempat lahir" %>
-      </div>
-      <div class="col-sm-7">
-        <%= f.text_field :date_out,'data-value'=>@fund_administration.date_out,'data-behaviour' => 'pickadate',class:'form-control', paceholder: 'Pick a date' %>
       </div>
     </div>
   </fieldset>

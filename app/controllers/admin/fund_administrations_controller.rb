@@ -1,4 +1,5 @@
 class Admin::FundAdministrationsController < AdminController
+  before_action :set_po, on: [:new, :create]
   before_action :set_fund_administration, only: [:show, :edit, :update, :destroy]
 
   # GET /fund_administrations
@@ -23,6 +24,8 @@ class Admin::FundAdministrationsController < AdminController
   def create
     @fund_administration = FundAdministration.new(fund_administration_params)
 
+    @fund_administration.purchase_order_id = @po.id
+    @fund_administration.date_out = DateTime.now
     if @fund_administration.save
       flash[:success] = 'Pencatatan dana PO erhasil di tambah'
       redirect_to admin_fund_administrations_path
@@ -53,9 +56,16 @@ class Admin::FundAdministrationsController < AdminController
   end
 
   private
+    def set_po
+      @po = PurchaseOrder.find(params[:purchase_order_id]) if params[:purchase_order_id]
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_fund_administration
-      @fund_administration = FundAdministration.find(params[:id])
+      if params[:fund_administration_id]
+        @fund_administration = FundAdministration.find(params[:fund_administration_id])
+      else
+        @fund_administration = FundAdministration.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -67,7 +67,7 @@
        <br><br>
       <%= link_to 'Edit', edit_admin_purchase_order_path(@purchase_order), class:"btn btn-fill btn-primary" %>
       <% if current_user_administrasi %>
-      <%= link_to 'Bayar PO', edit_admin_purchase_order_path(@purchase_order), class:"btn btn-fill btn-success pull-right" %>
+      <%= link_to 'Bayar PO', new_admin_purchase_order_fund_administration_path(@purchase_order), class:"btn btn-fill btn-success pull-right" %>
       <% end %>
     </div>
   </div>

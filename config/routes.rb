@@ -29,7 +29,9 @@ Rails.application.routes.draw do
     resources :purchase_requests do
       resources :purchase_orders
     end
-    resources :purchase_orders
+    resources :purchase_orders do
+      resources :fund_administrations
+    end
     resources :purchase_order_addresses
     resources :foods
     resources :food_menus
@@ -44,6 +46,7 @@ Rails.application.routes.draw do
 
     patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
     patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
+    patch 'pencatatan_dana/:id', to: "fund_administrations#create", as: :pencatatan_dana
   end
 
 
