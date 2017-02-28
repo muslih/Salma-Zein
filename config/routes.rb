@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-  resources :cycles
+  
   get 'sessions/new'
   
   root 'login#new'
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :foods
     resources :food_menus
     resources :fund_administrations
+    resources :cycles
 
     get 'dashboard_administrator', to: 'dashboard#index_administrator', as: 'administrator_dash'
     get 'dashboard_kitchen', to: 'dashboard#index_kitchen', as: 'kitchen_dash'
