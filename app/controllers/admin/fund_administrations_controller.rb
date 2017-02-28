@@ -29,6 +29,7 @@ class Admin::FundAdministrationsController < AdminController
       @fund_administration.ammount = @po.purchase_request.total
     end
     if @fund_administration.save
+      @po.update_attributes(status: "sudah dibayar")
       flash[:success] = 'Pencatatan dana PO erhasil di tambah'
       redirect_to admin_fund_administrations_path
     else

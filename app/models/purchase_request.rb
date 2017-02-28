@@ -10,6 +10,7 @@ class PurchaseRequest < ApplicationRecord
 
   validates :date_required, :presence => {message: "Tanggal diperlukan harus di isi !!"}
   validates :request_reason, :presence => {message: "Alasan pengajuan harus di isi !!"}
+  
 
   def subtotals
   	self.purchase_request_details.map { |i| i.subtotal }
