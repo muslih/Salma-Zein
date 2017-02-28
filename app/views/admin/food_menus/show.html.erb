@@ -14,6 +14,7 @@
                 <th>Makanan</th>
                 <th>Jumlah</th>
                 <th>Berat</th>
+                <th></th>
                </tr>  
               </thead>  
               <tbody>  
@@ -22,6 +23,7 @@
                  <td><%= fmd.food.name %></td>
                  <td><%= fmd.food_qty %></td>
                  <td><%= fmd.weight %> kg</td>
+                 <td><%= link_to 'Detail', admin_food_path(fmd.food) %></td>
                 </tr>  
                <% end %>  
               </tbody>  
