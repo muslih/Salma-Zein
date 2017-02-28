@@ -1,6 +1,6 @@
 # class LoginController < ApplicationController
 class AdminController < ApplicationController
-  befoce_action :login_only
+  before_action :login_only
 
   def login_only
   	unless logged_in?
