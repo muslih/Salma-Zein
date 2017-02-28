@@ -4,7 +4,7 @@
             <div class="header">
                 <h4 class="title">
                 Master Supplier
-                <%= link_to 'Tambah Supplier', new_admin_supplier_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                <%= link_to 'Tambah Supplier', new_admin_supplier_path, :class=>"btn btn-warning btn-fill pull-right" if !current_user_quality_control & !current_user_administrasi %>
                   
                 </h4>
             </div>
@@ -29,8 +29,10 @@
                       <td><%= supplier.contact_person + " - " + supplier.phone  %></td>
                       <td><%= supplier.business_field %></td>
                       <td><%= supplier.management_system %></td>
-                      <td><%= link_to 'Edit', edit_admin_supplier_path(supplier),class:'text-info' %></td>
+                      <% if !current_user_quality_control & !current_user_administrasi%>
+                      <td><%= link_to 'Edit', edit_admin_supplier_path(supplier),class:'text-info'  %></td>
                       <td><%= link_to 'Hapus', admin_supplier_path(supplier), method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>

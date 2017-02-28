@@ -1,0 +1,73 @@
+<%= sidemenu admin_administrator_dash_path, "Dashboard", "pe-7s-graph" %>
+    <%# Profile Pegawai %>
+    <li class="<%= active_class admin_user_profile_path(current_user) %>" >
+        <a href="<%= admin_user_profile_path(current_user)%>">
+            <i class="pe-7s-user"></i>
+            <p>User Profile</p>
+        </a>
+    </li>
+    <li class="<%= active_class admin_employees_path %>" >
+        <a href="<%= admin_employees_path%>">
+            <i class="pe-7s-users"></i>
+            <p>Employee</p>
+        </a>
+    </li>
+    <li class="<%= active_class admin_users_path %>">
+        <a href="<%= admin_users_path%>">
+            <i class="pe-7s-id"></i>
+            <p>User Account</p>
+        </a>
+    </li>
+    <li class="<%= active_class admin_suppliers_path %>">
+        <a href="<%= admin_suppliers_path%>">
+            <i class="pe-7s-culture"></i>
+            <p>Supplier</p>
+        </a>
+    </li>
+    <li>
+        <a data-toggle="collapse" href="#foodMenu" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-coffee"></i>
+            <p>Food <b class="caret"></b></p>
+        </a>
+        <div class="collapse" id="foodMenu" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class admin_food_menus_path %>" >
+                    <%= link_to 'Menu makanan', admin_food_menus_path %>
+                </li>
+                <li class="<%= active_class admin_foods_path %>" >
+                    <%= link_to 'Makanan', admin_foods_path %>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <%# Menu data master %>
+    <li>
+        <a data-toggle="collapse" href="#formsExamples" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-server"></i>
+            <p>Master
+               <b class="caret"></b>
+            </p>
+        </a>
+        <div class="collapse" id="formsExamples" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class admin_item_categories_path %>">
+                    <%= link_to 'Kategori Barang', admin_item_categories_path %>
+                </li>
+                <li class="<%= active_class admin_item_units_path %>">
+                    <%= link_to 'Satuan Barang', admin_item_units_path %>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-box1"></i>
+            <p>Inventory</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-news-paper"></i>
+            <p>Invoice</p>
+        </a>
+    </li>

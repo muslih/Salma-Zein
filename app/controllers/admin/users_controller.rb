@@ -6,6 +6,11 @@ class Admin::UsersController < AdminController
     @users = User.all
   end
 
+  def profile
+    @user = User.find(params[:user_id])
+    @employee = @user.employee
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -13,6 +18,7 @@ class Admin::UsersController < AdminController
 
   # GET /users/1/edit
   def edit
+    @employee = Employee.all
   end
 
   # POST /users
@@ -31,11 +37,11 @@ class Admin::UsersController < AdminController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      flash[:success] = 'User berhasil di update'
-      redirect_to admin_users_path
+      flash[:success] = 'berhasil di update'
+      redirect_to admin_user_profile_path(current_user)
     else
       @model = @user
-      flash[:danger] = 'User gagal di update'
+      flash[:danger] = 'gagal di update'
       render :edit 
     end
   end
@@ -55,6 +61,7 @@ class Admin::UsersController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation,
+        employee_attributes: [:id, :name, :age, :birth_place, :birth_date, :gender_id, :religion_id, :education_id, :experience, :skill])
     end
 end

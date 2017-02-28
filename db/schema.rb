@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222114814) do
+ActiveRecord::Schema.define(version: 20170226064456) do
 
   create_table "departments", force: :cascade do |t|
     t.integer  "station_id"
@@ -124,6 +124,27 @@ ActiveRecord::Schema.define(version: 20170222114814) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "purchase_order_addresses", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "pic"
+    t.integer  "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "purchase_orders", force: :cascade do |t|
+    t.integer  "purchase_request_id"
+    t.integer  "purchase_order_address_id"
+    t.string   "po_number"
+    t.datetime "arrival_estimated"
+    t.string   "status"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["purchase_order_address_id"], name: "index_purchase_orders_on_purchase_order_address_id"
+    t.index ["purchase_request_id"], name: "index_purchase_orders_on_purchase_request_id"
+  end
+
   create_table "purchase_request_details", force: :cascade do |t|
     t.integer  "purchase_request_id"
     t.integer  "item_id"
@@ -137,7 +158,7 @@ ActiveRecord::Schema.define(version: 20170222114814) do
 
   create_table "purchase_requests", force: :cascade do |t|
     t.integer  "employee_id"
-    t.integer  "pr_number"
+    t.string   "pr_number"
     t.date     "date_created"
     t.date     "date_required"
     t.string   "request_reason"

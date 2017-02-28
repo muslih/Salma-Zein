@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Tambah Alamat Purchase Order
+                <%= link_to 'Kembali', admin_purchase_order_addresses_path, class: "btn btn-fill btn-danger pull-right" %>
+                </h4>
+                <hr>
+            </div>
+            <div class="content table-responsive table-full-width">
+				<%= render 'form', purchase_order_address: @purchase_order_address %>
+            </div>
+        </div>
+    </div>
+</div>

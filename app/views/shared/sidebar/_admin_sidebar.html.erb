@@ -1,0 +1,168 @@
+<%= sidemenu admin_administrasi_dash_path, "Dashboard", "pe-7s-graph" %>
+    <%# Profile Pegawai %>
+    <li>
+        <a href="<%= admin_user_profile_path(current_user) %>">
+            <i class="pe-7s-user"></i>
+            <p>User Profile</p>
+        </a>
+    </li>
+    
+<%# Menu data pegawai %>
+    <li>
+        <a data-toggle="collapse" href="#employeeMenu" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-users"></i>
+            <p>Employee
+                <b class="caret"></b>
+            </p>
+        </a>
+        <div class="collapse" id="employeeMenu" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class admin_users_path %>">
+                    <%= link_to 'User Account', admin_users_path %>
+                </li>
+                <li class="<%= active_class admin_employees_path %>">
+                    <%= link_to "Pegawai", admin_employees_path %>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <%# Menu data master %>
+    <li>
+        <a data-toggle="collapse" href="#formsExamples" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-server"></i>
+            <p>Master
+               <b class="caret"></b>
+            </p>
+        </a>
+        <div class="collapse" id="formsExamples" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class admin_religions_path %>">
+                    <%= link_to 'Agama', admin_religions_path %>
+                </li>
+                <li class="<%= active_class admin_genders_path %>">
+                    <%= link_to 'Gender', admin_genders_path %>
+                </li>
+                <li class="<%= active_class admin_educations_path %>">
+                    <%= link_to 'Pendidikan', admin_educations_path %>
+                </li>
+                <li class="<%= active_class admin_positions_path %>">
+                    <%= link_to 'Posisi / Jabatan', admin_positions_path %>
+                </li>
+                <li><%= link_to 'Station', admin_stations_path %></li>
+                <li class="<%= active_class admin_departments_path %>">
+                    <%= link_to 'Departemen', admin_departments_path %>
+                </li>
+                <li><a href="forms/regular.html">Penyimpanan</a></li>
+                <li><a href="#">Pesawat</a></li>
+                <li><a href="#">Kwitansi</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="forms/regular.html">User</a></li>
+            </ul>
+        </div>
+    </li>
+    <%# Menu data item %>
+    <li>
+        <a data-toggle="collapse" href="#itemMenu" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-box2"></i>
+            <p>Item <b class="caret"></b></p>
+        </a>
+        <div class="collapse" id="itemMenu" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class admin_suppliers_path %>" >
+                    <%= link_to 'Supplier', admin_suppliers_path %>
+                </li>
+                <li class="<%= active_class admin_items_path %>" >
+                    <%= link_to 'Item', admin_items_path %>
+                </li>
+                <li class="<%= active_class admin_item_categories_path %>">
+                    <%= link_to 'Kategori Barang', admin_item_categories_path %>
+                </li>
+                <li class="<%= active_class admin_item_units_path %>">
+                    <%= link_to 'Satuan Barang', admin_item_units_path %>
+                </li>
+            
+            </ul>
+        </div>
+    </li>
+    <%# Data Makanan %>
+    <li>
+        <a data-toggle="collapse" href="#foodMenu" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-coffee"></i>
+            <p>Food <b class="caret"></b></p>
+        </a>
+        <div class="collapse" id="foodMenu" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class admin_food_menus_path %>" >
+                    <%= link_to 'Menu makanan', admin_food_menus_path %>
+                </li>
+                <li class="<%= active_class admin_foods_path %>" >
+                    <%= link_to 'Makanan', admin_foods_path %>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <a data-toggle="collapse" href="#purchaseRequest" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-note2"></i>
+            <p>Purchase Request <b class="caret"></b></p>
+        </a>
+        <div class="collapse" id="purchaseRequest" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class new_admin_purchase_request_path %>" >
+                    <%= link_to 'Add Request', new_admin_purchase_request_path %>
+                </li>
+                <li class="<%= active_class admin_purchase_requests_path %>" >
+                    <%= link_to 'Purchase Request', admin_purchase_requests_path %>
+                </li>
+            
+            </ul>
+        </div>
+    </li>
+    <li>
+        <a data-toggle="collapse" href="#poMenu" class="collapsed" aria-expanded="false">
+            <i class="pe-7s-ticket"></i>
+            <p>Purchase Order <b class="caret"></b></p>
+        </a>
+        <div class="collapse" id="poMenu" aria-expanded="false" style="height: auto;">
+            <ul class="nav subnav">
+                <li class="<%= active_class admin_purchase_orders_path %>" >
+                    <%= link_to 'Purchase Order', admin_purchase_orders_path %>
+                </li>
+                <li class="<%= active_class admin_purchase_order_addresses_path %>" >
+                    <%= link_to 'Alamat Purcahse Order', admin_purchase_order_addresses_path %>
+                </li>
+            
+            </ul>
+        </div>
+    </li>
+                <li>
+                  <a data-toggle="collapse" href="#qualityControl" class="collapsed" aria-expanded="false">
+                    <i class="pe-7s-news-paper"></i>
+                    <p>Quality Control
+                       <b class="caret"></b>
+                    </p>
+                  </a>
+                  <div class="collapse" id="qualityControl" aria-expanded="false" style="height: auto;">
+                    <ul class="nav subnav">
+                        <li><a href="forms/regular.html">Kategori</a></li>
+                        <li><a href="forms/regular.html">Satuan</a></li>
+                        <li><a href="forms/regular.html">Penyimpanan</a></li>
+                        <li><a href="#">Pesawat</a></li>
+                        <li><a href="#">Kwitansi</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="forms/regular.html">User</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="pe-7s-box2"></i>
+                        <p>Inventory</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="pe-7s-folder"></i>
+                        <p>Report</p>
+                    </a>
+                </li>

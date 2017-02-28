@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :food_menus
-  resources :foods
+  
   get 'sessions/new'
   
   root 'login#new'
@@ -12,7 +11,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :employees
-    resources :users
+    resources :users do
+      resources :employees
+      get 'profile', to: 'users#profile', as: 'profile'   
+    end
     resources :positions
     resources :departments
     resources :religions
@@ -23,10 +25,25 @@ Rails.application.routes.draw do
     resources :items
     resources :item_categories
     resources :item_units
-    resources :purchase_requests
+    resources :purchase_requests do
+      resources :purchase_orders
+    end
+    resources :purchase_orders
+    resources :purchase_order_addresses
     resources :foods
     resources :food_menus
+
+    get 'dashboard_administrator', to: 'dashboard#index_administrator', as: 'administrator_dash'
+    get 'dashboard_kitchen', to: 'dashboard#index_kitchen', as: 'kitchen_dash'
+    get 'dashboard_quality_control', to: 'dashboard#index_quality_control', as: 'quality_control_dash'
+    get 'dashboard_logistik', to: 'dashboard#index_logistik', as: 'logistik_dash'
+    get 'dashboard_administrasi', to: 'dashboard#index_administrasi', as: 'administrasi_dash'
+    get 'dashboard_admin', to: 'dashboard#index_admin', as: 'admin_dash'
+
+    patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
+    patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
   end
+
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -4,7 +4,7 @@ module PurchaseRequestsHelper
 	   id = new_object.object_id  
 	   fields = f.fields_for(association, new_object, child_index: id) do |builder|  
 	    render(association.to_s.singularize + "_fields", f: builder)  
-	   end  
+	   end
 	   link_to(name, '#', class: "btn btn-sm btn-primary add_fields", data: {id: id, fields: fields.gsub("\n", "")})  
 	end 
 end
