@@ -27,7 +27,7 @@
                       <td><%= purchase_order.purchase_order_address.try(:name) %></td>
                       <td>#<%= purchase_order.po_number %></td>
                       <td><%= purchase_order.arrival_estimated.strftime('%d %B %Y %H:%M %p') %></td>
-                      <td><%= purchase_order.status %></td>
+                      <td><%= cekpo(purchase_order.status) %></td>
                       <td><%= link_to 'Detail', admin_purchase_order_path(purchase_order) %></td>
                       <% if !current_user_quality_control %>
                       <td><%= link_to 'Edit', edit_admin_purchase_order_path(purchase_order) %></td>

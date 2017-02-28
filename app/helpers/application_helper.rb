@@ -10,6 +10,11 @@ module ApplicationHelper
     return "<span class='label label-danger'>Ditolak</span>".html_safe if status == false
   end
 
+  def cekpo(status)
+    return "<span class='label label-warning'>DiProses</span>".html_safe if status == ''
+    return "<span class='label label-success'>Sudah Dibayar</span>".html_safe if status != ''
+  end
+
   def active_class(link)
     current_page?(link) ? 'active': ""
   end

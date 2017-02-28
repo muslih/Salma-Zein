@@ -11,7 +11,7 @@
               No. PO : <strong><%= @purchase_order.po_number %></strong><br>
               No. PR : <strong><%= @purchase_order.purchase_request.pr_number %></strong><br>
               Tanggal : <code><strong><%= @purchase_order.purchase_request.date_created.strftime('%d %B %Y') %></strong></code><br>
-              Status : <%= cekproses(@purchase_order.purchase_request.status) %>
+              Status : <%= cekpo(@purchase_order.status) %>
             </div>
             <div class="col-sm-4">
              <%= link_to 'Kembali', admin_purchase_orders_path, :class=>"btn btn-warning btn-fill pull-right" %>
