@@ -13,15 +13,15 @@ class LoginController < ApplicationController
     	params[:login][:remember_me] == '1' ? remember(user) : forget(user)
     	flash[:success] = "Selamat datang #{user.try(:employee).try(:name)} - #{user.try(:employee).try(:role)}"
       if current_user_administrator || current_user_admin
-        redirect_to admin_administrator_dash_path
+        redirect_to admin_purchase_requests_path
       elsif current_user_kitchen
-        redirect_to admin_kitchen_dash_path
+        redirect_to admin_items_path
       elsif current_user_quality_control
-        redirect_to admin_quality_control_dash_path
+        redirect_to admin_purchase_requests_path
       elsif current_user_logistik
-        redirect_to admin_logistik_dash_path
+        redirect_to admin_purchase_requests_path
       elsif current_user_administrasi
-        redirect_to admin_administrasi_dash_path
+        redirect_to admin_fund_administrations_path
       elsif current_user_operational
         redirect_to admin_operational_dash_path
       end

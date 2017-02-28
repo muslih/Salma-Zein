@@ -45,7 +45,7 @@
             <th class="currency">total</th>
            </tr>  
           </thead>  
-          <tbody>  
+          <tbody>
            <% @purchase_request.purchase_request_details.each do |prd| %>  
             <tr> 
              <td><%= prd.item.supplier.name %></td> 
@@ -78,12 +78,15 @@
             method: "patch",data:{
             confirm: "Tolak PR #{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-danger' %>
       <% end %>
-        <% if @purchase_request.status == true & current_user_administrasi & current_user_logistik %>
-        <%= link_to 'Terbitkan PO',
-            new_admin_purchase_request_purchase_order_path(@purchase_request),
-            method: "get",data:{
-            confirm: "Terbitkan PO ##{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-primary' %>
+        <% if @purchase_request.status == true %>
+          <% if current_user_administrasi || current_user_logistik%>
+          <%= link_to 'Terbitkan PO',
+              new_admin_purchase_request_purchase_order_path(@purchase_request),
+              method: "get",data:{
+              confirm: "Terbitkan PO ##{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-primary' %>
+          <% end %>
         <% end %>
+
       </div>
     </div>
   </div>

@@ -26,6 +26,7 @@ class Admin::FundAdministrationsController < AdminController
 
     @fund_administration.purchase_order_id = @po.id
     @fund_administration.date_out = DateTime.now
+    @fund_administration.ammount = @po.purchase_request.total
     if @fund_administration.save
       flash[:success] = 'Pencatatan dana PO erhasil di tambah'
       redirect_to admin_fund_administrations_path
