@@ -24,17 +24,17 @@ class Admin::FundAdministrationsController < AdminController
   def create
     @fund_administration = FundAdministration.new(fund_administration_params)
     @fund_administration.date_out = DateTime.now
-    if @po
       @fund_administration.purchase_order_id = @po.id
       @fund_administration.ammount = @po.purchase_request.total
-    end
     if @fund_administration.save
-      @po.update_attributes(status: "sudah dibayar")
-      flash[:success] = 'Pencatatan dana PO erhasil di tambah'
+      if current_user_administrasi
+        PurchaseOrder.find(@po.id).update_attributes(status: "sudah dibayar")
+      end
+      flash[:success] = 'Pencatatan dana PO berhasil di tambah'
       redirect_to admin_fund_administrations_path
     else
       @model = @fund_administration
-      flash.now[:danger] = 'Pencatatan dana PO agal di tambah'
+      flash.now[:danger] = 'Pencatatan dana PO gaagal di tambah'
       render :new
     end
   end

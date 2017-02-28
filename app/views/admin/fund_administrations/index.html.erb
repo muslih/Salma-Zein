@@ -22,7 +22,7 @@
                 <tbody>
                   <% @fund_administrations.each do |fund_administration| %>
                     <tr>
-                      <td><%= fund_administration.purchase_order.po_number %></td>
+                      <td><%= fund_administration.purchase_order.try(:po_number) %></td>
                       <td><%= ke_rp(fund_administration.ammount) %></td>
                       <td><%= fund_administration.date_out.strftime('%d %B %Y') %></td>
                       <td><%= link_to 'Detail', admin_fund_administration_path(fund_administration) %></td>
