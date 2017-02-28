@@ -5,6 +5,9 @@ class Admin::PurchaseRequestsController < AdminController
   # GET /purchase_requests
   def index
     @purchase_requests = PurchaseRequest.all
+    if current_user_administrasi || current_user_logistik
+    @purchase_requests = PurchaseRequest.where(status:true).all
+  end
   end
 
   # GET /purchase_requests/1
