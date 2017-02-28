@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :cycles
   get 'sessions/new'
   
   root 'login#new'

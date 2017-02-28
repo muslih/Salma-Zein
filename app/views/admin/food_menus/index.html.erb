@@ -24,7 +24,7 @@
                 <tbody>
                   <% @food_menus.each do |food_menu| %>
                     <tr>
-                      <td><%= food_menu.cycle_id %></td>
+                      <td><%= food_menu.cycle.name %></td>
                       <td><%= food_menu.flight_class_id %></td>
                       <td><%= food_menu.name %></td>
                       <td><%= food_menu.start_date_peroid.strftime('%d %B %Y') %></td>
