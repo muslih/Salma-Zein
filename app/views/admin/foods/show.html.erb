@@ -27,7 +27,9 @@
              </div>
 
               <fieldset>
+              <% if !current_user_kitchen %>
                     <%= link_to 'Edit', edit_admin_food_path(@food), class:"btn btn-fill btn-primary" %>
+                    <% end %>
               </fieldset>
             </div>
           </div>

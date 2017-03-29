@@ -22,8 +22,10 @@
                     <tr>
                       <td><%= food.name %></td>
                       <td><%= link_to 'Detail', admin_food_path(food) %></td>
+                      <% if !current_user_kitchen %>
                       <td><%= link_to 'Edit', edit_admin_food_path(food),class:'text-info' %></td>
                       <td><%= link_to 'Hapus', admin_food_path(food), method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>

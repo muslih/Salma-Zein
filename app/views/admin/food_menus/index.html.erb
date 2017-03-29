@@ -30,8 +30,10 @@
                       <td><%= food_menu.start_date_peroid.strftime('%d %B %Y') %></td>
                       <td><%= food_menu.date_peroid_end.strftime('%d %B %Y') %></td>
                       <td><%= link_to 'Detail', admin_food_menu_path(food_menu) %></td>
+                      <% if !current_user_kitchen %>
                       <td><%= link_to 'Edit', edit_admin_food_menu_path(food_menu), class:'text-info' %></td>
                       <td><%= link_to 'Hapus', admin_food_menu_path(food_menu), method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>
