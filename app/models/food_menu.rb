@@ -1,6 +1,7 @@
 class FoodMenu < ApplicationRecord
 	belongs_to :purchase_request, optional: true
 	belongs_to :cycle, optional: true
+	belongs_to :flight_class, optional: true
 	has_many :food_menu_details
 
 	# belongs_to :cycle

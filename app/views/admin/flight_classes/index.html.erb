@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                Master Flight Class
+                <%= link_to 'Tambah Flight Class', new_admin_flight_class_path, :class=>"btn btn-warning btn-fill pull-right" %>
+                </h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Desc</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @flight_classes.each do |flight_class| %>
+                    <tr>
+                      <td><%= flight_class.name %></td>
+                      <td><%= flight_class.desc %></td>
+                      <td><%= link_to 'Edit', edit_admin_flight_class_path(flight_class) %></td>
+                      <td><%= link_to 'Hapus', admin_flight_class_path(flight_class), method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
