@@ -32,10 +32,10 @@
               </div>
             </div>
             <div class="panel-body">
-              <%= f.fields_for :foods do |builder| %>   
+              <%= f.fields_for :standard_recipes do |builder| %>   
                 <%= render 'standard_recipe_fields', f: builder %>   
               <% end %>
-              <%= link_to_add_fields "Tambah Standard Recipe", f, :foods %>  
+              <%= link_to_add_fields "Tambah Standard Recipe", f, :standard_recipes %>  
             </div>
           </div>
         </div>

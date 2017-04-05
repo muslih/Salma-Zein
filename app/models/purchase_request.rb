@@ -1,8 +1,7 @@
 class PurchaseRequest < ApplicationRecord
   belongs_to :employee, optional: true
   has_many :purchase_request_details
-  has_many :foods
-  has_many :food_menus
+  has_many :standard_recipes
   has_many :purchase_orders
   before_create :generate_pr_number, on: :create
 

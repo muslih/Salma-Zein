@@ -9,7 +9,7 @@ class StandardRecipe < ApplicationRecord
   validates :flight_type_id, :presence => {message: "Penerbangan harus di isi !!"}
   validates :pax_qty, :presence => {message: "Jumlah pax harus di isi !!"}
 
-  def fullname
-    "#{self.gedung} - #{self.ruang} (#{self.count})"
+  def standardrecipe
+    "#{self.try(:cycle).try(:name)} - #{self.try(:flight_type).try(:name)} (#{self.try(:flight_type).try(:flight_class).try(:name)})"
   end
 end
