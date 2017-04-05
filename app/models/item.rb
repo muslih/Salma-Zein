@@ -13,6 +13,10 @@ class Item < ApplicationRecord
 	validates :price, :presence => {message: "Harga Barang harus di isi !!"}
 	# validates :desc, :presence => {message: "Deskripsi Barang harus di isi !!"}
 
+	def itemunit
+	    "#{self.try(:name)} -- (#{self.try(:item_unit).try(:name)})"
+	  end
+
 	def price_rp
 	  "Rp. #{helper.number_with_delimiter(self.price, delimiter: ".") }"
 	end

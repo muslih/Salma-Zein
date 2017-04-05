@@ -1,7 +1,7 @@
 <fieldset>
 <div class="form-group">
 	<div class="col-sm-6" >
-		<%= f.collection_select(:item_id, Item.all, :id, :name, {prompt: "Pilih Item"}, {class: "form-control"}) %>
+		<%= f.collection_select(:item_id, Item.all, :id, :itemunit, {prompt: "Pilih Item"}, {class: "form-control"}) %>
 	</div>
 	<div class="col-sm-2">
 		<%= f.hidden_field :_destroy %>
