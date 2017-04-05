@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405035408) do
+ActiveRecord::Schema.define(version: 20170405072643) do
 
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
@@ -204,6 +204,15 @@ ActiveRecord::Schema.define(version: 20170405035408) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "standard_recipe_details", force: :cascade do |t|
+    t.integer  "standard_recipe_id"
+    t.integer  "item_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["item_id"], name: "index_standard_recipe_details_on_item_id"
+    t.index ["standard_recipe_id"], name: "index_standard_recipe_details_on_standard_recipe_id"
   end
 
   create_table "standard_recipes", force: :cascade do |t|
