@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405031940) do
+ActiveRecord::Schema.define(version: 20170405035408) do
 
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
@@ -204,6 +204,17 @@ ActiveRecord::Schema.define(version: 20170405031940) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "standard_recipes", force: :cascade do |t|
+    t.integer  "cycle_id"
+    t.integer  "flight_type_id"
+    t.string   "name"
+    t.integer  "pax_qty"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["cycle_id"], name: "index_standard_recipes_on_cycle_id"
+    t.index ["flight_type_id"], name: "index_standard_recipes_on_flight_type_id"
   end
 
   create_table "stations", force: :cascade do |t|

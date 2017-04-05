@@ -1,0 +1,46 @@
+<%= form_for [:admin, @standard_recipe] do |f| %>
+<fieldset>
+  <div class="form-group">
+    <%= f.label :cycle_id,class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select(:cycle_id,Cycle.all,:id,:name,{:prompt => "Pilih Cycle"},class:'form-control') %>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <div class="form-group">
+    <%= f.label :flight_type_id,class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= select_tag 'standard_recipe[flight_type_id]', options_for_select(FlightType.all.collect{ |u| [u.fullname, u.id] }), prompt: "Pilih penerbangan",class:"
+      form-control" %>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <div class="form-group">
+    <%= f.label :name,class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class:'form-control' %>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <div class="form-group">
+    <%= f.label :pax_qty,class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :pax_qty, class:'form-control' %>
+    </div>
+  </div>
+</fieldset>
+
+  <fieldset>
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-10">
+        <%= f.submit "Simpan", :class=>"btn btn-primary", class:"btn btn-fill btn-primary" %>
+      </div>
+  </fieldset>
+<% end %>

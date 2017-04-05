@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :cycles
     resources :flight_classes
     resources :flight_types
+    resources :standard_recipes
 
     get 'dashboard_administrator', to: 'dashboard#index_administrator', as: 'administrator_dash'
     get 'dashboard_kitchen', to: 'dashboard#index_kitchen', as: 'kitchen_dash'
