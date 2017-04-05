@@ -10,13 +10,15 @@
 			<div class="content table-responsive table-full-width">
             <table class="table table-hover table-striped">
               <thead>  
-               <tr>                  
+               <tr>     
+                <th>No.</th>             
                 <th>Item</th>
                </tr>  
               </thead>  
               <tbody>  
-               <% @standard_recipe.standard_recipe_details.each do |sr| %>  
-                <tr> 
+               <% @standard_recipe.standard_recipe_details.each_with_index do |sr,index| %>  
+                <tr>
+                  <td><%= index + 1%></td>
                  <td><%= sr.item.name %></td>
                 </tr>  
                <% end %>  

@@ -30,21 +30,12 @@
             <p>Supplier</p>
         </a>
     </li>
-    <li>
-        <a data-toggle="collapse" href="#foodMenu" class="collapsed" aria-expanded="false">
+    <%# Data Standard Recipe %>
+    <li class="active_class admin_standard_recipes_path">
+        <a href="<%= admin_standard_recipes_path%>">
             <i class="pe-7s-coffee"></i>
-            <p>Food <b class="caret"></b></p>
+            <p>Standard Recipe</p>
         </a>
-        <div class="collapse" id="foodMenu" aria-expanded="false" style="height: auto;">
-            <ul class="nav subnav">
-                <li class="<%= active_class admin_food_menus_path %>" >
-                    <%= link_to 'Menu makanan', admin_food_menus_path %>
-                </li>
-                <li class="<%= active_class admin_foods_path %>" >
-                    <%= link_to 'Makanan', admin_foods_path %>
-                </li>
-            </ul>
-        </div>
     </li>
     <li class="<%= active_class '#' %>">
         <a href="#">
