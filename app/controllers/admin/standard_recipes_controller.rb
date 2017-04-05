@@ -59,6 +59,7 @@ class Admin::StandardRecipesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def standard_recipe_params
-      params.require(:standard_recipe).permit(:cycle_id, :flight_type_id, :name, :pax_qty)
+      params.require(:standard_recipe).permit(:cycle_id, :flight_type_id, :name, :pax_qty,
+        standard_recipe_details_attributes: [:id ,:item_id, :_destroy])
     end
 end

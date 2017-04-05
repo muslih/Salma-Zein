@@ -1,6 +1,8 @@
 class StandardRecipe < ApplicationRecord
   belongs_to :cycle, optional: true
   belongs_to :flight_type, optional: true
+  has_many :standard_recipe_details
+  accepts_nested_attributes_for :standard_recipe_details, allow_destroy: true
 
   validates :name, :presence => {message: "Nama Standard Recipe harus di isi !!"}
   validates :cycle_id, :presence => {message: "Cycle harus di isi !!"}

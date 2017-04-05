@@ -12,8 +12,7 @@
   <div class="form-group">
     <%= f.label :flight_type_id,class:"col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= select_tag 'standard_recipe[flight_type_id]', options_for_select(FlightType.all.collect{ |u| [u.fullname, u.id] }), prompt: "Pilih penerbangan",class:"
-      form-control" %>
+      <%= f.collection_select(:flight_type_id, FlightType.all, :id, :fullname, {prompt: "Pilih Item"}, {class: "form-control"}) %>
     </div>
   </div>
 </fieldset>
@@ -35,6 +34,22 @@
     </div>
   </div>
 </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :standard_recipe_details, "Bahan",class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= f.fields_for :standard_recipe_details do |builder| %>   
+              <%= render 'standard_recipe_detail_fields', f: builder %>   
+            <% end %>
+              <%= link_to_add_items "Tambah Item", f, :standard_recipe_details %>   
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
 
   <fieldset>
     <div class="col-sm-2">

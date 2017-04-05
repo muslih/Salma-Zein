@@ -1,24 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+        <div class="header">
+            <h4 class="title">
+              <%= link_to 'Kembali', admin_standard_recipes_path, :class=>"btn btn-warning btn-fill pull-right" %>
+            </h4>
+          </div>
+			<h2>Standard Recipe <%= @standard_recipe.name%></h2>
+			<div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <thead>  
+               <tr>                  
+                <th>Item</th>
+               </tr>  
+              </thead>  
+              <tbody>  
+               <% @standard_recipe.standard_recipe_details.each do |sr| %>  
+                <tr> 
+                 <td><%= sr.item.name %></td>
+                </tr>  
+               <% end %>  
+              </tbody>  
+             </table>  
+             </div>
 
-<p>
-  <strong>Cycle:</strong>
-  <%= @standard_recipe.cycle %>
-</p>
+              <fieldset>
+              <% if !current_user_kitchen %>
+                    <%= link_to 'Edit', edit_admin_standard_recipe_path(@standard_recipe), class:"btn btn-fill btn-primary" %>
+                    <% end %>
+              </fieldset>
+            </div>
+          </div>
 
-<p>
-  <strong>Flight type:</strong>
-  <%= @standard_recipe.flight_type %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @standard_recipe.name %>
-</p>
-
-<p>
-  <strong>Pax qty:</strong>
-  <%= @standard_recipe.pax_qty %>
-</p>
-
-<%= link_to 'Edit', edit_standard_recipe_path(@standard_recipe) %> |
-<%= link_to 'Back', standard_recipes_path %>
+        </div>
+		</div>
+	</div>
+</div>

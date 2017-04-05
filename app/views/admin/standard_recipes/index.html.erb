@@ -27,9 +27,9 @@
                       <td><%= standard_recipe.try(:cycle).try(:name) %></td>
                       <td><%= "#{standard_recipe.try(:flight_type).try(:flight_class).try(:name)} - #{standard_recipe.try(:flight_type).try(:name)}" %></td>
                       <td><%= standard_recipe.pax_qty %> PAX</td>
-                      <td><%= link_to 'Detail', admin_standard_recipe_path(standard_recipe) %></td>
-                      <td><%= link_to 'Edit', edit_admin_standard_recipe_path(standard_recipe) %></td>
-                      <td><%= link_to 'Hapus', admin_standard_recipe_path(standard_recipe), method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
+                      <td><%= link_to 'Detail', admin_standard_recipe_path(standard_recipe,class:'text-info') %></td>
+                      <td><%= link_to 'Edit', edit_admin_standard_recipe_path(standard_recipe),class:'text-info' %></td>
+                      <td><%= link_to 'Hapus', admin_standard_recipe_path(standard_recipe), method: :delete, class:'text-danger', data: { confirm: 'Yakin hapus data?' } %></td>
                     </tr>
                   <% end %>
                 </tbody>
