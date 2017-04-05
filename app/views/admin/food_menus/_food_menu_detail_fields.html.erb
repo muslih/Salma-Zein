@@ -1,7 +1,7 @@
 <fieldset>
 <div class="form-group">
 	<div class="col-sm-6" >
-		<%= f.collection_select(:food_id, Food.all, :id, :name, {prompt: "Pilih Makanan"}, {class: "form-control"}) %>
+		<%= f.collection_select(:food_id, Food.all, :id, :name, {prompt: "Pilih Standard Recipe"}, {class: "form-control"}) %>
 	</div>
 	<div class="col-sm-2">
 		<%= f.number_field :food_qty, class: 'form-control', 'placeholder': 'Jumlah' %> 

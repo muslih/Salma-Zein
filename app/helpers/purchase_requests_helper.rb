@@ -6,5 +6,5 @@ module PurchaseRequestsHelper
 	    render(association.to_s.singularize + "_fields", f: builder)  
 	   end
 	   link_to(name, '#', class: "btn btn-sm btn-primary add_fields", data: {id: id, fields: fields.gsub("\n", "")})  
-	end 
+	end
 end

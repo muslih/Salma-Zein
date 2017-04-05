@@ -12,6 +12,10 @@ class PurchaseRequest < ApplicationRecord
   validates :request_reason, :presence => {message: "Alasan pengajuan harus di isi !!"}
   
 
+  def standardrecipe
+    "#{self.try(:cycle).try(:name)} - #{self.try(:flight_type).try(:name)} (#{self.try(:flight_type).try(:flight_class).try(:name)})"
+  end
+
   def subtotals
   	self.purchase_request_details.map { |i| i.subtotal }
   end

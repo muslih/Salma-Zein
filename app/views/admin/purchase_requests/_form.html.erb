@@ -24,34 +24,18 @@
     <div class="panel panel-default">
       <div class="panel-body">
 
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-heading">
               <div class="panel-title">
-                  Menu Makanan
-              </div>
-            </div>
-            <div class="panel-body">
-              <%= f.fields_for :food_menus do |builder| %>   
-                <%= render 'food_menu_fields', f: builder %>   
-              <% end %>
-              <%= link_to_add_fields "Tambah Menu Makanan", f, :food_menus %>  
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <div class="panel-title">
-                Makanan
+                Standard Recipe
               </div>
             </div>
             <div class="panel-body">
               <%= f.fields_for :foods do |builder| %>   
-                <%= render 'food_fields', f: builder %>   
+                <%= render 'standard_recipe_fields', f: builder %>   
               <% end %>
-              <%= link_to_add_fields "Tambah Makanan", f, :foods %>  
+              <%= link_to_add_fields "Tambah Standard Recipe", f, :foods %>  
             </div>
           </div>
         </div>

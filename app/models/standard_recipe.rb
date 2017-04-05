@@ -8,4 +8,8 @@ class StandardRecipe < ApplicationRecord
   validates :cycle_id, :presence => {message: "Cycle harus di isi !!"}
   validates :flight_type_id, :presence => {message: "Penerbangan harus di isi !!"}
   validates :pax_qty, :presence => {message: "Jumlah pax harus di isi !!"}
+
+  def fullname
+    "#{self.gedung} - #{self.ruang} (#{self.count})"
+  end
 end
