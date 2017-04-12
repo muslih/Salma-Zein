@@ -1,40 +1,54 @@
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-        <div class="header">
-            <h4 class="title">
-              <%= link_to 'Kembali', admin_standard_recipes_path, :class=>"btn btn-warning btn-fill pull-right" %>
-            </h4>
-          </div>
-			<h2>Standard Recipe <%= @standard_recipe.name%></h2>
-			<div class="content table-responsive table-full-width">
-            <table class="table table-hover table-striped">
-              <thead>  
-               <tr>     
+  <div class="panel panel-default nobreakinside">
+    <div class="panel-body">
+      <div class="col-sm-4">
+        Standard Recipe : <strong><%= @standard_recipe.try(:name) %></strong><br>
+        PAX Quantity : <strong><%= @standard_recipe.try(:pax_qty) %> Pax</strong><br>
+        Dibuat pada tanggal : <strong><%= @standard_recipe.created_at.strftime('%d %B %Y') %></strong>
+      </div>
+      <div class="col-sm-4">
+        Flight Type : <strong><%= @standard_recipe.try(:flight_type).try(:name) %></strong><br>
+        Cycle : <strong><%= @standard_recipe.try(:cycle).try(:name) %></strong> <br>
+      </div>
+      <div class="col-sm-4">
+       <%= link_to "<i class='glyphicon glyphicon-arrow-left'></i> Kembali".html_safe, admin_standard_recipes_path, :class=>"btn btn-warning btn-fill pull-right" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5>
+        List item standard recipe <%= @standard_recipe.try(:name) %>
+      </h5>
+    </div>
+    <div class="panel-body">
+  			<div class="content table-responsive table-full-width">
+          <table class="table table-hover table-striped">
+            <thead>  
+              <tr>     
                 <th>No.</th>             
                 <th>Item</th>
-               </tr>  
-              </thead>  
-              <tbody>  
-               <% @standard_recipe.standard_recipe_details.each_with_index do |sr,index| %>  
+              </tr>  
+            </thead>  
+            <tbody>  
+              <% @standard_recipe.standard_recipe_details.each_with_index do |sr,index| %>  
                 <tr>
-                  <td><%= index + 1%></td>
-                 <td><%= sr.item.name %></td>
+                  <td><%= index + 1 %></td>
+                  <td><%= sr.item.name %></td>
                 </tr>  
-               <% end %>  
-              </tbody>  
-             </table>  
-             </div>
-
-              <fieldset>
-              <% if !current_user_kitchen %>
-                    <%= link_to 'Edit', edit_admin_standard_recipe_path(@standard_recipe), class:"btn btn-fill btn-primary" %>
-                    <% end %>
-              </fieldset>
-            </div>
-          </div>
-
+              <% end %>  
+            </tbody>  
+          </table>  
         </div>
-		</div>
-	</div>
-</div>
+
+        <fieldset>
+          <% if !current_user_kitchen %>
+            <%= link_to "<i class='glyphicon glyphicon-edit'></i> Edit".html_safe, edit_admin_standard_recipe_path(@standard_recipe), class:"btn btn-fill btn-primary" %>
+            </div>
+          <% end %>
+        </fieldset>
+      </div>
+    </div>
+  </div>

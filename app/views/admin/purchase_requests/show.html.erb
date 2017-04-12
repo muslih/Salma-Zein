@@ -13,7 +13,7 @@
               Status : <%= cekproses(@purchase_request.status) %>
             </div>
             <div class="col-sm-4">
-             <%= link_to 'Kembali', admin_purchase_requests_path, :class=>"btn btn-warning btn-fill pull-right" %>
+             <%= link_to "<i class='glyphicon glyphicon-arrow-left'></i> Kembali".html_safe, admin_purchase_requests_path, :class=>"btn btn-warning btn-fill pull-right" %>
             </div>
     </div>
   </div>
@@ -64,7 +64,7 @@
          </table>  
       </div> 
        <br><br>
-      <%= link_to 'Edit', edit_admin_purchase_request_path(@purchase_request), class:"btn btn-fill btn-primary" %>
+      <%= link_to "<i class='glyphicon glyphicon-edit'></i> Edit".html_safe, edit_admin_purchase_request_path(@purchase_request), class:"btn btn-fill btn-primary" %>
 
       <div class="panel pull-right">
       <% if current_user_quality_control %>

@@ -4,7 +4,7 @@
             <div class="header">
                 <h4 class="title">
                 Purchase Request
-                <%= link_to 'Tambah Data', new_admin_purchase_request_path, :class=>"btn btn-warning btn-fill pull-right" if !current_user_quality_control & !current_user_logistik & !current_user_administrasi %>
+                <%= link_to "<i class='glyphicon glyphicon-plus'></i> Tambah Data".html_safe, new_admin_purchase_request_path, :class=>"btn btn-warning btn-fill pull-right" if !current_user_quality_control & !current_user_logistik & !current_user_administrasi %>
                 </h4>
             </div>
             <div class="content table-responsive table-full-width">
@@ -18,7 +18,7 @@
                     <th>Tanggal Diperlukan</th>
                     <th>Total harga</th>
                     <th>Status</th>
-                    <th colspan="3"></th>
+                    <th></th>
                   </tr>
                 </thead>
 
@@ -27,16 +27,26 @@
                     <tr>
                       <td><%= index + 1 %></td>
                       <td><%= purchase_request.try(:employee).try(:name) %></td>
-                      <td><%= purchase_request.pr_number %></td>
+                      <td><code><%= link_to purchase_request.pr_number, admin_purchase_request_path(purchase_request) %></code></td>
                       <td><%= purchase_request.date_created.strftime('%d %B %Y') %></td>
                       <td><%= purchase_request.date_required.strftime('%d %B %Y') %></td>
                       <td><%= ke_rp(purchase_request.total)%></td>
                       <td><%= cekproses(purchase_request.status) %></td>
-                      <td><%= link_to 'Detail', admin_purchase_request_path(purchase_request),class:'text-info' %></td>
-                      <% if !current_user_logistik %>
-                      <td><%= link_to 'Edit', edit_admin_purchase_request_path(purchase_request),class:'text-info' %></td>
-                      <td><%= link_to 'Hapus', admin_purchase_request_path(purchase_request),class:'text-danger', method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>
-                      <% end %>
+                      <td>
+                        <%= link_to admin_purchase_request_path(purchase_request), class:'btn btn-xs btn-success' do %>
+                          <span class='glyphicon glyphicon-list-alt'></span>
+                        <% end %>
+
+                        <% if !current_user_logistik %>
+                          <%= link_to edit_admin_purchase_request_path(purchase_request), class:'btn btn-xs btn-primary' do %>
+                            <span class='glyphicon glyphicon-edit'></span>
+                          <% end %>
+
+                          <%= link_to admin_purchase_request_path(purchase_request), class:'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Yakin hapus data?' } do %>
+                            <span class='glyphicon glyphicon-trash'></span>
+                          <% end %>
+                        <% end %>
+                      </td>
                     </tr>
                   <% end %>
                 </tbody>
