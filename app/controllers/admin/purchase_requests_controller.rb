@@ -45,7 +45,7 @@ class Admin::PurchaseRequestsController < AdminController
   def update
     if @purchase_request.update(purchase_request_params)
       flash[:success] = 'Purchase Request berhasil di update'
-      redirect_to admin_purchase_requests_path
+      redirect_to admin_purchase_request_path(@purchase_request)
     else
       @model = @purchase_request
       flash.now[:danger] = 'Purchase Request di update'
