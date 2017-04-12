@@ -4,6 +4,9 @@ class PurchaseRequest < ApplicationRecord
   has_many :standard_recipes
   has_many :purchase_orders
   before_create :generate_pr_number, on: :create
+  before_save :subtotals
+  before_save :total_all
+
 
   accepts_nested_attributes_for :purchase_request_details, allow_destroy: true
 
@@ -25,7 +28,7 @@ class PurchaseRequest < ApplicationRecord
   end
 
   def total_all
-  	subtotals.sum
+  	self.total = subtotals.sum
   end
 
   def item_price_rp

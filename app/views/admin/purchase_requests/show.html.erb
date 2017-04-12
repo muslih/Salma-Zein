@@ -53,7 +53,7 @@
              <td><%= prd.item.item_category.name %></td>
              <td><%= ke_rp(prd.item.price) %></td>
              <td><%= prd.qty %> <%= prd.item.item_unit.name %></td>
-             <td class="currency"><%= ke_rp(prd.total) %></td>
+             <td class="currency"><%= ke_rp(prd.sub_total) %></td>
             </tr>  
            <% end %>  
            <tr>

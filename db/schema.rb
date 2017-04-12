@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405072643) do
+ActiveRecord::Schema.define(version: 20170411070454) do
 
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
@@ -179,7 +179,7 @@ ActiveRecord::Schema.define(version: 20170405072643) do
     t.integer  "purchase_request_id"
     t.integer  "item_id"
     t.integer  "qty"
-    t.integer  "total"
+    t.integer  "sub_total"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["item_id"], name: "index_purchase_request_details_on_item_id"

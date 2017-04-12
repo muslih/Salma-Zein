@@ -23,12 +23,19 @@
                 <tbody>
                   <% @purchase_orders.each do |purchase_order| %>
                     <tr>
-                      <td>#<%= purchase_order.purchase_request.pr_number %></td>
-                      <td><%= purchase_order.purchase_order_address.try(:name) %></td>
-                      <td>#<%= purchase_order.po_number %></td>
+                      <td>
+                        <code>
+                          <%= link_to purchase_order.purchase_request.pr_number, admin_purchase_request_path(purchase_order.purchase_request), class: 'text-danger' %>
+                        </code>
+                      </td>
+                      <td><%= link_to purchase_order.purchase_order_address.try(:name), admin_purchase_order_address_path(purchase_order.purchase_order_address), style: 'color: black' %></td>
+                      <td>
+                        <code>
+                          <%= link_to "#{purchase_order.po_number}", admin_purchase_order_path(purchase_order), class: 'text-success' %>
+                        </code>
+                      </td>
                       <td><%= purchase_order.arrival_estimated.try(:strftime ,'%d %B %Y %H:%M %p') %></td>
                       <td><%= cekpo(purchase_order.status) %></td>
-                      <td><%= link_to 'Detail', admin_purchase_order_path(purchase_order) %></td>
                       <% if !current_user_quality_control %>
                       <td><%= link_to 'Edit', edit_admin_purchase_order_path(purchase_order) %></td>
                       <td><%= link_to 'Hapus', admin_purchase_order_path(purchase_order), method: :delete, data: { confirm: 'Yakin hapus data?' } %></td>

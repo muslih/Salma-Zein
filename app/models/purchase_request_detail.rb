@@ -9,7 +9,7 @@ class PurchaseRequestDetail < ApplicationRecord
   	if self.qty.blank?
   		0
   	else
-  		self.total = self.qty * self.item.price
+  		self.sub_total = self.qty * self.item.price
   	end
   end
 
