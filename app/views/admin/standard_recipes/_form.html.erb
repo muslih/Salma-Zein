@@ -44,7 +44,7 @@
             <%= f.fields_for :standard_recipe_details do |builder| %>   
               <%= render 'standard_recipe_detail_fields', f: builder %>   
             <% end %>
-              <%= link_to_add_items "Tambah Item", f, :standard_recipe_details %>   
+              <%= link_to_add_items "<i class='glyphicon glyphicon-plus'></i> Tambah Item".html_safe, f, :standard_recipe_details %>   
           </div>
         </div>
       </div>
