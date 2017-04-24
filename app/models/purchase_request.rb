@@ -1,8 +1,11 @@
 class PurchaseRequest < ApplicationRecord
   belongs_to :employee, optional: true
+  belongs_to :created_user , :class_name => 'User', optional: true
+  belongs_to :updated_user , :class_name => 'User', optional: true
   has_many :purchase_request_details
   has_many :standard_recipes
   has_many :purchase_orders
+
   before_create :generate_pr_number, on: :create
   before_save :subtotals
   before_save :total_all
@@ -33,6 +36,10 @@ class PurchaseRequest < ApplicationRecord
 
   def item_price_rp
     "Rp. #{helper.number_with_delimiter(self.price, delimiter: ".") }"
+  end
+
+  def updated_info
+    "#{self.try(:updated_user).try(:employee).try(:name)} pada #{self.updated_at.try(:strftime,  '%H:%M %p , %d %B %Y')}"
   end
 
 end

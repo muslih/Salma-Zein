@@ -12,6 +12,9 @@ class User < ApplicationRecord
 
 	has_many :created_user, :foreign_key => 'created_user_id', :class_name => 'StandardRecipe'
 	has_many :updated_user, :foreign_key => 'updated_user_id', :class_name => 'StandardRecipe'
+
+	has_many :created_user, :foreign_key => 'created_user_id', :class_name => 'PurchaseRequest'
+	has_many :updated_user, :foreign_key => 'updated_user_id', :class_name => 'PurchaseRequest'
 	
 	def self.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

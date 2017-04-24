@@ -37,7 +37,7 @@
                           <span class='glyphicon glyphicon-list-alt'></span>
                         <% end %>
 
-                        <% if !current_user_logistik %>
+                        <% if !current_user_logistik and purchase_request.status != true and purchase_request.status != false %>
                           <%= link_to edit_admin_purchase_request_path(purchase_request), class:'btn btn-xs btn-primary' do %>
                             <span class='glyphicon glyphicon-edit'></span>
                           <% end %>

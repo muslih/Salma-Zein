@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424073149) do
+ActiveRecord::Schema.define(version: 20170424082230) do
 
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
@@ -194,10 +194,12 @@ ActiveRecord::Schema.define(version: 20170424073149) do
     t.string   "request_reason"
     t.boolean  "status"
     t.string   "status_desc"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "total"
+    t.integer  "updated_user_id"
     t.index ["employee_id"], name: "index_purchase_requests_on_employee_id"
+    t.index ["updated_user_id"], name: "index_purchase_requests_on_updated_user_id"
   end
 
   create_table "religions", force: :cascade do |t|

@@ -7,12 +7,16 @@
               Departemen : <strong><%= @purchase_request.employee.position.department.name %></strong><br>
               Manajer Departemen : <strong><%= @purchase_request.employee.position.department.manager %></strong>
             </div>
-            <div class="col-sm-4">
-              No. PR : <strong><%= @purchase_request.pr_number %></strong><br>
-              Tanggal : <code><strong><%= @purchase_request.date_created.strftime('%d %B %Y') %></strong></code><br>
+            <div class="col-sm-6">
+              No. PR : <code><strong><%= @purchase_request.pr_number %></strong></code><br>
+              Tanggal Dibuat : <strong><%= @purchase_request.date_created.strftime('%d %B %Y') %></strong><br>
+              Tanggal Diperlukan : <strong><%= @purchase_request.date_required.strftime('%d %B %Y') %></strong><br>
+              <% if !@purchase_request.updated_user_id.nil? %>
+                Terakhir diupdate : <strong><%= @purchase_request.updated_info %></strong><br>
+              <% end %>
               Status : <%= cekproses(@purchase_request.status) %>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
              <%= link_to "<i class='glyphicon glyphicon-arrow-left'></i> Kembali".html_safe, admin_purchase_requests_path, :class=>"btn btn-warning btn-fill pull-right" %>
             </div>
     </div>

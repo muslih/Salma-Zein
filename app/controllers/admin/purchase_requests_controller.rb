@@ -43,6 +43,7 @@ class Admin::PurchaseRequestsController < AdminController
 
   # PATCH/PUT /purchase_requests/1
   def update
+    @purchase_request.updated_user_id = current_user.id
     if @purchase_request.update(purchase_request_params)
       flash[:success] = 'Purchase Request berhasil di update'
       redirect_to admin_purchase_request_path(@purchase_request)
@@ -92,7 +93,7 @@ class Admin::PurchaseRequestsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_request_params
-      params.require(:purchase_request).permit(:purchase_request_id, :employee_id, :pr_number, :date_created, :date_required, :request_reason, :status, :status_desc, :total ,
+      params.require(:purchase_request).permit(:purchase_request_id, :employee_id, :pr_number, :date_created, :date_required, :request_reason, :status, :status_desc, :total, :updated_user_id ,
         purchase_request_details_attributes: [:id, :item_id, :qty, :sub_total, :_destroy])
     end
 end
