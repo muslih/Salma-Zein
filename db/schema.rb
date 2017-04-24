@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411070454) do
+ActiveRecord::Schema.define(version: 20170424073149) do
 
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
@@ -220,10 +220,14 @@ ActiveRecord::Schema.define(version: 20170411070454) do
     t.integer  "flight_type_id"
     t.string   "name"
     t.integer  "pax_qty"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "created_user_id"
+    t.integer  "updated_user_id"
+    t.index ["created_user_id"], name: "index_standard_recipes_on_created_user_id"
     t.index ["cycle_id"], name: "index_standard_recipes_on_cycle_id"
     t.index ["flight_type_id"], name: "index_standard_recipes_on_flight_type_id"
+    t.index ["updated_user_id"], name: "index_standard_recipes_on_updated_user_id"
   end
 
   create_table "stations", force: :cascade do |t|

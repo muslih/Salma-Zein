@@ -4,13 +4,16 @@
       <div class="col-sm-4">
         Standard Recipe : <strong><%= @standard_recipe.try(:name) %></strong><br>
         PAX Quantity : <strong><%= @standard_recipe.try(:pax_qty) %> Pax</strong><br>
-        Dibuat pada tanggal : <strong><%= @standard_recipe.created_at.strftime('%d %B %Y') %></strong>
+        Flight Type : <strong><%= @standard_recipe.try(:flight_type).try(:name) %></strong>
       </div>
-      <div class="col-sm-4">
-        Flight Type : <strong><%= @standard_recipe.try(:flight_type).try(:name) %></strong><br>
+      <div class="col-sm-6">
         Cycle : <strong><%= @standard_recipe.try(:cycle).try(:name) %></strong> <br>
+        Created By : <strong><%= @standard_recipe.created_info %></strong><br>
+        <% if !@standard_recipe.updated_user_id.nil? %>
+          Updated By : <strong><%= @standard_recipe.updated_info %></strong>
+        <% end %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-2">
        <%= link_to "<i class='glyphicon glyphicon-arrow-left'></i> Kembali".html_safe, admin_standard_recipes_path, :class=>"btn btn-warning btn-fill pull-right" %>
       </div>
     </div>
@@ -46,7 +49,6 @@
         <fieldset>
           <% if !current_user_kitchen %>
             <%= link_to "<i class='glyphicon glyphicon-edit'></i> Edit".html_safe, edit_admin_standard_recipe_path(@standard_recipe), class:"btn btn-fill btn-primary" %>
-            </div>
           <% end %>
         </fieldset>
       </div>

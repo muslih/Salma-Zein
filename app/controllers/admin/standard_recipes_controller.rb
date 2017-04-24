@@ -17,14 +17,16 @@ class Admin::StandardRecipesController < AdminController
 
   # GET /standard_recipes/1/edit
   def edit
+
   end
 
   # POST /standard_recipes
   def create
     @standard_recipe = StandardRecipe.new(standard_recipe_params)
+    @standard_recipe.created_user_id = current_user.id
     if @standard_recipe.save
       flash[:success] = 'Standard Recipe berhasil di tambah'
-      redirect_to admin_standard_recipes_path
+      redirect_to admin_standard_recipe_path(@standard_recipe)
     else
       @model = @standard_recipe
       flash.now[:danger] = 'Standard Recipe gagal di tambah'
@@ -34,9 +36,10 @@ class Admin::StandardRecipesController < AdminController
 
   # PATCH/PUT /standard_recipes/1
   def update
+    @standard_recipe.updated_user_id = current_user.id
     if @standard_recipe.update(standard_recipe_params)
       flash[:success] = 'Standard Recipe berhasil di update'
-      redirect_to admin_standard_recipes_path
+      redirect_to admin_standard_recipe_path(@standard_recipe)
     else
       @model = @standard_recipe
       flash.now[:danger] = 'Standard Recipe gagal di update'
@@ -59,7 +62,7 @@ class Admin::StandardRecipesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def standard_recipe_params
-      params.require(:standard_recipe).permit(:cycle_id, :flight_type_id, :name, :pax_qty,
+      params.require(:standard_recipe).permit(:cycle_id, :flight_type_id, :name, :pax_qty, :created_user_id, :updated_user_id,
         standard_recipe_details_attributes: [:id ,:item_id, :_destroy])
     end
 end
