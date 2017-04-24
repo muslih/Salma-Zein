@@ -1,3 +1,4 @@
+<div class="show-alert"></div>
 <div class="row">
   <div class="panel panel-default nobreakinside">
     <div class="panel-body">
@@ -22,16 +23,11 @@
     </div>
   </div>
 
-<% if @purchase_request.status_desc.present? && @purchase_request.status != true %>
-  <div class="panel panel-danger">
-  <div class="panel-heading">
-    Keterangan:
-  </div>
-    <div class="panel-body">
-        <%= @purchase_request.status_desc%>
-    </div>
-  </div>
-<% end %>
+<div class="reject_message">
+  <% if @purchase_request.status_desc.present? && @purchase_request.status != true %>
+      <%= render 'purchase_request_reject_mesage' %>
+  <% end %>
+</div>
 
   <div class="panel panel-default">
     <div class="panel-body">   
@@ -71,19 +67,16 @@
       <%= link_to "<i class='glyphicon glyphicon-edit'></i> Edit".html_safe, edit_admin_purchase_request_path(@purchase_request), class:"btn btn-fill btn-primary" %>
 
       <div class="panel pull-right">
-      <% if current_user_quality_control %>
-        <% if @purchase_request.status != true %>
+      <%# if current_user_quality_control %>
+        <%# if @purchase_request.status != true %>
           <%= link_to 'Rekomendasikan',
               admin_rekomendasikan_pr_path(@purchase_request),
               method: "patch",data:{
               confirm: "Rekomendasikan PR #{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-success' %>
 
-          <%= link_to 'Tidak Direkomendasikan',
-              admin_tolak_pr_path(@purchase_request),
-              method: "patch",data:{
-              confirm: "Tolak PR #{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-danger' %>
-        <% end %>
-      <% end %>
+          <%= link_to 'Tidak Direkomendasikan', admin_reject_pr_path(@purchase_request.id), remote:true, data:{disable_with:"Proses..."}, class: 'btn btn-fill btn-danger', :id=>"add_message" %>
+        <%# end %>
+      <%# end %>
         <% if @purchase_request.status == true %>
           <% if current_user_administrasi || current_user_logistik %>
           <%= link_to 'Terbitkan PO',

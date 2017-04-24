@@ -1,0 +1,11 @@
+<%= form_for @purchase_request,url: admin_reject_pr_update_path(@purchase_request),remote:true, method: :patch do |f| %>
+  <div class="form-group">
+    <%= f.label :status_desc, "Alasan Ditolak" %>
+    <%= f.text_area :status_desc , :class=>"form-control"%>
+  </div>
+
+  <div class="actions modal-footer">
+    <%= f.submit "Kirim Pesan", :class => "btn btn-md btn-primary pull-left" %>
+    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Tutup</button>
+  </div>
+<% end %>

@@ -50,6 +50,9 @@ Rails.application.routes.draw do
     patch 'rekomendasikan_pr/:id', to: "purchase_requests#accept_pr", as: :rekomendasikan_pr
     patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
     patch 'pencatatan_dana/:id', to: "fund_administrations#create", as: :pencatatan_dana
+
+    get 'purchase_request/:id/reject_pr', to: 'purchase_requests#reject_pr',as: 'reject_pr'
+    patch 'purchase_request/:id/reject_pr', to: 'purchase_requests#reject_pr_update',as: 'reject_pr_update'
   end
 
 

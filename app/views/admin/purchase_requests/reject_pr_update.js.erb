@@ -1,0 +1,8 @@
+alert_target = $('.show-alert')
+<% if @status %>
+	$('.reject_message').html("<%= j render('purchase_request_reject_mesage')%>")
+	alert_target.html("<%= get_alert(status='warning',title='', content=@message) %>");
+	$('#reject_pr_modal').modal('hide');
+<% else %>
+	alert_target.html("<%= get_alert(status='danger',title='Ups! ', content=@message) %>");
+<% end %>

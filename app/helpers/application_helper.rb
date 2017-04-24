@@ -31,5 +31,14 @@ module ApplicationHelper
     @val = number_with_delimiter(nomor, delimiter: ".") 
     "Rp. #{@val}"
   end
+
+  def get_alert(status='info',title='alert title', content='alert content here')
+    alert = "<div class='alert alert-#{status} alert-dismissible' role='alert'  style='border-radius: 3px'>"
+    alert +=  "<a href='#'' type='button' class='close' data-dismiss='alert' aria-label='Close' style='left: 10px;'><span aria-hidden='true'>&times;</span></a>"
+    alert +=  "<strong>#{title}</strong> #{content}"
+    alert += "</div>"
+
+    return alert.html_safe
+  end
   
 end

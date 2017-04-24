@@ -1,6 +1,6 @@
 class Admin::PurchaseRequestsController < AdminController
   before_action :set_pr
-  before_action :set_purchase_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_purchase_request
 
   # GET /purchase_requests
   def index
@@ -54,6 +54,23 @@ class Admin::PurchaseRequestsController < AdminController
     end
   end
 
+  def reject_pr; end
+
+  def reject_pr_update
+    respond_to do |format|
+      if @purchase_request.update(reject_pr_params) && @purchase_request.update(status: false)
+        format.js { @status = true }
+        @message = "Purchase Request ditolak"
+        # flash[:success] = 'Purchase request di tolak'
+        # redirect_to admin_purchase_request_path(@pr.id)  
+      else
+        format.js { @status = false }
+        # flash[:danger] = 'Purchase request gagal di tolak'
+      # redirect_to admin_purchase_request_path(purchase_request) 
+      end
+    end
+  end
+
   # DELETE /purchase_requests/1
   def destroy
     @purchase_request.destroy 
@@ -71,24 +88,18 @@ class Admin::PurchaseRequestsController < AdminController
     end
   end
 
-  def reject_pr
-    if @pr.update_attribute(:status, false)
-      flash[:success] = 'Purchase request di tolak'
-      redirect_to admin_purchase_request_path(@pr.id)  
-    else
-      flash[:danger] = 'Purchase request gagal di tolak'
-      redirect_to admin_purchase_request_path(purchase_request) 
-    end
-  end
-
   private
     def set_pr
-        @pr = PurchaseRequest.find(params[:id]) if params[:id]
-      end
+      @pr = PurchaseRequest.find(params[:id]) if params[:id]
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase_request
-      @purchase_request = PurchaseRequest.find(params[:id])
+      @purchase_request = PurchaseRequest.find(params[:id]) if params[:id]
+    end
+
+    def reject_pr_params
+      params.require(:purchase_request).permit(:status_desc)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
