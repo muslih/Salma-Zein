@@ -51,8 +51,10 @@ Rails.application.routes.draw do
     patch 'tolak_pr/:id', to: "purchase_requests#reject_pr", as: :tolak_pr
     patch 'pencatatan_dana/:id', to: "fund_administrations#create", as: :pencatatan_dana
 
-    get 'purchase_request/:id/reject_pr', to: 'purchase_requests#reject_pr',as: 'reject_pr'
-    patch 'purchase_request/:id/reject_pr', to: 'purchase_requests#reject_pr_update',as: 'reject_pr_update'
+    get 'purchase_request/:id/tolak_request', to: 'purchase_requests#reject_pr',as: 'reject_pr'
+    patch 'purchase_request/:id/tolak_request', to: 'purchase_requests#reject_pr_update',as: 'reject_pr_update'
+
+    get 'purchase_request/:id/terbitkan_purchase_order', to: 'purchase_requests#publish_po',as: 'publish_po'
   end
 
 

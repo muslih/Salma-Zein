@@ -77,14 +77,12 @@
           <%= link_to 'Tidak Direkomendasikan', admin_reject_pr_path(@purchase_request.id), remote:true, data:{disable_with:"Proses..."}, class: 'btn btn-fill btn-danger', :id=>"add_message" %>
         <%# end %>
       <%# end %>
-        <% if @purchase_request.status == true %>
-          <% if current_user_administrasi || current_user_logistik %>
+        <%# if @purchase_request.status == true %>
+          <%# if current_user_administrasi || current_user_logistik %>
           <%= link_to 'Terbitkan PO',
-              new_admin_purchase_request_purchase_order_path(@purchase_request),
-              method: "get",data:{
-              confirm: "Terbitkan PO ##{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-primary' %>
-          <% end %>
-        <% end %>
+              admin_publish_po_path(@purchase_request), remote:true, data:{disable_with:"Proses..."}, class: 'btn btn-fill btn-primary', :id=>"add_message" %>
+          <%# end %>
+        <%# end %>
 
       </div>
     </div>

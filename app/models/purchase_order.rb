@@ -7,9 +7,9 @@ class PurchaseOrder < ApplicationRecord
 	validates :purchase_request_id, :uniqueness => {message: "Sudah ada !!"}
 
 	def generate_po_number
-	    @lpn = PurchaseOrder.last.po_number[9..15]
-	    self.po_number = "PO-#{DateTime.now.strftime('%y%m%e')}"+(@lpn.to_i + 1).to_s.rjust(7, '0')
-	  end
+		@lpn = PurchaseOrder.last.po_number[9..15]
+		self.po_number = "PO-#{DateTime.now.strftime('%y%m%e')}"+(@lpn.to_i + 1).to_s.rjust(7, '0')
+	end
 
 	def status_po
 		self.status = ''

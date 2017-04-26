@@ -46,6 +46,12 @@
                             <span class='glyphicon glyphicon-trash'></span>
                           <% end %>
                         <% end %>
+                      
+                      <% if !current_user_logistik and purchase_request.status != nil%>
+                        <%= link_to edit_admin_purchase_request_path(purchase_request), class:'btn btn-xs btn-default' do %>
+                            PO <span class='glyphicon glyphicon-arrow-right'></span>
+                          <% end %>
+                      <% end %>
                       </td>
                     </tr>
                   <% end %>

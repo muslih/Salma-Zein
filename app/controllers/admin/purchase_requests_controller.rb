@@ -61,15 +61,14 @@ class Admin::PurchaseRequestsController < AdminController
       if @purchase_request.update(reject_pr_params) && @purchase_request.update(status: false)
         format.js { @status = true }
         @message = "Purchase Request ditolak"
-        # flash[:success] = 'Purchase request di tolak'
-        # redirect_to admin_purchase_request_path(@pr.id)  
       else
         format.js { @status = false }
-        # flash[:danger] = 'Purchase request gagal di tolak'
-      # redirect_to admin_purchase_request_path(purchase_request) 
+        @message = "Purchase Request gagal ditolak"
       end
     end
   end
+
+  def publish_po; end
 
   # DELETE /purchase_requests/1
   def destroy
