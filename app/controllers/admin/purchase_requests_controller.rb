@@ -12,6 +12,7 @@ class Admin::PurchaseRequestsController < AdminController
 
   # GET /purchase_requests/1
   def show
+    @purchase_order = PurchaseOrder.last
   end
 
   # GET /purchase_requests/new

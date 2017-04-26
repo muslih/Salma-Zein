@@ -4,38 +4,54 @@
 		<div class="panel-heading">
 			<h5> <%= @purchase_request.pr_number %></h5>
 		</div>
-		<div class="panel-body" style="overflow: scroll;">
-			<% @itemid = Array.new %>
-			<% @suppid = Array.new %>
+		<div class="panel-body">
+			<% @itemid = [] %>
+			<% @suppid = [] %>
+			<% @prdid = [] %>
 			<% @purchase_request.purchase_request_details.each do |prd| %>
 					<% @suppid << prd.item.supplier.id %>
 					<% @itemid << prd.item.id %>
+					<% @prdid << prd.id%>
 			<% end %>
 
-			<% Supplier.where(id: @suppid).each_with_index do |supp| %>
-				<div class="col-sm-6">
-					<div class="panel panel-default">
+			<% Supplier.where(id: @suppid).each_with_index do |supp, index| %>
+				<div class="col-sm-12">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<%= supp.name %>
+							<div class="pull-left">
+								<%= @pr.generate_po_number(index.to_i) %>
+							</div>
+							<div class="pull-right">
+								<%= supp.name %>
+							</div>
 						</div>
 						<div class="panel-body">
 							<div class="content table-responsive table-full-width">
-								<table class="table table-striped table-hover">
+								<table class="table table-striped table-hover table-condensed">
 									<thead>
 										<tr>
-											<th>No</th>
 											<th>Nama Barang</th>
 											<th>Harga</th>
+											<th>QTY</th>
+											<th>SubTotal</th>
 										</tr>
 									</thead>
 									<tbody>
-										<% Item.where(id: @itemid, supplier_id: supp.id).each_with_index do |item, index|%>
-											<tr>
-												<td><%= index + 1%></td>
-												<td><%= item.name %></td>
-												<td><%= "#{ke_rp(item.price)}/#{item.item_unit.name}"%></td>
-											</tr>
+										<% PurchaseRequestDetail.where(id: @prdid, item_id: @itemid).each do |prdd|%>
+											<% Item.where(id: prdd.item.id, supplier_id: supp.id).each_with_index do |item|%>
+												<tr>
+													<td><%= item.name %></td>
+													<td><%= ke_rp(item.price)%></td>
+													<td><%= prdd.qty %> <%= item.item_unit.name%></td>
+													<td><%= ke_rp(prdd.subtotal)%></td>
+												</tr>
+											<% end %>
 										<% end %>
+										<tfoot>
+											<tr>
+								            	<td colspan="3" class="currency"><strong>TOTAL</strong></td>
+								            	<td class="currency"><%= ke_rp(@total)%></td>
+								        	</tr>
 									</tbody>
 								</table>
 							</div>
@@ -46,4 +62,9 @@
 		</div>
 	</div>
 </div>
+
 				
+<div class="modal-footer">
+	<button type="button" class="btn btn-md btn-primary pull-left" aria-label="Close">Terbitkan Semua</button>
+	<button type="button" class="btn btn-md btn-default pull-right" data-dismiss="modal" aria-label="Close">Tutup</button>
+</div>

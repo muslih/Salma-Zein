@@ -1,4 +1,5 @@
 class PurchaseRequest < ApplicationRecord
+  attr_accessor :number
   belongs_to :employee, optional: true
   belongs_to :created_user , :class_name => 'User', optional: true
   belongs_to :updated_user , :class_name => 'User', optional: true
@@ -40,6 +41,11 @@ class PurchaseRequest < ApplicationRecord
 
   def updated_info
     "#{self.try(:updated_user).try(:employee).try(:name)} pada #{self.updated_at.try(:strftime,  '%H:%M %p , %d %B %Y')}"
+  end
+
+  def generate_po_number(number)
+    @lpn = PurchaseOrder.last.po_number[9..15]
+    @po_code = "PO-#{DateTime.now.strftime('%y%m%e')}"+(@lpn.to_i + number).to_s.rjust(7, '0')
   end
 
 end
