@@ -47,8 +47,8 @@
                           <% end %>
                         <% end %>
                       
-                      <% if !current_user_logistik and purchase_request.status != nil%>
-                        <%= link_to edit_admin_purchase_request_path(purchase_request), class:'btn btn-xs btn-default' do %>
+                      <% if current_user_logistik and purchase_request.status != nil%>
+                        <%= link_to admin_publish_po_path(purchase_request), remote:true, data:{disable_with:"Proses..."}, class:'btn btn-xs btn-default', :id=>"add_message" do %>
                             PO <span class='glyphicon glyphicon-arrow-right'></span>
                           <% end %>
                       <% end %>

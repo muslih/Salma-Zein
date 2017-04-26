@@ -67,22 +67,22 @@
       <%= link_to "<i class='glyphicon glyphicon-edit'></i> Edit".html_safe, edit_admin_purchase_request_path(@purchase_request), class:"btn btn-fill btn-primary" %>
 
       <div class="panel pull-right">
-      <%# if current_user_quality_control %>
-        <%# if @purchase_request.status != true %>
+      <% if current_user_quality_control %>
+        <% if @purchase_request.status != true %>
           <%= link_to 'Rekomendasikan',
               admin_rekomendasikan_pr_path(@purchase_request),
               method: "patch",data:{
               confirm: "Rekomendasikan PR #{@purchase_request.pr_number} ?"}, class: 'btn btn-fill btn-success' %>
 
           <%= link_to 'Tidak Direkomendasikan', admin_reject_pr_path(@purchase_request.id), remote:true, data:{disable_with:"Proses..."}, class: 'btn btn-fill btn-danger', :id=>"add_message" %>
-        <%# end %>
-      <%# end %>
-        <%# if @purchase_request.status == true %>
-          <%# if current_user_administrasi || current_user_logistik %>
+        <% end %>
+      <% end %>
+        <% if @purchase_request.status == true %>
+          <% if current_user_administrasi || current_user_logistik %>
           <%= link_to 'Terbitkan PO',
               admin_publish_po_path(@purchase_request), remote:true, data:{disable_with:"Proses..."}, class: 'btn btn-fill btn-primary', :id=>"add_message" %>
-          <%# end %>
-        <%# end %>
+          <% end %>
+        <% end %>
 
       </div>
     </div>
